@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-@import url('./styles/vars.css');
-@tailwind base;
+/* @import url('./styles/vars.css'); */
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ */
 :root {
   --primary-bg-color: #ffffff;
   --secondary-bg-color: #f2f5fc;
