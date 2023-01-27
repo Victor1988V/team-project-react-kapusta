@@ -6,8 +6,8 @@ import LogIn from 'page/LoginPage/LoginPage';
 export const App = () => {
   return (
     <>
-      {/* <BrowserRouter basename="kapusta"> */}
-      <BrowserRouter>
+      <BrowserRouter basename="kapusta">
+        {/* <BrowserRouter> */}
         <ToastContainer />
         <Routes>
           <Route path="/">
