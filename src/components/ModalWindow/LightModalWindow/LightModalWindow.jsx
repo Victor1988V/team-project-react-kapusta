@@ -7,7 +7,7 @@ import {
   StyledClose,
   StyledBackdrop,
 } from './LightModalWindow.styled';
-import { OrangeButton } from '../../Buttons/OrangeButton';
+import { OrangeButton } from '../../';
 import { WhiteButton } from '../../Buttons/WhiteButton';
 import close from '../../../images/close.svg';
 import { useEffect } from 'react';
