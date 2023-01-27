@@ -1,6 +1,7 @@
+import { TransactionTable } from './TransactionsList.styled';
 export const TransactionsList = () => {
   return (
-    <table>
+    <TransactionTable>
       <thead>
         <tr>
           <th>DATE</th>
@@ -16,9 +17,11 @@ export const TransactionsList = () => {
           <td>desc</td>
           <td>category</td>
           <td>sum</td>
-          <td>trash</td>
+          <td>
+            <span style={{ cursor: 'pointer' }}>trash</span>
+          </td>
         </tr>
       </tbody>
-    </table>
+    </TransactionTable>
   );
 };

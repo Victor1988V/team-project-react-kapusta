@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import arrow from '../../../images/arrow-bottom.svg';
+import {
+  ProductField,
+  Thumb,
+  CategoryList,
+  Category,
+} from './ProductCategoryList.styled';
 
 export const ProductCategoryList = ({
   elementCategory,
@@ -16,20 +23,20 @@ export const ProductCategoryList = ({
     setElementCategory(event.target.innerText);
   };
   return (
-    <div>
-      <div onClick={onSelect}>
+    <Thumb>
+      <ProductField onClick={onSelect}>
         <span>{elementCategory}</span>
-        <img src="#" alt="" />
-      </div>
+        <img src={arrow} alt="open list" />
+      </ProductField>
       {selectCategory && (
-        <div>
+        <CategoryList>
           {categoryArray.map(element => (
-            <div key={element} onClick={getElementCategory}>
+            <Category key={element} onClick={getElementCategory}>
               {element}
-            </div>
+            </Category>
           ))}
-        </div>
+        </CategoryList>
       )}
-    </div>
+    </Thumb>
   );
 };
