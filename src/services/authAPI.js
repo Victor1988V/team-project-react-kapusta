@@ -60,6 +60,26 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
+//logInGoogle in FUTURE
+
+// export const logInGoogle = createAsyncThunk(
+//   'auth/google',
+//   async (user, thunkAPI) => {
+//     try {
+//       const { data } = await axios.post('/auth/google', user);
+//       token.set(data.accessToken);
+//       return data;
+//     } catch (error) {
+//       Notify.warning(error.response.data.message, {
+//         fontSize: '16px',
+//         width: '350px',
+//       });
+
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
 export const refreshToken = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {

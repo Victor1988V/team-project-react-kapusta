@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as authApi from 'services/authAPI';
 
 const initialState = {
-  user: { name: null, emal: null },
   accessToken: null,
   refreshToken: null,
   sid: null,
