@@ -15,7 +15,7 @@ import { useEffect } from 'react';
 const modalRoot = document.getElementById('modal-root');
 const body = document.querySelector('body');
 
-export const LightModalWindow = ({
+const LightModalWindow = ({
   children,
   closeModal,
   dispatch,
@@ -67,3 +67,5 @@ export const LightModalWindow = ({
     modalRoot
   );
 };
+
+export default LightModalWindow;
