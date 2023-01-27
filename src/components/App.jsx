@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 
 import LogIn from 'page/LoginPage/LoginPage';
 
