@@ -13,16 +13,24 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import authSlice from 'services/authSlice';
+import transactionsSlice from 'services/transactionsSlice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['accessToken'],
+};
+
+const transactionsPersistConfig = {
+  key: 'transactions',
+  storage,
+  whitelist: [],
 };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authSlice),
+    transactions: persistReducer(transactionsPersistConfig, transactionsSlice),
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
