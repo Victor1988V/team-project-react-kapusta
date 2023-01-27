@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.2.1",
+    "axios": "^1.2.5",
     "chartjs-plugin-datalabels": "^2.2.0",
     "gsap": "^3.11.4",
     "handy-svg": "^1.0.8",
@@ -53,5 +53,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "This project was created with\r [Create React App](https://github.com/facebook/create-react-app). To get\r acquainted and configure additional features\r [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Victor1988V/team-project-react-kapusta.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Victor1988V/team-project-react-kapusta/issues"
   }
 }
