@@ -11,7 +11,7 @@ export const ButtonBack = styled(Link)`
 
 export const StyledOrangeButton = styled.button`
   padding: 12px 0px;
-  width: 116px;
+  width: 136px;
   border: none;
   background-color: #ff751d;
   border-radius: 16px;
@@ -26,6 +26,7 @@ export const StyledOrangeButton = styled.button`
 
 export const StyledWhiteButton = styled.button`
   padding: 12px 34px;
+  width: 136px;
   border: 2px solid #f5f6fb;
   background-color: #fff;
   border-radius: 16px;
@@ -37,5 +38,3 @@ export const StyledWhiteButton = styled.button`
   letter-spacing: 0.02em;
   line-height: 1.17;
 `;
-
-
