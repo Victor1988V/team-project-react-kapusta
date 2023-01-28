@@ -1,17 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
 
-import { updateBalance } from '../../redux/transactions/operations';
+// import { updateBalance } from '../../redux/transactions/operations';
 
-import { LightModalWindow } from '../ModalWindow/LightModalWindow/LightModalWindow';
-import { DarkModalWindow } from '../ModalWindow/DarkModalWindow/DarkModalWindow';
+import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
+// import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
 
 import { ChangeBalanceForm } from './ChangeBalance.styled';
-import { WhiteButton } from './../Buttons/WhiteButton';
+import { WhiteButton } from '../Buttons/WhiteButton';
 
-export const ChangeBalance = () => {
+const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.newBalance);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   let balance;
   const form = useRef();
@@ -22,10 +22,10 @@ export const ChangeBalance = () => {
   };
 
   const handleClick = () => {
-    dispatch(updateBalance({ newBalance: balance }));
+    // dispatch(updateBalance({ newBalance: balance }));
     form.current.reset();
   };
-  
+
   const handleModalOpen = () => {
     setModalOpen(true);
   };
@@ -50,7 +50,7 @@ export const ChangeBalance = () => {
         <WhiteButton type="submit" onClick={handleModalOpen}>
           Confirm
         </WhiteButton>
-        {!stateBalance && <DarkModalWindow />}
+        {/* {!stateBalance && <DarkModalWindow />} */}
       </ChangeBalanceForm>
 
       {modalOpen && (
@@ -67,3 +67,5 @@ export const ChangeBalance = () => {
     </>
   );
 };
+
+export default ChangeBalance;

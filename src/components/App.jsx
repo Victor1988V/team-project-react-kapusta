@@ -1,11 +1,14 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+
+import { HomePage } from '../page/HomePage/HomePage';
 import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 // import LogIn from 'page/LoginPage/LoginPage';
 
 export const App = () => {
   return (
     <>
+      <HomePage />
       <ExpensesPage />
       <BrowserRouter basename="kapusta">
         {/* <BrowserRouter> */}
