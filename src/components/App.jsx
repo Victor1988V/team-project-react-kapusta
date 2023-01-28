@@ -1,20 +1,14 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
-
-import LogIn from 'page/LoginPage/LoginPage';
 
 export const App = () => {
   return (
     <>
       <BrowserRouter basename="kapusta">
-        {/* <BrowserRouter> */}
         <ToastContainer />
         <Routes>
-          <Route path="/">
-            {/* <Route path="/" element={<div>SharedLayouts </div>}> */}
-            <Route path="/">
-              {/*    <Route path="/" element={<div>PrivateRoute </div>}> */}
+          <Route path="/" element={<div>SharedLayouts </div>}>
+            <Route path="/" element={<div>PrivateRoute </div>}>
               <Route index element={<Navigate to="/home" />} />
               {/* {!isMobile && ( */}
               <>
@@ -35,7 +29,6 @@ export const App = () => {
               {/* )} */}
               <Route path="/reports" element={<div>ReportsPage</div>} />
             </Route>
-            <Route path="/login" element={<LogIn />} />
             <Route path="/" element={<div>PublicRoute</div>}>
               <Route path="/login" element={<div>LoginPage</div>} />
               <Route path="/register" element={<div>RegiserPage</div>} />
