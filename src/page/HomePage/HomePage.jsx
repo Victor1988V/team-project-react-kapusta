@@ -6,8 +6,8 @@ import { useMatchMedia } from '../../hooks/useMacthMedia';
 import HomePageBg from '../../components/HomePageBg/HomePageBg';
 import ReportsBtn from '../../components/Buttons/ReportsBtn/ReportsBtn';
 import ChangeBalance from '../../components/ChangeBalance/ChangeBalance';
-// import DateSelection from '../../components/DateSelection';
-// import { TransactionsList } from 'components/TransactionsList/TransactionsList';
+import DateSelection from '../../components/DateSelection/DateSelection';
+import { TransactionsList } from 'components/TransactionsList/TransactionsList';
 // import {
 //   TransactionTabsMobile,
 //   TransactionTabsDesktop,
@@ -20,7 +20,7 @@ import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
 
 export function HomePage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
-  // const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   // const location = useLocation();
 
   return (
@@ -32,15 +32,15 @@ export function HomePage() {
           <ChangeBalance />
           {/* {!isMobile && <ReportsBtn to="/reports" state={{ from: location }} />} */}
         </div>
-        {/* {isMobile && (
+        {isMobile && (
           <div className="datePickerMobWrap">
             <DateSelection startDate={startDate} setStartDate={setStartDate} />
           </div>
-        )} */}
+        )}
         {/* {isMobile && <TransactionTabsMobile />} */}
         {/* {!isMobile && <TransactionTabsDesktop />} */}
-        {/* {!isMobile && <Outlet />} */}
-        {/* {isMobile && <TransactionsList />} */}
+        {!isMobile && <Outlet />}
+        {isMobile && <TransactionsList />}
         {isTablet && <KapustaTab src={kapusta} width="183" height="146" />}
         {isDesktop && (
           <KapustaDesk src={kapustaDesktop} width="1334" height="232" />

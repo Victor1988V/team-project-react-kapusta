@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
+import { Header } from './Header/Header';
 import { HomePage } from '../page/HomePage/HomePage';
 import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 // import LogIn from 'page/LoginPage/LoginPage';
@@ -8,6 +9,7 @@ import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 export const App = () => {
   return (
     <>
+      <Header />
       <HomePage />
       <ExpensesPage />
       <BrowserRouter basename="kapusta">

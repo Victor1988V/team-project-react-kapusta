@@ -3,11 +3,10 @@ import { useState, useRef } from 'react';
 
 // import { updateBalance } from '../../redux/transactions/operations';
 
-import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
+// import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
 // import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
 
 import { ChangeBalanceForm } from './ChangeBalance.styled';
-import { WhiteButton } from '../Buttons/WhiteButton';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.newBalance);
@@ -47,13 +46,12 @@ const ChangeBalance = () => {
           placeholder={`${stateBalance}.00 UAH`}
           required
         />
-        <WhiteButton type="submit" onClick={handleModalOpen}>
+        <button type="submit" className="btn" onClick={handleModalOpen}>
           Confirm
-        </WhiteButton>
+        </button>
         {/* {!stateBalance && <DarkModalWindow />} */}
       </ChangeBalanceForm>
-
-      {modalOpen && (
+      {/* {modalOpen && (
         <LightModalWindow
           changeBalance="true"
           closeModal={handleModalClose}
@@ -63,7 +61,7 @@ const ChangeBalance = () => {
         >
           Are you sure?
         </LightModalWindow>
-      )}
+      )} */}
     </>
   );
 };

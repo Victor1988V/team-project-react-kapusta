@@ -36,6 +36,6 @@ export const KapustaTab = styled(HandySvg)`
 export const KapustaDesk = styled(HandySvg)`
   position: absolute;
   bottom: 30px;
-  left: 240px;
+  left: 0px;
   z-index: -1;
 `;
