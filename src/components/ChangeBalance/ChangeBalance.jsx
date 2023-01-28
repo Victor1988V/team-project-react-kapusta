@@ -3,8 +3,8 @@ import { useState, useRef } from 'react';
 
 import { updateBalance } from '../../redux/transactions/operations';
 
-import { LightModalWindow } from '../ModalWindow/LightModalWindow/LightModalWindow';
-import { DarkModalWindow } from '../ModalWindow/DarkModalWindow/DarkModalWindow';
+import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
+import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
 
 import { ChangeBalanceForm } from './ChangeBalance.styled';
 import { WhiteButton } from './../Buttons/WhiteButton';
@@ -25,7 +25,7 @@ export const ChangeBalance = () => {
     dispatch(updateBalance({ newBalance: balance }));
     form.current.reset();
   };
-  
+
   const handleModalOpen = () => {
     setModalOpen(true);
   };
