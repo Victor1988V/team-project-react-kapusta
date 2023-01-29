@@ -7,7 +7,7 @@ import HomePageBg from '../../components/HomePageBg/HomePageBg';
 import ReportsBtn from '../../components/Buttons/ReportsBtn/ReportsBtn';
 import ChangeBalance from '../../components/ChangeBalance/ChangeBalance';
 import DateSelection from '../../components/DateSelection/DateSelection';
-import { TransactionsList } from 'components/TransactionsList/TransactionsList';
+// import { TransactionsList } from 'components/Transactions/TransactionsTable';
 // import {
 //   TransactionTabsMobile,
 //   TransactionTabsDesktop,
@@ -17,6 +17,7 @@ import kapusta from 'images/kapustaTab.svg';
 import kapustaDesktop from '../../images/kapustaDesk.svg';
 
 import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
+import { TransactionsTable } from './../../components/Transactions/TransactionsTable';
 
 export function HomePage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
@@ -40,7 +41,7 @@ export function HomePage() {
         {/* {isMobile && <TransactionTabsMobile />} */}
         {/* {!isMobile && <TransactionTabsDesktop />} */}
         {!isMobile && <Outlet />}
-        {isMobile && <TransactionsList />}
+        {isMobile && <TransactionsTable />}
         {isTablet && <KapustaTab src={kapusta} width="183" height="146" />}
         {isDesktop && (
           <KapustaDesk src={kapustaDesktop} width="1334" height="232" />
