@@ -20,9 +20,10 @@ export const register = createAsyncThunk(
       const { data } = await axios.post('/auth/register', user);
       return data;
     } catch (error) {
-      Notify.warning(error.response.data.message, {
+      Notify.failure(error.response.data.message, {
         fontSize: '16px',
         width: '350px',
+        padding: '10px',
       });
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -35,9 +36,10 @@ export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     token.set(data.accessToken);
     return data;
   } catch (error) {
-    Notify.warning(error.response.data.message, {
+    Notify.failure(error.response.data.message, {
       fontSize: '16px',
       width: '350px',
+      padding: '20px',
     });
 
     return thunkAPI.rejectWithValue(error.message);
