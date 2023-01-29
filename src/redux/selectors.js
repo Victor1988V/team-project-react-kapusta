@@ -21,3 +21,5 @@ export const selectExpenseCategories = store =>
   store.transactions.expenseCategories;
 
 export const selectBalance = store => store.transactions.balance;
+
+export const selectIsLoading = store => store.transactions.isLoading;

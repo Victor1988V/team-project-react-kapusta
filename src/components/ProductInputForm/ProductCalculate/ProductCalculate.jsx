@@ -7,7 +7,7 @@ import {
   Span,
 } from './ProductCalculate.styled';
 import calculator from '../../../images/calculator.svg';
-import { useMatchMedia } from './../../../hooks/useMacthMedia';
+import { useMatchMedia } from './../../../hooks/useMatchMedia';
 export const ProductCalculate = () => {
   const { isMobile } = useMatchMedia();
   return (
