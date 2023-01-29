@@ -85,6 +85,14 @@ export const GoogleIcon = styled(GoogleLogo)`
   margin-right: 10px;
 `;
 
+export const LabelInputWrapper = styled.div`
+  margin-bottom: 6px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 16px;
+  }
+`;
+
 export const AuthFormLabel = styled.label`
   display: block;
 
@@ -101,11 +109,20 @@ export const AuthFormLabel = styled.label`
   }
 `;
 
+export const RequiredStar = styled.span`
+  color: #eb5757;
+  font-size: 10px;
+  font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
 export const AuthFormInput = styled.input`
   width: 100%;
   height: 52px;
   padding: 17px 19px;
-  margin-bottom: 20px;
 
   outline: none;
   border: none;
@@ -123,10 +140,11 @@ export const AuthFormInput = styled.input`
     letter-spacing: 0.04em;
     color: #a6abb9;
   }
+`;
 
-  @media screen and (min-width: 768px) {
-    margin-bottom: 32px;
-  }
+export const ValidRow = styled.div`
+  height: 12px;
+  margin-top: 4px;
 `;
 
 export const ButtonsContainer = styled.div`
