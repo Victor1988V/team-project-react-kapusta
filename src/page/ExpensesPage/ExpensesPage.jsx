@@ -5,22 +5,26 @@ import { TransactionsList } from './../../components/TransactionsList/Transactio
 import { Wrapper } from './ExpensesPage.styled';
 import { useMatchMedia } from './../../hooks/useMatchMedia';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectTransactions } from 'redux/selectors';
-import { selectBalance } from './../../redux/selectors';
+// import { selectIsLoggedIn, selectExpenses } from 'redux/selectors';
+import {
+  selectBalance,
+  selectIsLoggedIn,
+  selectExpenses,
+} from './../../redux/selectors';
 import { getExpense } from 'services/transactionsAPI';
 
 export const ExpensesPage = () => {
   const dispatch = useDispatch();
   const { isMobile } = useMatchMedia();
-  const allExpenses = useSelector(selectTransactions);
+  const expenses = useSelector(selectExpenses);
   const color = 'red';
   const user = useSelector(selectIsLoggedIn);
   const balance = useSelector(selectBalance);
 
   useEffect(() => {
     if (user) dispatch(getExpense());
-    // do things after first render
   }, [dispatch, user, balance]);
+
   return (
     <>
       {isMobile ? (
@@ -29,7 +33,7 @@ export const ExpensesPage = () => {
         <Wrapper>
           <ProductInputForm />
           <TransactionsList>
-            {allExpenses}
+            {expenses}
             {color}
           </TransactionsList>
         </Wrapper>
