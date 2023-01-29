@@ -8,7 +8,7 @@ const ReportsBtn = () => {
   return (
     <StyledReportsBtn to="/reports" state={{ from: location }}>
       <span>Reports</span>
-      <Reports />
+      <Reports className="reportsIcon" />
     </StyledReportsBtn>
   );
 };
