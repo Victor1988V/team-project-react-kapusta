@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function ThereIsNoSuchPage() {
+export function ThereIsNoSuchPage() {
   return <div>ThereIsNoSuchPage</div>;
 }
