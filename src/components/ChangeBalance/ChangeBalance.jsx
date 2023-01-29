@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { updateBalance } from '../../services/transactionsAPI';
 
-// import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
+import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
 import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
 
 import { ChangeBalanceForm } from './ChangeBalance.styled';
@@ -52,19 +52,19 @@ const ChangeBalance = () => {
         <button type="submit" className="btn" onClick={handleModalOpen}>
           Confirm
         </button>
-        {/* {!stateBalance && <DarkModalWindow />} */}
+        {!stateBalance && <DarkModalWindow />}
       </ChangeBalanceForm>
-      {/* {modalOpen && (
+      {modalOpen && (
         <LightModalWindow
           changeBalance="true"
           closeModal={handleModalClose}
           dispatch={handleClick}
           text="SURE"
-          balance={balance}
+          balance={stateBalance}
         >
           Are you sure?
         </LightModalWindow>
-      )} */}
+      )}
     </>
   );
 };
