@@ -35,7 +35,12 @@ const transactionsSlice = createSlice({
       .addCase(transactionsAPI.getIncome.rejected, handleRejected)
 
       .addCase(transactionsAPI.addExpense.pending, handlePending)
-      .addCase(transactionsAPI.addExpense.fulfilled, (state, action) => {})
+      .addCase(transactionsAPI.addExpense.fulfilled, (state, action) => {
+        state.balance = action.payload.newBalance;
+        state.expenses.push(action.payload.transaction);
+        state.transactions.push(action.payload.transaction);
+        // state.isLoading = false;
+      })
       .addCase(transactionsAPI.addExpense.rejected, handleRejected)
 
       .addCase(transactionsAPI.getExpense.pending, handlePending)
