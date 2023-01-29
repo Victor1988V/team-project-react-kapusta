@@ -1,28 +1,30 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { updateBalance } from '../../redux/transactions/operations';
+import { updateBalance } from '../../services/transactionsAPI';
 
-import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
+// import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
 import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
 
 import { ChangeBalanceForm } from './ChangeBalance.styled';
-import { WhiteButton } from './../Buttons/WhiteButton';
 
-export const ChangeBalance = () => {
-  const stateBalance = useSelector(state => state.transactions.newBalance);
+const ChangeBalance = () => {
+  const stateBalance = useSelector(state => state.transactions.balance);
+
+  console.log(stateBalance);
+
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
-  let balance;
+  let newBalance;
   const form = useRef();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    balance = evt.target.balance.value;
+    newBalance = evt.target.balance.value;
   };
 
   const handleClick = () => {
-    dispatch(updateBalance({ newBalance: balance }));
+    dispatch(updateBalance({ balance: newBalance }));
     form.current.reset();
   };
 
@@ -47,13 +49,12 @@ export const ChangeBalance = () => {
           placeholder={`${stateBalance}.00 UAH`}
           required
         />
-        <WhiteButton type="submit" onClick={handleModalOpen}>
+        <button type="submit" className="btn" onClick={handleModalOpen}>
           Confirm
-        </WhiteButton>
-        {!stateBalance && <DarkModalWindow />}
+        </button>
+        {/* {!stateBalance && <DarkModalWindow />} */}
       </ChangeBalanceForm>
-
-      {modalOpen && (
+      {/* {modalOpen && (
         <LightModalWindow
           changeBalance="true"
           closeModal={handleModalClose}
@@ -63,7 +64,9 @@ export const ChangeBalance = () => {
         >
           Are you sure?
         </LightModalWindow>
-      )}
+      )} */}
     </>
   );
 };
+
+export default ChangeBalance;
