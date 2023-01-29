@@ -4,7 +4,9 @@ import { ToastContainer } from 'react-toastify';
 import { Header } from './Header/Header';
 import { HomePage } from '../page/HomePage/HomePage';
 import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
-// import LogIn from 'page/LoginPage/LoginPage';
+import PublicRoute from 'components/PublicRoute/PublicRoute';
+import LogInPage from 'page/LoginPage/LoginPage';
+import RegisterPage from 'page/RegisterPage/RegisterPage';
 
 export const App = () => {
   return (
@@ -40,10 +42,9 @@ export const App = () => {
               {/* )} */}
               <Route path="/reports" element={<div>ReportsPage</div>} />
             </Route>
-            <Route path="/login" element={<div>LogIn</div>} />
-            <Route path="/" element={<div>PublicRoute</div>}>
-              <Route path="/login" element={<div>LoginPage</div>} />
-              <Route path="/register" element={<div>RegiserPage</div>} />
+            <Route path="/" element={<PublicRoute />}>
+              <Route path="/login" element={<LogInPage />} />
+              <Route path="/register" element={<RegisterPage />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </Route>
 
