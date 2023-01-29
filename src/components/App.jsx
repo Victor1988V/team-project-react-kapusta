@@ -7,25 +7,24 @@ import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import LogInPage from 'page/LoginPage/LoginPage';
 import RegisterPage from 'page/RegisterPage/RegisterPage';
+import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 
 export const App = () => {
   return (
     <>
-      <Header />
+      {/* <Header />
       <HomePage />
-      <ExpensesPage />
-      <BrowserRouter basename="kapusta">
-        {/* <BrowserRouter> */}
+      <ExpensesPage /> */}
+      <BrowserRouter>
         <ToastContainer />
         <Routes>
-          <Route path="/">
-            {/* <Route path="/" element={<div>SharedLayouts </div>}> */}
+          <Route path="/" element={<SharedLayouts />}>
             <Route path="/">
               {/*    <Route path="/" element={<div>PrivateRoute </div>}> */}
               <Route index element={<Navigate to="/home" />} />
               {/* {!isMobile && ( */}
               <>
-                <Route path="/home" element={<div>HomePage</div>}>
+                <Route path="/home" element={<HomePage />}>
                   <Route index element={<Navigate to="/home/expenses" />} />
                   <Route path="income" element={<div>IncomePage</div>} />
                   <Route path="expenses" element={<ExpensesPage />} />/{' '}
@@ -34,7 +33,7 @@ export const App = () => {
               {/* )} */}
               {/* {isMobile && ( */}
               <>
-                <Route path="/home" element={<div>HomePage</div>} />
+                <Route path="/home" element={<HomePage />} />
                 <Route path="/income" element={<div>IncomePage</div>} />
                 <Route path="/expenses" element={<ExpensesPage />} />
                 <Route path="*" element={<Navigate to="/home" />} />

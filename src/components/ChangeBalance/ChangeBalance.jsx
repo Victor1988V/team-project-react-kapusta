@@ -60,7 +60,7 @@ const ChangeBalance = () => {
           closeModal={handleModalClose}
           dispatch={handleClick}
           text="SURE"
-          // balance={balance}
+          balance={stateBalance}
         >
           Are you sure?
         </LightModalWindow>
