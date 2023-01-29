@@ -1,21 +1,18 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-
-//import { Header } from './Header/Header';
+import { Header } from './Header/Header';
 import { HomePage } from '../page/HomePage/HomePage';
 import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import LogInPage from 'page/LoginPage/LoginPage';
 import RegisterPage from 'page/RegisterPage/RegisterPage';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
-
 export const App = () => {
   return (
     <>
       {/* <Header />
       <HomePage />
       <ExpensesPage /> */}
-      <BrowserRouter basename="kapusta">
-        {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/">
@@ -45,7 +42,6 @@ export const App = () => {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </Route>
-
             <Route path="*" element={<div>ThereIsNoSuchPage</div>} />
           </Route>
         </Routes>
