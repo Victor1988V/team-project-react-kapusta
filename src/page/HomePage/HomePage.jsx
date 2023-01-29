@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import { useMatchMedia } from '../../hooks/useMacthMedia';
+import { useMatchMedia } from 'hooks/useMatchMedia';
 
 import HomePageBg from '../../components/HomePageBg/HomePageBg';
 import ReportsBtn from '../../components/Buttons/ReportsBtn/ReportsBtn';
@@ -13,7 +13,7 @@ import { TransactionsList } from 'components/TransactionsList/TransactionsList';
 //   TransactionTabsDesktop,
 // } from 'components/TransactionTabs/TransactionTabs';
 
-import kapusta from '../../images/kapustaTab.svg';
+import kapusta from 'images/kapustaTab.svg';
 import kapustaDesktop from '../../images/kapustaDesk.svg';
 
 import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
