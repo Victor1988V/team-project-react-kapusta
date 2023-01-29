@@ -1,27 +1,30 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-// import { updateBalance } from '../../redux/transactions/operations';
+import { updateBalance } from '../../services/transactionsAPI';
 
 // import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
-// import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
+import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
 
 import { ChangeBalanceForm } from './ChangeBalance.styled';
 
 const ChangeBalance = () => {
-  const stateBalance = useSelector(state => state.transactions.newBalance);
-  // const dispatch = useDispatch();
+  const stateBalance = useSelector(state => state.transactions.balance);
+
+  console.log(stateBalance);
+
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
-  let balance;
+  let newBalance;
   const form = useRef();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    balance = evt.target.balance.value;
+    newBalance = evt.target.balance.value;
   };
 
   const handleClick = () => {
-    // dispatch(updateBalance({ newBalance: balance }));
+    dispatch(updateBalance({ balance: newBalance }));
     form.current.reset();
   };
 

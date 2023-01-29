@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { logOut } from 'redux/auth/operations';
-import logoutImg from '../../../images/logout.svg';
 import { selectIsLoggedIn, selectUserId } from 'redux/selectors';
+
+import { logOut } from '../../../services/authAPI';
+import logoutImg from '../../../images/logout.svg';
+
+import LightModalWindow from '../../ModalWindow/LightModalWindow/LightModalWindow';
+
 import {
   StyledAuthNav,
   StyledLoginLabel,
@@ -10,8 +15,7 @@ import {
   StyledVerticalLine,
   StyledExitButton,
 } from './AuthNav.styled';
-import { useState } from 'react';
-import LightModalWindow from '../../ModalWindow/LightModalWindow/LightModalWindow';
+
 
 export const AuthNav = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,7 +24,7 @@ export const AuthNav = () => {
   const userEmail = useSelector(selectUserId);
 
   const handleClick = () => {
-    // dispatch(logOut());
+    dispatch(logOut());
   };
 
   const handleModalOpen = () => {
