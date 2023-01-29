@@ -81,7 +81,7 @@ export const TransactionTable = styled.table`
       }
     }
   }
-  /* @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: none;
-  } */
+  }
 `;

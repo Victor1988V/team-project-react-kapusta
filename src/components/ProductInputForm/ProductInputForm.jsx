@@ -54,29 +54,28 @@ export const ProductInputForm = () => {
     event.preventDefault();
     const { desc, sum } = event.target.elements;
     let transValue = sum.value;
-    // Checks for empty values
+
     if (desc.value.trim() === '') {
-      Notify('Please enter a description');
+      window.alert('Please enter a description');
       return;
     }
     if (elementCategory === 'Category') {
-      Notify('Please enter a category');
+      window.alert('Please enter a category');
       return;
     }
     if (transValue.trim() === '') {
-      Notify('Please enter an amount');
+      window.alert('Please enter an amount');
       return;
     }
     if (transValue < 0) transValue = transValue * -1;
 
-    // Prepare data for dispatch
     const dataToDispatch = {
       description: desc.value,
       amount: Number(transValue),
       date: startDate.toISOString().split('T')[0],
       category: translateToRus(elementCategory),
     };
-    // dispatch
+
     dispatch(functionToDispatch(dataToDispatch));
     event.target.reset();
     setElementCategory('Category');
@@ -84,7 +83,9 @@ export const ProductInputForm = () => {
 
   return (
     <FormThumb>
-      <DateSelection startDate={startDate} setStartDate={setStartDate} />
+      {!isMobile && (
+        <DateSelection startDate={startDate} setStartDate={setStartDate} />
+      )}
       <Form onSubmit={handleSubmit}>
         <WrapperInput>
           <ProductField
