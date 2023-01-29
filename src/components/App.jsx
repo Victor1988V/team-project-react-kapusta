@@ -1,7 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
-import { Header } from './Header/Header';
+//import { Header } from './Header/Header';
 import { HomePage } from '../page/HomePage/HomePage';
 import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
@@ -15,8 +14,8 @@ export const App = () => {
       {/* <Header />
       <HomePage />
       <ExpensesPage /> */}
-      <BrowserRouter>
-        <ToastContainer />
+      <BrowserRouter basename="kapusta">
+        {/* <BrowserRouter> */}
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/">
