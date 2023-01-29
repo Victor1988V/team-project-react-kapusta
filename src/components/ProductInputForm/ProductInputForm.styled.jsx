@@ -21,7 +21,7 @@ export const Form = styled.form`
 `;
 
 export const ProductField = styled.input`
-  margin: auto auto;
+  /* margin: auto auto; */
   width: 280px;
   height: 44px;
   padding: 2px 20px;

@@ -1,63 +1,63 @@
-export const categoryEngToUkr = name => {
+export const translateToRus = name => {
   switch (name.trim()) {
     case 'Products':
-      return 'Продукти';
-    case 'ЗСУ':
+      return 'Продукты';
+    case 'Alcohol':
       return 'Алкоголь';
     case 'Entertainment':
-      return 'Розваги';
+      return 'Развлечения';
     case 'Health':
-      return "Здоров'я";
+      return 'Здоровье';
     case 'Transport':
       return 'Транспорт';
     case 'Housing':
-      return 'Все для будинку';
+      return 'Всё для дома';
     case 'Technics':
-      return 'Техніка';
+      return 'Техника';
     case 'Communal and communication':
-      return "Коммуналка та св'язок";
+      return 'Коммуналка и связь';
     case 'Sport and hobby':
-      return 'Спорт та хобі';
+      return 'Спорт и хобби';
     case 'Education':
-      return 'Освіта';
+      return 'Образование';
     case 'Other':
-      return 'Інше';
+      return 'Прочее';
     case 'Salary':
       return 'З/П';
     case 'Additional income':
-      return 'Дод. дохід';
+      return 'Доп. доход';
     default:
       break;
   }
 };
 
-export const categoryOrkToEng = name => {
+export const translateToEng = name => {
   switch (name.trim()) {
-    case 'Продукти':
+    case 'Продукты':
       return 'Products';
     case 'Алкоголь':
-      return 'ЗСУ';
-    case 'Розваги':
+      return 'Alcohol';
+    case 'Развлечения':
       return 'Entertainment';
-    case "Здоров'я":
+    case 'Здоровье':
       return 'Health';
     case 'Транспорт':
       return 'Transport';
-    case 'Все для будинку':
+    case 'Всё для дома':
       return 'Housing';
-    case 'Техніка':
+    case 'Техника':
       return 'Technics';
-    case "Коммуналка та св'язок":
+    case 'Коммуналка и связь':
       return 'Communal and communication';
-    case 'Спорт та хобі':
+    case 'Спорт и хобби':
       return 'Sport and hobby';
-    case 'Освіта':
+    case 'Образование':
       return 'Education';
-    case 'Інше':
+    case 'Прочее':
       return 'Other';
     case 'З/П':
       return 'Salary';
-    case 'Дод. дохід':
+    case 'Доп. доход':
       return 'Additional income';
     default:
       break;

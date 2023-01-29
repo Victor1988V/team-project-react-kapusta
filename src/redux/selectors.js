@@ -23,3 +23,6 @@ export const selectExpenseCategories = store =>
 export const selectBalance = store => store.transactions.balance;
 
 export const selectReports = store => store.reports.reports;
+
+export const selectIsLoading = store => store.transactions.isLoading;
+
