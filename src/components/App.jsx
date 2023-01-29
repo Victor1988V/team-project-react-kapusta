@@ -1,5 +1,4 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import { IncomePage } from 'page/IncomePage/IncomePage';
 import { Header } from './Header/Header';
 import { ThereIsNoSuchPage } from 'page/NoSuchPage/NoSuchPage';
@@ -9,7 +8,6 @@ import PublicRoute from 'components/PublicRoute/PublicRoute';
 import LogInPage from 'page/LoginPage/LoginPage';
 import RegisterPage from 'page/RegisterPage/RegisterPage';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
-
 export const App = () => {
   return (
     <>
@@ -17,7 +15,6 @@ export const App = () => {
       <HomePage />
       <ExpensesPage /> */}
       <BrowserRouter>
-        <ToastContainer />
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/">

@@ -25,7 +25,11 @@ const transactionsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(transactionsAPI.addIncome.pending, handlePending)
-      .addCase(transactionsAPI.addIncome.fulfilled, (state, action) => {})
+      .addCase(transactionsAPI.addIncome.fulfilled, (state, action) => {
+        state.balance = action.payload.newBalance;
+        state.incomes.push(action.payload.transaction);
+        state.transactions.push(action.payload.transaction);
+      })
       .addCase(transactionsAPI.addIncome.rejected, handleRejected)
 
       .addCase(transactionsAPI.getIncome.pending, handlePending)
@@ -35,7 +39,12 @@ const transactionsSlice = createSlice({
       .addCase(transactionsAPI.getIncome.rejected, handleRejected)
 
       .addCase(transactionsAPI.addExpense.pending, handlePending)
-      .addCase(transactionsAPI.addExpense.fulfilled, (state, action) => {})
+      .addCase(transactionsAPI.addExpense.fulfilled, (state, action) => {
+        state.balance = action.payload.newBalance;
+        state.expenses.push(action.payload.transaction);
+        state.transactions.push(action.payload.transaction);
+        // state.isLoading = false;
+      })
       .addCase(transactionsAPI.addExpense.rejected, handleRejected)
 
       .addCase(transactionsAPI.getExpense.pending, handlePending)

@@ -28,6 +28,7 @@ export const TransactionTable = styled.table`
     tr {
       justify-content: center;
       display: flex;
+
       th {
         align-items: center;
         justify-content: center;
@@ -37,7 +38,7 @@ export const TransactionTable = styled.table`
     }
   }
   tbody {
-    width: 100%;
+    width: 746px;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -80,7 +81,7 @@ export const TransactionTable = styled.table`
       }
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 `;

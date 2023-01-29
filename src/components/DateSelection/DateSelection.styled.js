@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledDatePicker = styled.div`
-
   .calendarIcon {
-    width: 18px;
+    width: 20px;
     height: 20px;
     fill: #52555f;
   }

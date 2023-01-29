@@ -41,3 +41,36 @@ export const Image = styled.img`
   top: 12px;
   left: 75px;
 `;
+export const NumberMobil = styled.div`
+  display: flex;
+  margin: 32px auto 0 auto;
+  /* @media screen and (min-width: 768px) {
+    display: none;
+    margin: 0;
+  } */
+`;
+
+export const InputMobile = styled.input`
+  width: 125px;
+  height: 44px;
+  border: 2px solid #ffffff;
+  border-bottom-left-radius: 22px;
+  border-top-left-radius: 22px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16;
+  outline: none;
+  background-color: #f5f6fb;
+`;
+export const Span = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 44px;
+  border: 2px solid #ffffff;
+  border-bottom-right-radius: 22px;
+  border-top-right-radius: 22px;
+  background-color: #f5f6fb;
+`;
