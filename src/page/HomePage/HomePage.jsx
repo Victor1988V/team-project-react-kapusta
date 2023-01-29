@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import { useMatchMedia } from '../../hooks/useMacthMedia';
+import { useMatchMedia } from '../../hooks/useMatchMedia';
 
 import HomePageBg from '../../components/HomePageBg/HomePageBg';
 import ReportsBtn from '../../components/Buttons/ReportsBtn/ReportsBtn';
