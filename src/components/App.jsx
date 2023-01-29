@@ -6,7 +6,6 @@ import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
 export const App = () => {
   return (
     <>
-      <ExpensesPage />
       <BrowserRouter basename="kapusta">
         <ToastContainer />
         <Routes>

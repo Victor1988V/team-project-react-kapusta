@@ -21,6 +21,24 @@ export const TransactionsList = () => {
             <span style={{ cursor: 'pointer' }}>trash</span>
           </td>
         </tr>
+        <tr style={{ height: 40 }}>
+          <td>data</td>
+          <td>desc</td>
+          <td>category</td>
+          <td>sum</td>
+          <td>
+            <span style={{ cursor: 'pointer' }}>trash</span>
+          </td>
+        </tr>
+        <tr style={{ height: 40 }}>
+          <td>data</td>
+          <td>desc</td>
+          <td>category</td>
+          <td>sum</td>
+          <td>
+            <span style={{ cursor: 'pointer' }}>trash</span>
+          </td>
+        </tr>
       </tbody>
     </TransactionTable>
   );
