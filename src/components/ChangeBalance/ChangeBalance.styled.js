@@ -51,6 +51,11 @@ export const ChangeBalanceForm = styled.form`
     }
   }
   .btn {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+
     width: 140px;
     padding: 12px 18px;
     color: rgba(82, 85, 95, 0.7);
