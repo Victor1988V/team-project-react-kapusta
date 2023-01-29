@@ -5,6 +5,7 @@
   "homepage": "https://victor1988v.github.io/team-project-react-kapusta/",
   "dependencies": {
     "@emotion/styled": "^11.10.5",
+    "@handy-ones/handy-svg": "^1.0.2",
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
