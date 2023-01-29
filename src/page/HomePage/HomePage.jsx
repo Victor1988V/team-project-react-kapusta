@@ -22,16 +22,16 @@ import { TransactionsTable } from './../../components/Transactions/TransactionsT
 export function HomePage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const [startDate, setStartDate] = useState(new Date());
-  // const location = useLocation();
+  const location = useLocation();
 
   return (
     <>
       <HomePageBg />
       <StyledHomePage>
         <div className="flexWrapper">
-          {/* {isMobile && <ReportsBtn to="/reports" state={{ from: location }} />} */}
+          {isMobile && <ReportsBtn to="/reports" state={{ from: location }} />}
           <ChangeBalance />
-          {/* {!isMobile && <ReportsBtn to="/reports" state={{ from: location }} />} */}
+          {!isMobile && <ReportsBtn to="/reports" state={{ from: location }} />}
         </div>
         {isMobile && (
           <div className="datePickerMobWrap">
