@@ -7,8 +7,11 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
   AuthWrapper,
   AuthFormTextLeft,
+  LabelInputWrapper,
+  RequiredStar,
   AuthFormLabel,
   AuthFormInput,
+  ValidRow,
   ButtonsContainer,
 } from 'components/LoginForm/LoginForm.styled';
 
@@ -21,13 +24,19 @@ export const RegistrationForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState([]);
+  const [emailInvalid, setEmailInvalid] = useState(false);
+  const [passwordInvalid, setPasswordInvalid] = useState(false);
 
   const reset = () => {
     setEmail('');
     setPassword('');
   };
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = event => {
+    const {
+      target: { name, value },
+    } = event;
     switch (name) {
       case 'email':
         setEmail(value);
@@ -38,10 +47,12 @@ export const RegistrationForm = () => {
       default:
         break;
     }
+    handleValidation(event);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
+    handleValidation(event);
     const data = new FormData(event.currentTarget);
 
     dispatch(
@@ -62,64 +73,106 @@ export const RegistrationForm = () => {
     });
   };
 
+  const handleValidation = event => {
+    //Email
+    if (event.target.name === 'email') {
+      var pattern = new RegExp(event.target.pattern);
+      if (!pattern.test(String(event.target.value).toLowerCase())) {
+        setErrors(errors => {
+          errors['email'] = 'Invalid email';
+          return errors;
+        });
+        if (event.target.value === '') {
+          setErrors(errors => {
+            errors['email'] = 'This is a required field';
+            return errors;
+          });
+        }
+        setEmailInvalid(true);
+      } else {
+        setErrors(errors => {
+          errors['email'] = '';
+          return errors;
+        });
+      }
+    }
+
+    //Password
+    if (event.target.name === 'password') {
+      if (event.target.value.length < 8) {
+        setErrors(errors => {
+          errors['password'] = 'Password must be at least 8 characters';
+          return errors;
+        });
+        if (!event.target.value) {
+          setErrors(errors => {
+            errors['password'] = 'This is a required field';
+            return errors;
+          });
+        }
+        setPasswordInvalid(true);
+      } else {
+        setErrors(errors => {
+          errors['password'] = '';
+          return errors;
+        });
+      }
+    }
+  };
+
   return (
     <AuthWrapper>
       <AuthFormTextLeft>Please fill registration fields:</AuthFormTextLeft>
       <form onSubmit={handleSubmit} autoComplete="on">
-        <AuthFormLabel htmlFor="logInEmail">
-          {/* {emailDirty && emailError && (
-              <span style={{ color: '#EB5757', fontSize: 10, paddingTop: 4 }}>
-                {errorSymbol}{' '}
-              </span>
-            )} */}
-          Email:
-        </AuthFormLabel>
-        <AuthFormInput
-          // onBlur={}
-          onChange={handleChange}
-          type="email"
-          name="email"
-          placeholder="your@email.com"
-          pattern="[A-Za-zA-Яа-яЁёЄєЇї0-9._%+-]+@[A-Za-zA-Яа-яЁёЄєЇї0-9.-]+\.[A-Za-zA-Яа-яЁёЄєЇї]{2,4}$"
-          title="Email may consist of letters, numbers and a mandatory character '@'"
-          required
-          id="logInEmail"
-          autoComplete="email"
-          value={email}
-          autoFocus
-        />
-        {/* {emailDirty && emailError && (
-            <div style={{ color: '#EB5757', fontSize: 10, paddingTop: 4 }}>
-              {emailError}{' '}
-            </div>
-          )} */}
+        <LabelInputWrapper>
+          {' '}
+          <AuthFormLabel htmlFor="logInEmail">
+            {errors['email'] && <RequiredStar>* </RequiredStar>}
+            Email:
+          </AuthFormLabel>
+          <AuthFormInput
+            onChange={handleChange}
+            onBlur={handleValidation}
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            pattern="[A-Za-zA-Яа-яЁёЄєЇї0-9._%+-]+@[A-Za-zA-Яа-яЁёЄєЇї0-9.-]+\.[A-Za-zA-Яа-яЁёЄєЇї]{2,4}$"
+            title="Email may consist of letters, numbers and a mandatory character '@'"
+            required
+            id="logInEmail"
+            autoComplete="email"
+            value={email}
+            autoFocus
+          />
+          <ValidRow>
+            <p style={{ color: '#EB5757', fontSize: 10 }}>{errors['email']} </p>
+          </ValidRow>
+        </LabelInputWrapper>
 
-        <AuthFormLabel htmlFor="logInPassword">
-          {/* {passwordDirty && passwordError && (
-                <span style={{ color: '#EB5757', fontSize: 10, paddingTop: 4 }}>
-                  {errorSymbol}{' '}
-                </span>
-              )} */}
-          Password:
-        </AuthFormLabel>
-        <AuthFormInput
-          onChange={handleChange}
-          //   onBlur={blurHandler}
-          //   onChange={passwordHandler}
-          type="password"
-          name="password"
-          placeholder="Password"
-          pattern="[0-9A-Za-zA-Яа-яЁёЄєЇї!@#$%^&*]{8,}"
-          title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
-          required
-          autoComplete="current-password"
-          value={password}
-        />
-        {/* {passwordDirty && passwordError && (
-              <div style={{ color: '#EB5757', fontSize: 10, paddingTop: 4 }}>
-                {passwordError}{' '}
-              </div>
-            )} */}
+        <LabelInputWrapper>
+          <AuthFormLabel htmlFor="logInPassword">
+            {errors['password'] && <RequiredStar>* </RequiredStar>}
+            Password:
+          </AuthFormLabel>
+          <AuthFormInput
+            onChange={handleChange}
+            onBlur={handleValidation}
+            type="password"
+            name="password"
+            placeholder="Password"
+            pattern="[0-9A-Za-zA-Яа-яЁёЄєЇї!@#$%^&*]{8,}"
+            title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
+            required
+            autoComplete="current-password"
+            value={password}
+          />
+
+          <ValidRow>
+            <p style={{ color: '#EB5757', fontSize: 10 }}>
+              {errors['password']}{' '}
+            </p>
+          </ValidRow>
+        </LabelInputWrapper>
         <ButtonsContainer>
           <LogInLink to="/login">Log In</LogInLink>
           <RegisterBtn type="submit">Registration</RegisterBtn>
