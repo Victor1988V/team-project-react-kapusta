@@ -6,6 +6,8 @@ export const selectSid = store => store.auth.sid;
 
 export const selectUserId = store => store.auth.userId;
 
+export const selectUserEmail = store => store.auth.email;
+
 export const selectIsLoggedIn = store => store.auth.isLoggedIn;
 
 export const selectTransactions = store => store.transactions.transactions;
