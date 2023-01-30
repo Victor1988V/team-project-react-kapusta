@@ -1,5 +1,5 @@
-import { ReportsList } from './List/ReportsList';
-import { ReportsTable } from './Table/ReportsTable';
+import { ReportsList } from 'components/Reports/ReportsList/ReportsList';
+// import { ReportsTable } from 'components/Reports/';
 import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
 import {
   List,
@@ -14,7 +14,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
 import { useState } from 'react';
-import { ButtonsNextPrev } from '../ReportsNav/Slider/ButtonsNextPrev/ButtonsNextPrev';
+import ButtonsNextPrev from 'components/Reports/ButtonPrev/ButtonPrev';
 
 export const ReportsInfo = () => {
   const { reports } = useSelector(selectReports);
@@ -52,7 +52,7 @@ export const ReportsInfo = () => {
 
         <ReportsList onChange={budget}></ReportsList>
       </Box>
-      <ReportsTable onChange={budget}></ReportsTable>
+      {/* <ReportsTable onChange={budget}></ReportsTable> */}
     </div>
   );
 };

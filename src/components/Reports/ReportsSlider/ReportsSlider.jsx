@@ -7,8 +7,8 @@ import {
   reportsQueryAction,
   filteredDataAction,
 } from '../../../redux/reportsQuery/reportsQuery.slice';
-import ReportsCalendar from '../ReportsCalendar';
-import ButtonsPrev from '../ButtonPrev';
+import ReportsCalendar from 'components/Reports/ReportsCalendar/ReportsCalendar';
+import ButtonsPrev from 'components/Reports/ButtonPrev/ButtonPrev';
 
 import { getTransactionsByDate } from '../../../services/transactionsAPI';
 

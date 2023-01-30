@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export const StyledReportsBtn = styled(Link)`
+export const StyledReportsBtn = styled(NavLink)`
   display: flex;
   align-items: baseline;
   justify-content: center;

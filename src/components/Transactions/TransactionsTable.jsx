@@ -24,7 +24,7 @@ export const TransactionsTable = ({ children }) => {
     }
     return second - first;
   });
-  console.log(sortedTransactions);
+  // console.log(sortedTransactions);
   return (
     <TransactionTable>
       <thead>
