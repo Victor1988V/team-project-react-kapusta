@@ -53,7 +53,7 @@ export const ReportsInfo = () => {
 
         <ReportsList onChange={budget}></ReportsList>
       </Box>
-      <ReportsTable onChange={budget}></ReportsTable>
+      {/* <ReportsTable onChange={budget}></ReportsTable> */}
     </div>
   );
 };

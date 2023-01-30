@@ -16,6 +16,7 @@ import {
 } from './../../redux/selectors';
 import { getExpense } from 'services/transactionsAPI';
 import { BackButton } from './../../components/Buttons/BackButton';
+import Summary from './../../components/Summary/Summary';
 
 export const ExpensesPage = () => {
   const dispatch = useDispatch();
@@ -44,12 +45,10 @@ export const ExpensesPage = () => {
               {expenses}
               {color}
             </TransactionsTable>
-            {/* {isDesktop && <Summary />} */}
+            {isDesktop && <Summary />}
           </StyledTableAndSummaryDiv>
         </StyledFrame>
-        // {
-        //   isTablet && <Summary />;
-        // }
+        // {isTablet && <Summary />};
       )}
     </>
   );

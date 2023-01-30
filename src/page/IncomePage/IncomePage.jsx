@@ -18,6 +18,7 @@ import {
 import { getIncome } from 'services/transactionsAPI';
 
 import { BackButton } from './../../components/Buttons/BackButton';
+import Summary from './../../components/Summary/Summary';
 
 export const IncomePage = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ export const IncomePage = () => {
               {incomes}
               {color}
             </TransactionsTable>
-            {/* {isDesktop && <Summary />} */}
+            {isDesktop && <Summary />}
           </StyledTableAndSummaryDiv>
         </StyledFrame>
         // {
