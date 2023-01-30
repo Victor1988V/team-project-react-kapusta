@@ -15,8 +15,7 @@ import {
   StyledLogoutImg,
   StyledVerticalLine,
   StyledExitButton,
-} from './AuthNav.styled';
-
+} from 'components/Header/AuthNav/AuthNav.styled';
 
 export const AuthNav = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,30 +36,27 @@ export const AuthNav = () => {
   };
 
   return (
-    isLoggedIn && (
-      <>
-        <StyledAuthNav>
-          <StyledLoginLabel>{userEmail[0].toUpperCase()}</StyledLoginLabel>
-          <StyledLoginName>{userEmail}</StyledLoginName>
-          <StyledLogoutImg
-            src={logoutImg}
-            alt="logout"
-            onClick={handleModalOpen}
-          />
-          <StyledVerticalLine></StyledVerticalLine>
-          <StyledExitButton type="button" onClick={handleModalOpen}>
-            Exit
-          </StyledExitButton>
-        </StyledAuthNav>
-        {modalOpen && (
-          <LightModalWindow
-            closeModal={handleModalClose}
-            dispatch={handleClick}
-          >
-            Do you really want to leave?
-          </LightModalWindow>
-        )}
-      </>
-    )
+    // isLoggedIn && (
+    <>
+      <StyledAuthNav>
+        {/* <StyledLoginLabel>{userEmail[0].toUpperCase()}</StyledLoginLabel> */}
+        {/* <StyledLoginName>{userEmail}</StyledLoginName> */}
+        <StyledLogoutImg
+          src={logoutImg}
+          alt="logout"
+          onClick={handleModalOpen}
+        />
+        <StyledVerticalLine></StyledVerticalLine>
+        <StyledExitButton type="button" onClick={handleModalOpen}>
+          Exit
+        </StyledExitButton>
+      </StyledAuthNav>
+      {modalOpen && (
+        <LightModalWindow closeModal={handleModalClose} dispatch={handleClick}>
+          Do you really want to leave?
+        </LightModalWindow>
+      )}
+    </>
+    // )
   );
 };
