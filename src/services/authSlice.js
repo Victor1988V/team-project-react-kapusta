@@ -6,7 +6,7 @@ const initialState = {
   refreshToken: null,
   sid: null,
   userId: null,
-  email: '',
+  userEmail: '',
   isLoggedIn: false,
   balance: 0,
   transactions: [],
@@ -42,7 +42,7 @@ const authSlice = createSlice({
         state.accessToken = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.sid = action.payload.sid;
-        state.email = action.payload.userData.email;
+        state.userEmail = action.payload.userData.email;
         state.isLoggedIn = true;
       })
       .addCase(authApi.logIn.rejected, handleRejected)
