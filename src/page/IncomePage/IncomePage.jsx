@@ -34,26 +34,23 @@ export const IncomePage = () => {
 
   return (
     <>
-      {isMobile ? (
+      {isMobile && (
         <>
           <StyledBg />
           <BackButton />
         </>
-      ) : (
-        <StyledFrame>
-          <ProductInputForm />
-          <StyledTableAndSummaryDiv>
-            <TransactionsTable>
-              {incomes}
-              {color}
-            </TransactionsTable>
-            {isDesktop && <Summary />}
-          </StyledTableAndSummaryDiv>
-        </StyledFrame>
-        // {
-        //   isTablet && <Summary />;
-        // }
       )}
+      <StyledFrame>
+        <ProductInputForm />
+        <StyledTableAndSummaryDiv>
+          <TransactionsTable>
+            {incomes}
+            {color}
+          </TransactionsTable>
+          {isDesktop && <Summary />}
+        </StyledTableAndSummaryDiv>
+      </StyledFrame>
+      {isTablet && <Summary />}
     </>
   );
 };

@@ -15,12 +15,12 @@ export const ReportsList = ({ onChange }) => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
   const valueArr = [];
-
+  console.log('LISTrepotrs', reports);
   const expensesData = useMemo(
     () => reports?.expenses?.expensesData ?? {},
     [reports]
   );
-
+  console.log('LISTexpensesData', expensesData);
   const incomesData = useMemo(
     () => reports?.incomes?.incomesData ?? {},
     [reports]
@@ -71,7 +71,7 @@ export const ReportsList = ({ onChange }) => {
                   />
                   <use href={`${reportsIcon}#${iconName}`}></use>
                 </ItemSvg>
-                {/* <p>{categoryOrkToEng(item[0])}</p> */}
+                <p>{translateToEng(item[0])}</p>
               </Item>
             );
           } else if (onChange === 'income') {

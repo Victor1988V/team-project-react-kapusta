@@ -4,7 +4,9 @@ import * as transactionsAPI from 'services/transactionsAPI';
 const initialState = {
   transactions: [],
   incomes: [],
+  incomesStats: {},
   expenses: [],
+  expensesStats: {},
   incomeCategories: [],
   expenseCategories: [],
   balance: 0,
@@ -35,6 +37,7 @@ const transactionsSlice = createSlice({
       .addCase(transactionsAPI.getIncome.pending, handlePending)
       .addCase(transactionsAPI.getIncome.fulfilled, (state, action) => {
         state.incomes = action.payload.incomes;
+        state.incomesStats = action.payload.monthsStats;
       })
       .addCase(transactionsAPI.getIncome.rejected, handleRejected)
 
@@ -50,6 +53,7 @@ const transactionsSlice = createSlice({
       .addCase(transactionsAPI.getExpense.pending, handlePending)
       .addCase(transactionsAPI.getExpense.fulfilled, (state, action) => {
         state.expenses = action.payload.expenses;
+        state.expensesStats = action.payload.monthsStats;
       })
       .addCase(transactionsAPI.getExpense.rejected, handleRejected)
 

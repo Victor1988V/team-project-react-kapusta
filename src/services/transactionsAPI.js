@@ -181,3 +181,20 @@ export const updateBalance = createAsyncThunk(
     }
   }
 );
+
+export const getPeriodDataAPI = async date => {
+  const { data } = await axios.get(`/transaction/period-data?date=${date}`);
+  return data;
+};
+
+export const getReports = createAsyncThunk(
+  'reports/getReports',
+  async (value, thunkAPI) => {
+    try {
+      const data = await getPeriodDataAPI(value);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

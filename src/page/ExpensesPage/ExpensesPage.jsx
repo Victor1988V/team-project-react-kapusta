@@ -32,46 +32,23 @@ export const ExpensesPage = () => {
 
   return (
     <>
-      {isMobile ? (
+      {isMobile && (
         <>
           <StyledBg />
           <BackButton />
         </>
-      ) : (
-        <StyledFrame>
-          <ProductInputForm />
-          <StyledTableAndSummaryDiv>
-            <TransactionsTable>
-              {expenses}
-              {color}
-            </TransactionsTable>
-            {isDesktop && <Summary />}
-          </StyledTableAndSummaryDiv>
-        </StyledFrame>
-        // {isTablet && <Summary />};
       )}
+      <StyledFrame>
+        <ProductInputForm />
+        <StyledTableAndSummaryDiv>
+          <TransactionsTable>
+            {expenses}
+            {color}
+          </TransactionsTable>
+          {isDesktop && <Summary />}
+        </StyledTableAndSummaryDiv>
+      </StyledFrame>
+      {isTablet && <Summary />}
     </>
   );
 };
-
-// {
-//   isMobile && (
-//     <>
-//       <StyledBg />
-//       <BackButton />
-//     </>
-//   );
-// }
-// <StyledFrame>
-//   <Form />
-//   <StyledTableAndSummaryDiv>
-//     <TransactionListDesk>
-//       {allExpenses}
-//       {color}
-//     </TransactionListDesk>
-//     {isDesktop && <Summary />}
-//   </StyledTableAndSummaryDiv>
-// </StyledFrame>;
-// {
-//   isTablet && <Summary />;
-// }
