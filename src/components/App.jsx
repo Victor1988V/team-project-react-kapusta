@@ -5,9 +5,11 @@ import { useEffect } from 'react';
 import * as authAPI from 'services/authAPI';
 import { setAccessToken } from 'services/authSlice';
 
-//import { Header } from './Header/Header';
-import { HomePage } from '../page/HomePage/HomePage';
-import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
+import { IncomePage } from 'page/IncomePage/IncomePage';
+import { Header } from './Header/Header';
+import { ThereIsNoSuchPage } from 'page/NoSuchPage/NoSuchPage';
+import { HomePage } from 'page/HomePage/HomePage';
+import { ExpensesPage } from 'page/ExpensesPage/ExpensesPage';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import LogInPage from 'page/LoginPage/LoginPage';
 import RegisterPage from 'page/RegisterPage/RegisterPage';
@@ -32,8 +34,7 @@ export const App = () => {
       {/* <Header />
       <HomePage />
       <ExpensesPage /> */}
-      <BrowserRouter basename="kapusta">
-        {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/">
@@ -43,7 +44,7 @@ export const App = () => {
               <>
                 <Route path="/home" element={<HomePage />}>
                   <Route index element={<Navigate to="/home/expenses" />} />
-                  <Route path="income" element={<div>IncomePage</div>} />
+                  <Route path="income" element={<IncomePage />} />
                   <Route path="expenses" element={<ExpensesPage />} />/{' '}
                 </Route>
               </>
@@ -51,7 +52,7 @@ export const App = () => {
               {/* {isMobile && ( */}
               <>
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/income" element={<div>IncomePage</div>} />
+                <Route path="/income" element={<IncomePage />} />
                 <Route path="/expenses" element={<ExpensesPage />} />
                 <Route path="*" element={<Navigate to="/home" />} />
               </>
@@ -64,7 +65,7 @@ export const App = () => {
               <Route path="*" element={<Navigate to="/login" />} />
             </Route>
 
-            <Route path="*" element={<div>ThereIsNoSuchPage</div>} />
+            <Route path="*" element={<ThereIsNoSuchPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

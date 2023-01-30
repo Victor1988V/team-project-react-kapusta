@@ -1,10 +1,10 @@
-import { TransactionTable } from './TransactionsList.styled';
+import { TransactionTable } from './TransactionsTable.styled';
 import { useDispatch } from 'react-redux';
 // import { selectIsLoading } from 'redux/selectors';
-import { deleteTransaction } from './../../services/transactionsAPI';
+import { deleteTransaction } from '../../services/transactionsAPI';
 import { ReactComponent as DeleteIcon } from '../../images/deleteIcon.svg';
 import { translateToEng } from 'hooks/useCategory';
-export const TransactionsList = ({ children }) => {
+export const TransactionsTable = ({ children }) => {
   const dispatch = useDispatch();
   // const isLoading = useSelector(selectIsLoading);
   const color = children[1];
