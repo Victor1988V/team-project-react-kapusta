@@ -3,21 +3,17 @@ import { Outlet, useLocation } from 'react-router-dom';
 
 import { useMatchMedia } from 'hooks/useMatchMedia';
 
-import HomePageBg from '../../components/HomePageBg/HomePageBg';
-import ReportsBtn from '../../components/Buttons/ReportsBtn/ReportsBtn';
-import ChangeBalance from '../../components/ChangeBalance/ChangeBalance';
-import DateSelection from '../../components/DateSelection/DateSelection';
-// import { TransactionsList } from 'components/Transactions/TransactionsTable';
-// import {
-//   TransactionTabsMobile,
-//   TransactionTabsDesktop,
-// } from 'components/TransactionTabs/TransactionTabs';
+import HomePageBg from 'components/HomePageBg/HomePageBg';
+import ReportsBtn from 'components/Buttons/ReportsBtn/ReportsBtn';
+import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
+import DateSelection from 'components/DateSelection/DateSelection';
+import { NavigateTransMob, NavigateTransDesk } from 'components/Transactions/NavigateTrans';
+import { TransactionsList } from 'components/Transactions/TransactionsList';
 
 import kapusta from 'images/kapustaTab.svg';
 import kapustaDesktop from '../../images/kapustaDesk.svg';
 
 import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
-import { TransactionsTable } from './../../components/Transactions/TransactionsTable';
 
 export function HomePage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
@@ -38,10 +34,10 @@ export function HomePage() {
             <DateSelection startDate={startDate} setStartDate={setStartDate} />
           </div>
         )}
-        {/* {isMobile && <TransactionTabsMobile />} */}
-        {/* {!isMobile && <TransactionTabsDesktop />} */}
+        {isMobile && <NavigateTransMob />}
+        {!isMobile && <NavigateTransDesk />}
         {!isMobile && <Outlet />}
-        {isMobile && <TransactionsTable />}
+        {isMobile && <TransactionsList />}
         {isTablet && <KapustaTab src={kapusta} width="183" height="146" />}
         {isDesktop && (
           <KapustaDesk src={kapustaDesktop} width="1334" height="232" />
