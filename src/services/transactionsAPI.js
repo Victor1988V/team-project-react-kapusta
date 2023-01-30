@@ -181,18 +181,3 @@ export const updateBalance = createAsyncThunk(
     }
   }
 );
-
-export const getAllUserInfo = createAsyncThunk('user', async (_, thunkAPI) => {
-  const state = thunkAPI.getState();
-  token.set(state.auth.accessToken);
-  try {
-    const { data } = await axios.get('/user');
-    return data;
-  } catch (error) {
-    Notify.warning(error.response.data.message, {
-      fontSize: '16px',
-      width: '350px',
-    });
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});

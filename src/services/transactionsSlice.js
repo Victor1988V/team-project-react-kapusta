@@ -98,14 +98,7 @@ const transactionsSlice = createSlice({
       .addCase(transactionsAPI.updateBalance.fulfilled, (state, action) => {
         state.balance = action.payload.newBalance;
       })
-      .addCase(transactionsAPI.updateBalance.rejected, handleRejected)
-
-      .addCase(transactionsAPI.getAllUserInfo.pending, handlePending)
-      .addCase(transactionsAPI.getAllUserInfo.fulfilled, (state, action) => {
-        state.balance = action.payload.balance;
-        state.transactions = action.payload.transactions;
-      })
-      .addCase(transactionsAPI.getAllUserInfo.rejected, handleRejected);
+      .addCase(transactionsAPI.updateBalance.rejected, handleRejected);
   },
 });
 

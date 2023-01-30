@@ -49,14 +49,14 @@ export const AuthFormTextLeft = styled(AuthFormText)`
   }
 `;
 
-export const GoogleBtn = styled.button`
+export const GoogleBtn = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
 
   margin: 0 auto;
   padding: 10px 0;
-  min-width: 122px;
+  width: 122px;
 
   outline: none;
   border: none;
