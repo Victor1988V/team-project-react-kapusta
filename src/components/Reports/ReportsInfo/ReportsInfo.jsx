@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
 import { useState } from 'react';
 import ButtonsNextPrev from 'components/Reports/ButtonPrev/ButtonPrev';
+import { ReportsTable } from 'components/Reports/Table/ReportsTable';
 
 export const ReportsInfo = () => {
   const { reports } = useSelector(selectReports);
@@ -52,7 +53,7 @@ export const ReportsInfo = () => {
 
         <ReportsList onChange={budget}></ReportsList>
       </Box>
-      {/* <ReportsTable onChange={budget}></ReportsTable> */}
+      <ReportsTable onChange={budget}></ReportsTable>
     </div>
   );
 };

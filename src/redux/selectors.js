@@ -26,3 +26,6 @@ export const selectReports = store => store.reports.reports;
 
 export const selectIsLoading = store => store.transactions.isLoading;
 
+export const selectDataChart = store => store.reportsQuery.filteredData;
+
+export const selectReportsQuery = store => store.reportsQuery.reportsQuery;
