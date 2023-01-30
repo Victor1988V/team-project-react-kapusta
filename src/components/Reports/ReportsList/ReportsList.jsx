@@ -10,7 +10,7 @@ import OrangeBgc from 'images/orangeBgc.svg';
 import { translateToEng } from 'hooks/useCategory';
 
 export const ReportsList = ({ onChange }) => {
-  const [active, setActive] = useState;
+  const [active, setActive] = useState();
   const { reports } = useSelector(selectReports);
   const [data, setData] = useState({});
   const dispatch = useDispatch();
