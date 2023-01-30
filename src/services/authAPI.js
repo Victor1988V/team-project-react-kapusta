@@ -62,34 +62,36 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-//logInGoogle in FUTURE
-
-// export const logInGoogle = createAsyncThunk(
-//   'auth/google',
-//   async (user, thunkAPI) => {
-//     try {
-//       const { data } = await axios.post('/auth/google', user);
-//       token.set(data.accessToken);
-//       return data;
-//     } catch (error) {
-//       Notify.warning(error.response.data.message, {
-//         fontSize: '16px',
-//         width: '350px',
-//       });
-
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const getAllUserInfo = createAsyncThunk('user', async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  token.set(state.auth.accessToken);
+  try {
+    const { data } = await axios.get('/user');
+    return data;
+  } catch (error) {
+    Notify.warning(error.response.data.message, {
+      fontSize: '16px',
+      width: '350px',
+    });
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
 
 export const refreshToken = createAsyncThunk(
   'auth/refresh',
-  async (_, thunkAPI) => {
+  async ({ refreshSid, refreshToken }, thunkAPI) => {
     const state = thunkAPI.getState();
+
     try {
-      token.set(state.auth.refreshToken);
+      let sid = state.auth.sid;
+      if (refreshToken && refreshSid) {
+        token.set(refreshToken);
+        sid = refreshSid;
+      } else {
+        token.set(state.auth.refreshToken);
+      }
       const { data } = await axios.post('/auth/refresh', {
-        sid: state.auth.sid,
+        sid: sid,
       });
       return data;
     } catch (error) {

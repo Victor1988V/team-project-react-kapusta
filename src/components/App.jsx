@@ -1,4 +1,10 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import * as authAPI from 'services/authAPI';
+import { setAccessToken } from 'services/authSlice';
+
 import { IncomePage } from 'page/IncomePage/IncomePage';
 import { Header } from './Header/Header';
 import { ThereIsNoSuchPage } from 'page/NoSuchPage/NoSuchPage';
@@ -8,7 +14,21 @@ import PublicRoute from 'components/PublicRoute/PublicRoute';
 import LogInPage from 'page/LoginPage/LoginPage';
 import RegisterPage from 'page/RegisterPage/RegisterPage';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
+
 export const App = () => {
+  const dispatch = useDispatch();
+  const location = window.location;
+  const urlSearchParams = new URLSearchParams(location.search);
+  const accessToken = urlSearchParams.get('accessToken');
+
+  useEffect(() => {
+    if (accessToken) {
+      dispatch(setAccessToken(accessToken));
+
+      dispatch(authAPI.getAllUserInfo());
+    }
+  }, [accessToken]);
+
   return (
     <>
       {/* <Header />
