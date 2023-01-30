@@ -1,4 +1,4 @@
-import { Slider } from './Slider/Slider';
+import ReportsSlider from 'components/Reports/ReportsSlider/ReportsSlider';
 import {
   Balance,
   ButtonBack,
@@ -27,7 +27,7 @@ export const ReportsNav = () => {
         <ButtonBackText>Go back</ButtonBackText>
       </ButtonBack>
       <Box>
-        <Slider />
+        <ReportsSlider />
 
         <Balance>
           <BalanceText>Balance:</BalanceText>

@@ -1,5 +1,5 @@
-import { useEffect, useMemo } from 'react';
 import { useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
 import { selectReports } from 'redux/selectors';
@@ -7,7 +7,7 @@ import { List, Item, ItemIncome, ItemSvg, BgcSvg } from './ReportsList.styled';
 import reportsIcon from 'images/reportsFiles/reports.svg';
 import BgcIcon from 'images/reportsFiles/bgcForSvg.svg';
 import OrangeBgc from 'images/orangeBgc.svg';
-import { categoryOrkToEng } from 'hooks/useCategory';
+import { translateToEng } from 'hooks/useCategory';
 
 export const ReportsList = ({ onChange }) => {
   const [active, setActive] = useState;
@@ -98,7 +98,7 @@ export const ReportsList = ({ onChange }) => {
                   />
                   <use href={`${reportsIcon}#${iconName}`}></use>
                 </ItemSvg>
-                <p>{categoryOrkToEng(item[0])}</p>
+                <p>{translateToEng(item[0])}</p>
               </ItemIncome>
             );
           }

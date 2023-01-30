@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { selectIsLoggedIn, selectUserId } from 'redux/selectors';
+import { logOut } from 'services/authAPI';
 
-import { logOut } from '../../../services/authAPI';
-import logoutImg from '../../../images/logout.svg';
+import logoutImg from 'images/logout.svg';
 
-import LightModalWindow from '../../ModalWindow/LightModalWindow/LightModalWindow';
+import LightModalWindow from 'components/ModalWindow/LightModalWindow/LightModalWindow';
 
 import {
   StyledAuthNav,

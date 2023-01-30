@@ -11,7 +11,7 @@ import { NavigateTransMob, NavigateTransDesk } from 'components/Transactions/Nav
 import { TransactionsList } from 'components/Transactions/TransactionsList';
 
 import kapusta from 'images/kapustaTab.svg';
-import kapustaDesktop from '../../images/kapustaDesk.svg';
+import kapustaDesktop from 'images/kapustaDesk.svg';
 
 import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
 

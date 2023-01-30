@@ -1,7 +1,7 @@
 import { Month, Year, Wrapper, Backdrop } from './ReportsCalendar.styled';
 import { useEffect } from 'react';
 import { monthNames } from '../ReportsSlider/ReportsSliderData';
-import ButtonPrev from '../ButtonPrev';
+import ButtonPrev from 'components/Reports/ButtonPrev/ButtonPrev';
 
 const ReportsCalendar = ({
   onClose,
