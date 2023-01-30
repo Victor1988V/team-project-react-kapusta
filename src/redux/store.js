@@ -20,7 +20,7 @@ import { reportsQueryReducer } from './reportsQuery/reportsQuery.slice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken'],
+  whitelist: ['accessToken', 'isLoggedIn', 'userEmail'],
 };
 
 const transactionsPersistConfig = {
