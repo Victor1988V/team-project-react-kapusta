@@ -15,6 +15,7 @@ import storage from 'redux-persist/lib/storage';
 import authSlice from 'services/authSlice';
 import transactionsSlice from 'services/transactionsSlice';
 import { reportsReducer } from './reports/reports';
+import { reportsQueryReducer } from './reportsQuery/reportsQuery.slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -33,6 +34,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authSlice),
     transactions: persistReducer(transactionsPersistConfig, transactionsSlice),
     reports: reportsReducer,
+    reportsQuery: reportsQueryReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
