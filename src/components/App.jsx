@@ -6,7 +6,7 @@ import * as authAPI from 'services/authAPI';
 import { setAccessToken } from 'services/authSlice';
 
 import { IncomePage } from 'page/IncomePage/IncomePage';
-import { Header } from './Header/Header';
+//import { Header } from './Header/Header';
 import { ThereIsNoSuchPage } from 'page/NoSuchPage/NoSuchPage';
 import { HomePage } from 'page/HomePage/HomePage';
 import { ExpensesPage } from 'page/ExpensesPage/ExpensesPage';
@@ -40,7 +40,6 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/">
-              {/*    <Route path="/" element={<div>PrivateRoute </div>}> */}
               <Route index element={<Navigate to="/home" />} />
               {/* {!isMobile && ( */}
               <>
