@@ -25,7 +25,11 @@ const transactionsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(transactionsAPI.addIncome.pending, handlePending)
-      .addCase(transactionsAPI.addIncome.fulfilled, (state, action) => {})
+      .addCase(transactionsAPI.addIncome.fulfilled, (state, action) => {
+        state.balance = action.payload.newBalance;
+        state.incomes.push(action.payload.transaction);
+        state.transactions.push(action.payload.transaction);
+      })
       .addCase(transactionsAPI.addIncome.rejected, handleRejected)
 
       .addCase(transactionsAPI.getIncome.pending, handlePending)
@@ -35,7 +39,12 @@ const transactionsSlice = createSlice({
       .addCase(transactionsAPI.getIncome.rejected, handleRejected)
 
       .addCase(transactionsAPI.addExpense.pending, handlePending)
-      .addCase(transactionsAPI.addExpense.fulfilled, (state, action) => {})
+      .addCase(transactionsAPI.addExpense.fulfilled, (state, action) => {
+        state.balance = action.payload.newBalance;
+        state.expenses.push(action.payload.transaction);
+        state.transactions.push(action.payload.transaction);
+        // state.isLoading = false;
+      })
       .addCase(transactionsAPI.addExpense.rejected, handleRejected)
 
       .addCase(transactionsAPI.getExpense.pending, handlePending)
@@ -93,14 +102,7 @@ const transactionsSlice = createSlice({
       .addCase(transactionsAPI.updateBalance.fulfilled, (state, action) => {
         state.balance = action.payload.newBalance;
       })
-      .addCase(transactionsAPI.updateBalance.rejected, handleRejected)
-
-      .addCase(transactionsAPI.getAllUserInfo.pending, handlePending)
-      .addCase(transactionsAPI.getAllUserInfo.fulfilled, (state, action) => {
-        state.balance = action.payload.balance;
-        state.transactions = action.payload.transactions;
-      })
-      .addCase(transactionsAPI.getAllUserInfo.rejected, handleRejected);
+      .addCase(transactionsAPI.updateBalance.rejected, handleRejected);
   },
 });
 

@@ -1,21 +1,40 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
-//import { Header } from './Header/Header';
-import { HomePage } from '../page/HomePage/HomePage';
-import { ExpensesPage } from './../page/ExpensesPage/ExpensesPage';
+import * as authAPI from 'services/authAPI';
+import { setAccessToken } from 'services/authSlice';
+
+import { IncomePage } from 'page/IncomePage/IncomePage';
+import { Header } from './Header/Header';
+import { ThereIsNoSuchPage } from 'page/NoSuchPage/NoSuchPage';
+import { HomePage } from 'page/HomePage/HomePage';
+import { ExpensesPage } from 'page/ExpensesPage/ExpensesPage';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import LogInPage from 'page/LoginPage/LoginPage';
 import RegisterPage from 'page/RegisterPage/RegisterPage';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const location = window.location;
+  const urlSearchParams = new URLSearchParams(location.search);
+  const accessToken = urlSearchParams.get('accessToken');
+
+  useEffect(() => {
+    if (accessToken) {
+      dispatch(setAccessToken(accessToken));
+
+      dispatch(authAPI.getAllUserInfo());
+    }
+  }, [accessToken]);
+
   return (
     <>
       {/* <Header />
       <HomePage />
       <ExpensesPage /> */}
-      <BrowserRouter basename="kapusta">
-        {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/">
@@ -25,7 +44,7 @@ export const App = () => {
               <>
                 <Route path="/home" element={<HomePage />}>
                   <Route index element={<Navigate to="/home/expenses" />} />
-                  <Route path="income" element={<div>IncomePage</div>} />
+                  <Route path="income" element={<IncomePage />} />
                   <Route path="expenses" element={<ExpensesPage />} />/{' '}
                 </Route>
               </>
@@ -33,7 +52,7 @@ export const App = () => {
               {/* {isMobile && ( */}
               <>
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/income" element={<div>IncomePage</div>} />
+                <Route path="/income" element={<IncomePage />} />
                 <Route path="/expenses" element={<ExpensesPage />} />
                 <Route path="*" element={<Navigate to="/home" />} />
               </>
@@ -46,7 +65,7 @@ export const App = () => {
               <Route path="*" element={<Navigate to="/login" />} />
             </Route>
 
-            <Route path="*" element={<div>ThereIsNoSuchPage</div>} />
+            <Route path="*" element={<ThereIsNoSuchPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

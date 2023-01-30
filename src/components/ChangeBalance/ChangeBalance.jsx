@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { updateBalance } from '../../services/transactionsAPI';
+import { updateBalance } from 'services/transactionsAPI';
 
 import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
 import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
@@ -10,8 +10,6 @@ import { ChangeBalanceForm } from './ChangeBalance.styled';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.balance);
-
-  console.log(stateBalance);
 
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);

@@ -7,6 +7,8 @@ const initialState = {
   sid: null,
   userId: null,
   isLoggedIn: false,
+  balance: 0,
+  transactions: [],
 };
 
 const handlePending = state => {
@@ -21,6 +23,11 @@ const handleRejected = (state, action) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    setAccessToken: (state, action) => {
+      state.accessToken = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(authApi.register.pending, handlePending)
@@ -55,8 +62,17 @@ const authSlice = createSlice({
         state.sid = action.payload.newSid;
         state.isLoggedIn = true;
       })
-      .addCase(authApi.refreshToken.rejected, handleRejected);
+      .addCase(authApi.refreshToken.rejected, handleRejected)
+
+      .addCase(authApi.getAllUserInfo.pending, handlePending)
+      .addCase(authApi.getAllUserInfo.fulfilled, (state, action) => {
+        state.balance = action.payload.balance;
+        state.transactions = action.payload.transactions;
+        state.userId = action.payload.email;
+      })
+      .addCase(authApi.getAllUserInfo.rejected, handleRejected);
   },
 });
 
 export default authSlice.reducer;
+export const { setAccessToken } = authSlice.actions;

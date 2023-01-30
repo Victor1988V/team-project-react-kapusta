@@ -1,19 +1,17 @@
-import { TransactionTable } from './TransactionsList.styled';
+import { TransactionTable } from './TransactionsTable.styled';
 import { useDispatch } from 'react-redux';
 // import { selectIsLoading } from 'redux/selectors';
-import { deleteTransaction } from './../../services/transactionsAPI';
+import { deleteTransaction } from '../../services/transactionsAPI';
 import { ReactComponent as DeleteIcon } from '../../images/deleteIcon.svg';
 import { translateToEng } from 'hooks/useCategory';
-export const TransactionsList = ({ children }) => {
+export const TransactionsTable = ({ children }) => {
   const dispatch = useDispatch();
   // const isLoading = useSelector(selectIsLoading);
   const color = children[1];
   let minus = '-';
-
   if (color === 'green') {
     minus = false;
   }
-
   const handleDelete = event => {
     dispatch(deleteTransaction(event.currentTarget.id));
   };
@@ -41,7 +39,6 @@ export const TransactionsList = ({ children }) => {
       <tbody>
         {sortedTransactions.slice(0, 20).map(el => {
           const { _id, description, amount, date, category } = el;
-          console.log(el);
           return (
             <tr key={_id} style={{ height: 40 }}>
               <td>{date.split('-').reverse().join('-')}</td>

@@ -118,7 +118,7 @@ export const LoginForm = () => {
     <AuthWrapper>
       <GoogleInWrapper>
         <AuthFormText>You can log in with your Google Account:</AuthFormText>
-        <GoogleBtn type="button">
+        <GoogleBtn href="https://kapusta-backend.goit.global/auth/google">
           <GoogleIcon />
           Google
         </GoogleBtn>
