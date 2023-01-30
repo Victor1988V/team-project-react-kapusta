@@ -15,6 +15,7 @@ import LogInPage from 'page/LoginPage/LoginPage';
 import RegisterPage from 'page/RegisterPage/RegisterPage';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 import ReportsPage from 'page/ReportsPage/ReportsPage';
+import PrivateRoute from './PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -43,10 +44,12 @@ export const App = () => {
               <Route index element={<Navigate to="/home" />} />
               {/* {!isMobile && ( */}
               <>
-                <Route path="/home" element={<HomePage />}>
-                  <Route index element={<Navigate to="/home/expenses" />} />
-                  <Route path="income" element={<IncomePage />} />
-                  <Route path="expenses" element={<ExpensesPage />} />/{' '}
+                <Route path="/" element={<PrivateRoute />}>
+                  <Route path="/home" element={<HomePage />}>
+                    <Route index element={<Navigate to="/home/expenses" />} />
+                    <Route path="income" element={<IncomePage />} />
+                    <Route path="expenses" element={<ExpensesPage />} />/{' '}
+                  </Route>
                 </Route>
               </>
               {/* )} */}

@@ -1,8 +1,8 @@
-import { AuthNav } from './AuthNav/AuthNav';
+import { AuthNav } from 'components/Header/AuthNav/AuthNav';
 
 import { Link } from 'react-router-dom';
 import logo from 'images/logo.svg';
-import { StyledHeader } from './Header.styled';
+import { StyledHeader } from 'components/Header/Header.styled';
 
 export const Header = () => {
   return (
