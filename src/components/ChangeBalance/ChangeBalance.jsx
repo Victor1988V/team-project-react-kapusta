@@ -22,7 +22,7 @@ const ChangeBalance = () => {
   };
 
   const handleClick = () => {
-    dispatch(updateBalance({ balance: newBalance }));
+    dispatch(updateBalance(newBalance));
     form.current.reset();
   };
 
