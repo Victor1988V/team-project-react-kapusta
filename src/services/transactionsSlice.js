@@ -3,6 +3,7 @@ import * as transactionsAPI from 'services/transactionsAPI';
 
 const initialState = {
   transactions: [],
+  reportsData: [],
   incomes: [],
   incomeTotal: 0,
   incomesStats: {},
@@ -98,6 +99,7 @@ const transactionsSlice = createSlice({
       .addCase(
         transactionsAPI.getTransactionsByDate.fulfilled,
         (state, action) => {
+          state.reportsData = action.payload;
           state.incomes = action.payload.incomes;
           state.incomeTotal = action.payload.incomes.incomeTotal;
           state.expenses = action.payload.expenses;

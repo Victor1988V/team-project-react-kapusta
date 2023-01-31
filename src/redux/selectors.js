@@ -20,6 +20,8 @@ export const selectIsLoading = store => store.transactions.isLoading;
 
 export const selectTransactions = store => store.transactions.transactions;
 
+export const selectReportsData = store => store.transactions.reportsData;
+
 export const selectIncomes = store => store.transactions.incomes;
 
 export const selectIncomeTotal = store => store.transactions.incomeTotal;

@@ -1,43 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { selectDataChart, selectReportsQuery } from 'redux/selectors';
+
 import { useSelector } from 'react-redux';
-import { selectReports } from 'redux/selectors';
-import styled from 'styled-components';
-import { useRef } from 'react';
+import {
+  selectDataChart,
+  selectReportsQuery,
+  selectReports,
+  selectReportsData,
+} from 'redux/selectors';
+
 import {
   ChartDataDesktop,
   ChartOptionsDesktop,
 } from 'components/Reports/Table/TableOptions';
+
 import { SortData, SortDataSubMenu } from 'components/Reports/Table/TableUtils';
+
+import {
+  BoxPadding,
+  ChartBox,
+} from 'components/Reports/Table/ReportsTable.styled';
+
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
-
-const BoxPadding = styled.div`
-  padding-top: 35px;
-  padding-bottom: 52px;
-  @media screen and (min-width: 768px) {
-    padding: 30px 0 80px 0;
-  }
-  @media screen and (min-width: 1280px) {
-    padding: 30px 0 85px 0;
-  }
-`;
-const ChartBox = styled.div`
-  position: relative;
-  background-color: #fff;
-  @media screen and (min-width: 768px) {
-    border-radius: 30px;
-    height: 422px;
-    padding: 20px 30px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-  }
-  @media screen and (min-width: 1280px) {
-    padding: 20px 130px;
-  }
-`;
 
 export const ReportsTable = ({ onChange }) => {
   const [chartData, setChartData] = useState({
@@ -50,6 +37,7 @@ export const ReportsTable = ({ onChange }) => {
   const [currentChart, setCurrentChart] = useState('income');
 
   const { reports } = useSelector(selectReports);
+  const reportsData = useSelector(selectReportsData);
 
   let dataSubMenu = useSelector(selectDataChart);
   const divRef = useRef();
@@ -57,6 +45,7 @@ export const ReportsTable = ({ onChange }) => {
   const div2Ref = useRef();
   const reportsQuery = useSelector(selectReportsQuery);
   //console.log('datasubmenu', dataSubMenu);
+
   useEffect(() => {
     const resizeHandler = e => {
       setInnerWidth(getComputedStyle(div2Ref?.current).width);
