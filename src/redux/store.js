@@ -26,7 +26,7 @@ const authPersistConfig = {
 const transactionsPersistConfig = {
   key: 'transactions',
   storage,
-  whitelist: ['balance'],
+  whitelist: [],
 };
 
 export const store = configureStore({

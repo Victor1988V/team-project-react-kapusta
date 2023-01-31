@@ -4,8 +4,10 @@ import * as transactionsAPI from 'services/transactionsAPI';
 const initialState = {
   transactions: [],
   incomes: [],
+  incomeTotal: 0,
   incomesStats: {},
   expenses: [],
+  expenseTotal: 0,
   expensesStats: {},
   incomeCategories: [],
   expenseCategories: [],
@@ -97,7 +99,9 @@ const transactionsSlice = createSlice({
         transactionsAPI.getTransactionsByDate.fulfilled,
         (state, action) => {
           state.incomes = action.payload.incomes;
-          state.expenses = action.payload.expense;
+          state.incomeTotal = action.payload.incomes.incomeTotal;
+          state.expenses = action.payload.expenses;
+          state.expenseTotal = action.payload.expenses.expenseTotal;
         }
       )
       .addCase(transactionsAPI.getTransactionsByDate.rejected, handleRejected)

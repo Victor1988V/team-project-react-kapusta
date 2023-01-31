@@ -15,7 +15,7 @@ import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 export const ReportsNav = () => {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-
+  //console.log('balance reports', balance);
   return (
     <PreBox>
       <ButtonBack to={backLinkHref}>

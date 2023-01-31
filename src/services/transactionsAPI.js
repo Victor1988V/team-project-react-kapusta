@@ -151,6 +151,7 @@ export const getTransactionsByDate = createAsyncThunk(
     token.set(state.auth.accessToken);
     try {
       const { data } = await axios.get('/transaction/period-data?date=' + date);
+      console.log(data);
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
@@ -182,6 +183,7 @@ export const updateBalance = createAsyncThunk(
   }
 );
 
+//===============УДАЛИТЬ НИЖНЕЕ=================
 export const getPeriodDataAPI = async date => {
   const { data } = await axios.get(`/transaction/period-data?date=${date}`);
   return data;

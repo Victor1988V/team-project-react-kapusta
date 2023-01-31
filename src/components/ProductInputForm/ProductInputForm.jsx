@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ProductCategoryList } from './ProductCategoryList/ProductCategoryList';
-import { OrangeButton } from './../Buttons/OrangeButton';
+import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import {
   ProductField,
   Form,
@@ -9,13 +10,15 @@ import {
   WrapperInput,
   StyledWhiteButton,
 } from './ProductInputForm.styled';
+
+import { ProductCategoryList } from './ProductCategoryList/ProductCategoryList';
+import { OrangeButton } from './../Buttons/OrangeButton';
 import { ProductCalculate } from './ProductCalculate/ProductCalculate';
-import DateSelection from './../DateSelection/DateSelection';
-import { useDispatch } from 'react-redux';
-import { useMatchMedia } from './../../hooks/useMatchMedia';
-import { addExpense, addIncome } from './../../services/transactionsAPI';
-import { useLocation } from 'react-router-dom';
-import { translateToRus } from './../../hooks/useCategory';
+import DateSelection from 'components/DateSelection/DateSelection';
+
+import { useMatchMedia } from 'hooks/useMatchMedia';
+import { translateToRus } from 'hooks/useCategory';
+import { addExpense, addIncome } from 'services/transactionsAPI';
 
 export const ProductInputForm = () => {
   const dispatch = useDispatch();
