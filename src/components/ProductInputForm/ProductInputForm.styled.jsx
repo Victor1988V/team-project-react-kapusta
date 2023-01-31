@@ -3,7 +3,11 @@ export const FormThumb = styled.div`
   display: flex;
   justify-content: center;
   @media screen and (min-width: 768px) {
-    align-items: flex-start;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 1280px) {
+    align-items: center;
     justify-content: space-between;
   }
 `;
