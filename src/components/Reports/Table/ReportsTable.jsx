@@ -56,7 +56,7 @@ export const ReportsTable = ({ onChange }) => {
   const ref = useRef(null);
   const div2Ref = useRef();
   const reportsQuery = useSelector(selectReportsQuery);
-  console.log('datasubmenu', dataSubMenu);
+  //console.log('datasubmenu', dataSubMenu);
   useEffect(() => {
     const resizeHandler = e => {
       setInnerWidth(getComputedStyle(div2Ref?.current).width);

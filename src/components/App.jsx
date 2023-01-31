@@ -50,39 +50,37 @@ export const App = () => {
   return (
     !isFetchingUser && (
       <>
-        <BrowserRouter basename="kapusta">
-          {/* <ToastContainer /> */}
+        {/* <BrowserRouter basename="kapusta"> */}
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<SharedLayouts />}>
-              <Route path="/" element={<PrivateRoute />}>
-                <Route index element={<Navigate to="/home" />} />
-                {!isMobile && (
-                  <>
-                    <Route path="/home" element={<HomePage />}>
-                      <Route index element={<Navigate to="/home/expenses" />} />
-                      <Route path="income" element={<IncomePage />} />
-                      <Route path="expenses" element={<ExpensesPage />} />
-                    </Route>
-                  </>
-                )}
-                {isMobile && (
-                  <>
-                    <Route path="/home" element={<HomePage />} />
-                    <Route path="/income" element={<IncomePage />} />
-                    <Route path="/expenses" element={<ExpensesPage />} />
-                    <Route path="*" element={<Navigate to="/home" />} />
-                  </>
-                )}
-                <Route path="/reports" element={<ReportsPage />} />
-              </Route>
-              <Route path="/" element={<PublicRoute />}>
-                <Route path="/login" element={<LogInPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="*" element={<Navigate to="/login" />} />
-              </Route>
-
-              <Route path="*" element={<ThereIsNoSuchPage />} />
+              <Route index element={<Navigate to="/home" />} />
+              {!isMobile && (
+                <>
+                  <Route path="/home" element={<HomePage />}>
+                    <Route index element={<Navigate to="/home/expenses" />} />
+                    <Route path="income" element={<IncomePage />} />
+                    <Route path="expenses" element={<ExpensesPage />} />
+                  </Route>
+                </>
+              )}
+              {isMobile && (
+                <>
+                  <Route path="/home" element={<HomePage />} />
+                  <Route path="/income" element={<IncomePage />} />
+                  <Route path="/expenses" element={<ExpensesPage />} />
+                  <Route path="*" element={<Navigate to="/home" />} />
+                </>
+              )}
+              <Route path="/reports" element={<ReportsPage />} />
             </Route>
+            <Route path="/" element={<PublicRoute />}>
+              <Route path="/login" element={<LogInPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="*" element={<Navigate to="/login" />} />
+            </Route>
+
+            <Route path="*" element={<ThereIsNoSuchPage />} />
           </Routes>
         </BrowserRouter>
         {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
