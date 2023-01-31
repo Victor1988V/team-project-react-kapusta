@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Box = styled.div`
+export const Wrapper = styled.div`
   padding-top: 16px;
   text-align: center;
   position: relative;
