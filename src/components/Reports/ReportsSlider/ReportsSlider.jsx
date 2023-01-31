@@ -6,11 +6,11 @@ import { monthNames, getMonth, getYear } from './ReportsSliderData';
 import {
   reportsQueryAction,
   filteredDataAction,
-} from '../../../redux/reportsQuery/reportsQuerySlice';
+} from 'redux/reportsQuery/reportsQuerySlice';
 import ReportsCalendar from 'components/Reports/ReportsCalendar/ReportsCalendar';
 import ButtonsPrev from 'components/Reports/ButtonPrev/ButtonPrev';
 
-import { getTransactionsByDate } from '../../../services/transactionsAPI';
+import { getTransactionsByDate } from 'services/transactionsAPI';
 
 const ReportsSlider = () => {
   const [monthNumber, setMonthNumber] = useState(0);

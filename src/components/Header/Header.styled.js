@@ -4,9 +4,9 @@ export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 32px;
+  padding: 12px 20px;
 
   @media screen and (min-width: 768px) {
-    padding: 12px 16px;
+    padding: 12px 32px;
   }
 `;

@@ -1,9 +1,12 @@
-import { TransactionTable } from './TransactionsTable.styled';
 import { useDispatch } from 'react-redux';
+import { translateToEng } from 'hooks/useCategory';
+
+import { TransactionTable } from './TransactionsTable.styled';
+
 // import { selectIsLoading } from 'redux/selectors';
 import { deleteTransaction } from '../../services/transactionsAPI';
 import { ReactComponent as DeleteIcon } from '../../images/deleteIcon.svg';
-import { translateToEng } from 'hooks/useCategory';
+
 export const TransactionsTable = ({ children }) => {
   const dispatch = useDispatch();
   // const isLoading = useSelector(selectIsLoading);
@@ -12,6 +15,7 @@ export const TransactionsTable = ({ children }) => {
   if (color === 'green') {
     minus = false;
   }
+
   const handleDelete = event => {
     dispatch(deleteTransaction(event.currentTarget.id));
   };
@@ -37,7 +41,7 @@ export const TransactionsTable = ({ children }) => {
         </tr>
       </thead>
       <tbody>
-        {sortedTransactions.slice(0, 20).map(el => {
+        {sortedTransactions.slice(0).map(el => {
           const { _id, description, amount, date, category } = el;
           return (
             <tr key={_id} style={{ height: 40 }}>
