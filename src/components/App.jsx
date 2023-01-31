@@ -50,10 +50,15 @@ export const App = () => {
   return (
     !isFetchingUser && (
       <>
-        <BrowserRouter basename="kapusta">
-          {/* <ToastContainer /> */}
+        <BrowserRouter>
+          {/* <BrowserRouter> */}
           <Routes>
             <Route path="/" element={<SharedLayouts />}>
+              <Route path="/" element={<PublicRoute />}>
+                <Route path="/login" element={<LogInPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="*" element={<Navigate to="/login" />} />
+              </Route>
               <Route path="/" element={<PrivateRoute />}>
                 <Route index element={<Navigate to="/home" />} />
                 {!isMobile && (
@@ -74,11 +79,6 @@ export const App = () => {
                   </>
                 )}
                 <Route path="/reports" element={<ReportsPage />} />
-              </Route>
-              <Route path="/" element={<PublicRoute />}>
-                <Route path="/login" element={<LogInPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="*" element={<Navigate to="/login" />} />
               </Route>
 
               <Route path="*" element={<ThereIsNoSuchPage />} />

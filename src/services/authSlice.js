@@ -29,6 +29,9 @@ const authSlice = createSlice({
     setAccessToken: (state, action) => {
       state.accessToken = action.payload;
     },
+    setBalance: (state, action) => {
+      state.balance = action.payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -84,4 +87,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { setAccessToken } = authSlice.actions;
+export const { setAccessToken, setBalance } = authSlice.actions;
