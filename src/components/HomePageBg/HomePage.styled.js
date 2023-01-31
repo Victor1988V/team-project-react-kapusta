@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HomePageBgStyle = styled.form`
+export const HomePageBgStyle = styled.div`
   position: absolute;
   z-index: -1;
   top: 56px;

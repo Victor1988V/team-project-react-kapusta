@@ -4,8 +4,21 @@ import { StyledOrangeButton } from 'components/Buttons/Buttons.styled';
 
 import { ReactComponent as GoogleLogo } from 'images/googleLogo.svg';
 
+export const FormWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 117px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+`;
+
 export const AuthWrapper = styled.div`
-  margin: 0 auto;
+  ${'' /* margin: 0 auto; */}
   align-items: center;
 
   width: 280px;
@@ -18,6 +31,9 @@ export const AuthWrapper = styled.div`
   @media screen and (min-width: 768px) {
     width: 426px;
     padding: 56px 84px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 91px;
   }
 `;
 
@@ -212,5 +228,55 @@ export const RegisterLink = styled(NavLink)`
 
   @media screen and (min-width: 768px) {
     width: 122px;
+  }
+`;
+
+export const TextWrapper = styled.div`
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 86px;
+  margin-bottom: 50px;
+  padding-right: 80px;
+  @media screen and (min-width: 768px) {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin: 0px;
+    padding-right: 115px;
+  }
+`;
+
+export const ImageKapusta = styled.img`
+  width: 183px;
+  height: 47px;
+  margin-bottom: 5px;
+  z-index: 2;
+  @media screen and (min-width: 768px) {
+    width: 307px;
+    height: 78px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 377px;
+    height: 120px;
+  }
+`;
+
+export const TextSmartFin = styled.p`
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.15;
+  letter-spacing: 0.15em;
+  z-index: 2;
+  color: #52555f;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.18;
+    letter-spacing: 0.18em;
   }
 `;
