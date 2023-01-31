@@ -1,8 +1,6 @@
-import { Wrapper, Text } from './ReportsSlider.styled';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { monthNames, getMonth, getYear } from './ReportsSliderData';
+
 import {
   reportsQueryAction,
   filteredDataAction,
@@ -10,8 +8,11 @@ import {
 
 //import ReportsCalendar from 'components/Reports/ReportsCalendar/ReportsCalendar';
 import ButtonsPrev from 'components/Reports/ButtonPrev/ButtonPrev';
+import { monthNames, getMonth, getYear } from './ReportsSliderData';
 
 import { getTransactionsByDate } from 'services/transactionsAPI';
+
+import { Wrapper, Text } from './ReportsSlider.styled';
 
 const ReportsSlider = () => {
   const [monthNumber, setMonthNumber] = useState(0);
