@@ -1,6 +1,6 @@
 import { Table, Row, Month, TableTop, Value } from './Summary.styled';
 import monthNameTranslate from './SummaryMonthTranslate';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
   selectIsLoading,
