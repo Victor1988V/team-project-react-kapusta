@@ -73,7 +73,7 @@ export const App = () => {
                     <Route path="*" element={<Navigate to="/home" />} />
                   </>
                 )}
-                <Route path="/reports" element={<ReportsPage />} />
+                <Route path="reports" element={<ReportsPage />} />
               </Route>
               <Route path="/" element={<PublicRoute />}>
                 <Route path="/login" element={<LogInPage />} />
