@@ -6,7 +6,7 @@ import { monthNames, getMonth, getYear } from './ReportsSliderData';
 import {
   reportsQueryAction,
   filteredDataAction,
-} from '../../../redux/reportsQuery/reportsQuery.slice';
+} from '../../../redux/reportsQuery/reportsQuerySlice';
 import ReportsCalendar from 'components/Reports/ReportsCalendar/ReportsCalendar';
 import ButtonsPrev from 'components/Reports/ButtonPrev/ButtonPrev';
 

@@ -88,7 +88,6 @@ export const ProductInputForm = () => {
   const clearForm = event => {
     event.preventDefault();
     ref.current.reset();
-    console.log('click');
   };
 
   return (
@@ -114,7 +113,7 @@ export const ProductInputForm = () => {
         <ThumbButton>
           <OrangeButton type="submit">INPUT</OrangeButton>
           <StyledWhiteButton type="button" onClick={clearForm}>
-            CLEAR
+            Clear
           </StyledWhiteButton>
         </ThumbButton>
       </Form>

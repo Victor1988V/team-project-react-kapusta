@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { translateToEng } from 'hooks/useCategory';
 
-import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
+import { filteredDataAction } from 'redux/reportsQuery/reportsQuerySlice';
 import { selectReportsData } from 'redux/selectors';
 
 import { List, Item, ItemIncome, ItemSvg, BgcSvg } from './ReportsList.styled';
@@ -55,7 +55,6 @@ export const ReportsList = ({ onChange }) => {
       <List className={onChange === 'income' ? 'incomeList' : ''}>
         {entries.map(item => {
           const iconName = item[0].replace(/\s+/g, '');
-          console.log(iconName);
           valueArr.push(item);
           if (onChange === 'expenses') {
             return (

@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import {
   selectDataChart,
   selectReportsQuery,
-  selectReports,
   selectReportsData,
 } from 'redux/selectors';
 
@@ -36,7 +35,6 @@ export const ReportsTable = ({ onChange }) => {
   const [innerWidth, setInnerWidth] = useState('');
   const [currentChart, setCurrentChart] = useState('income');
 
-  const { reports } = useSelector(selectReports);
   const reportsData = useSelector(selectReportsData);
 
   let dataSubMenu = useSelector(selectDataChart);
@@ -44,7 +42,6 @@ export const ReportsTable = ({ onChange }) => {
   const ref = useRef(null);
   const div2Ref = useRef();
   const reportsQuery = useSelector(selectReportsQuery);
-  //console.log('datasubmenu', dataSubMenu);
 
   useEffect(() => {
     const resizeHandler = e => {
@@ -78,12 +75,12 @@ export const ReportsTable = ({ onChange }) => {
 
   useEffect(() => {
     if (
-      (currentChart !== onChange && reports !== []) ||
-      !reports ||
-      reports !== []
+      (currentChart !== onChange && reportsData !== []) ||
+      !reportsData ||
+      reportsData !== []
     ) {
       if (onChange === 'expenses') {
-        const data = reports?.expenses?.expensesData;
+        const data = reportsData?.expenses?.expensesData;
         if (data && indexAxis !== '') {
           const info = SortData(data);
           setChartData(ChartDataDesktop(info.x, info.y, indexAxis));
@@ -92,7 +89,7 @@ export const ReportsTable = ({ onChange }) => {
           setCheck(false);
         }
       } else if (onChange === 'income') {
-        const data = reports?.incomes?.incomesData;
+        const data = reportsData?.incomes?.incomesData;
         if (data) {
           const info = SortData(data);
           setChartData(ChartDataDesktop(info.x, info.y, indexAxis));
@@ -105,11 +102,11 @@ export const ReportsTable = ({ onChange }) => {
     return;
   }, [
     onChange,
-    reports?.expenses?.expensesData,
-    reports?.incomes?.incomesData,
+    reportsData?.expenses?.expensesData,
+    reportsData?.incomes?.incomesData,
     dataSubMenu,
     indexAxis,
-    reports,
+    reportsData,
     currentChart,
     reportsQuery,
   ]);

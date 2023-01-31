@@ -39,7 +39,6 @@ export const selectExpenseCategories = store =>
 export const selectBalance = store => store.transactions.balance;
 
 //=================
-export const selectReports = store => store.reports;
 
 export const selectDataChart = store => store.reportsQuery.filteredDate;
 
