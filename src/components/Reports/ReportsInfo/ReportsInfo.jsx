@@ -30,8 +30,8 @@ export const ReportsInfo = () => {
     }
     setBudget('expenses');
     dispatch(filteredDataAction([]));
-    console.log('INFOrepotrs', reports);
-    console.log('INFObudget', budget);
+    // console.log('INFOrepotrs', reports);
+    // console.log('INFObudget', budget);
   };
   return (
     <div>

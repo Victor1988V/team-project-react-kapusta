@@ -7,22 +7,26 @@ import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
 import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
 
 import { ChangeBalanceForm } from './ChangeBalance.styled';
+import { selectBalance } from 'redux/selectors';
 
 const ChangeBalance = () => {
-  const stateBalance = useSelector(state => state.transactions.balance);
+  // console.log(stateBalance);
 
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
+  const stateBalance = useSelector(selectBalance);
   let newBalance;
   const form = useRef();
 
   const handleSubmit = evt => {
     evt.preventDefault();
     newBalance = evt.target.balance.value;
+    console.log(newBalance);
   };
 
   const handleClick = () => {
     dispatch(updateBalance(newBalance));
+    console.log(stateBalance);
     form.current.reset();
   };
 
@@ -34,6 +38,7 @@ const ChangeBalance = () => {
     setModalOpen(false);
   };
 
+  console.log(newBalance);
   return (
     <>
       <ChangeBalanceForm onSubmit={handleSubmit} ref={form}>

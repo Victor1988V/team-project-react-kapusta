@@ -18,7 +18,7 @@ export const ReportsNav = () => {
   const balance = useSelector(selectBalance);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-  console.log('balance reports', balance);
+  // console.log('balance reports', balance);
   return (
     <PreBox>
       <ButtonBack to={backLinkHref}>

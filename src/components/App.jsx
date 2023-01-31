@@ -50,7 +50,7 @@ export const App = () => {
   return (
     !isFetchingUser && (
       <>
-        <BrowserRouter basename="kapusta">
+        <BrowserRouter>
           {/* <ToastContainer /> */}
           <Routes>
             <Route path="/" element={<SharedLayouts />}>
