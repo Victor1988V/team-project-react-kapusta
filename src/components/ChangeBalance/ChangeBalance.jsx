@@ -16,6 +16,8 @@ const ChangeBalance = () => {
   const totalBalance = useSelector(selectBalanceAuth);
   const [newBalance, setNewBalance] = useState(0);
 
+  console.log('selectBalance', stateBalance);
+
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const form = useRef();
