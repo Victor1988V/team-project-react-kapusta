@@ -3,15 +3,15 @@ import { Outlet, useLocation } from 'react-router-dom';
 
 import { useMatchMedia } from 'hooks/useMatchMedia';
 
-import HomePageBg from 'components/HomePageBg/HomePageBg';
+// import HomePageBg from 'components/HomePageBg/HomePageBg';
 import ReportsBtn from 'components/Buttons/ReportsBtn/ReportsBtn';
 import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 import DateSelection from 'components/DateSelection/DateSelection';
 import { NavigateTransMob, NavigateTransDesk } from 'components/Transactions/NavigateTrans';
 import { TransactionsList } from 'components/Transactions/TransactionsList';
 
-import kapusta from 'images/kapustaTab.svg';
-import kapustaDesktop from 'images/kapustaDesk.svg';
+// import kapusta from 'images/kapustaTab.svg';
+// import kapustaDesktop from 'images/kapustaDesk.svg';
 
 import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
 
@@ -22,7 +22,7 @@ export function HomePage() {
 
   return (
     <>
-      <HomePageBg />
+      {/* <HomePageBg /> */}
       <StyledHomePage>
         <div className="flexWrapper">
           {isMobile && <ReportsBtn to="/reports" state={{ from: location }} />}
@@ -38,10 +38,10 @@ export function HomePage() {
         {!isMobile && <NavigateTransDesk />}
         {!isMobile && <Outlet />}
         {isMobile && <TransactionsList />}
-        {isTablet && <KapustaTab src={kapusta} width="183" height="146" />}
-        {isDesktop && (
+        {/* {isTablet && <KapustaTab src={kapusta} width="183" height="146" />} */}
+        {/* {isDesktop && (
           <KapustaDesk src={kapustaDesktop} width="1334" height="232" />
-        )}
+        )} */}
       </StyledHomePage>
     </>
   );
