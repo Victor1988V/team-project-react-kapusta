@@ -11,6 +11,8 @@ import { ChangeBalanceForm } from './ChangeBalance.styled';
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.balance);
 
+  console.log('selectBalance', stateBalance);
+
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   let newBalance;
