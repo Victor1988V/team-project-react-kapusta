@@ -57,7 +57,7 @@ export const App = () => {
               <Route path="/" element={<PublicRoute />}>
                 <Route path="/login" element={<LogInPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                {/* <Route path="*" element={<ThereIsNoSuchPage />} /> */}
+                {/* <Route path="*" element={<Navigate to="/login" />} /> */}
               </Route>
               <Route path="/" element={<PrivateRoute />}>
                 <Route index element={<Navigate to="/home" />} />
