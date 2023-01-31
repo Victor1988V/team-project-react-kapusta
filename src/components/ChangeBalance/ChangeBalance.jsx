@@ -3,20 +3,23 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { updateBalance } from 'services/transactionsAPI';
 import { getAllUserInfo } from 'services/authAPI';
-import { selectIsLoggedIn, selectBalanceAuth } from 'redux/selectors';
+import {
+  selectIsLoggedIn,
+  selectBalanceAuth,
+  selectBalance,
+} from 'redux/selectors';
 
-import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
-import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
+import LightModalWindow from 'components/ModalWindow/LightModalWindow/LightModalWindow';
+import DarkModalWindow from 'components/ModalWindow/DarkModalWindow/DarkModalWindow';
 
-import { ChangeBalanceForm } from './ChangeBalance.styled';
+import { ChangeBalanceForm } from 'components/ChangeBalance/ChangeBalance.styled';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.balance);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const totalBalance = useSelector(selectBalanceAuth);
+  const transactionBalance = useSelector(selectBalance);
   const [newBalance, setNewBalance] = useState(0);
-
-  console.log('selectBalance', stateBalance);
 
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
@@ -43,6 +46,12 @@ const ChangeBalance = () => {
   const handleModalClose = () => {
     setModalOpen(false);
   };
+
+  useEffect(() => {
+    if (transactionBalance) {
+      setNewBalance(transactionBalance);
+    }
+  }, [transactionBalance]);
 
   useEffect(() => {
     if (isLoggedIn) {
