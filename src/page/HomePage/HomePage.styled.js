@@ -29,13 +29,15 @@ export const StyledHomePage = styled.div`
 `;
 
 export const KapustaTab = styled(HandySvg)`
-  margin-left: 497px;
-  margin-top: -160px;
+  position: absolute;
+  z-index: -1;
+  right: 88px;
+  bottom: 0px;
 `;
 
 export const KapustaDesk = styled(HandySvg)`
   position: absolute;
   bottom: 30px;
-  left: 0px;
+  left: 25px;
   z-index: -1;
 `;
