@@ -1,29 +1,34 @@
 import { useState } from 'react';
 import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
-import { selectReports } from 'redux/selectors';
+
+import { translateToEng } from 'hooks/useCategory';
+
+import { filteredDataAction } from 'redux/reportsQuery/reportsQuerySlice';
+import { selectReportsData } from 'redux/selectors';
+
 import { List, Item, ItemIncome, ItemSvg, BgcSvg } from './ReportsList.styled';
+
 import reportsIcon from 'images/reportsFiles/reports.svg';
 import BgcIcon from 'images/reportsFiles/bgcForSvg.svg';
 import OrangeBgc from 'images/orangeBgc.svg';
-import { translateToEng } from 'hooks/useCategory';
 
 export const ReportsList = ({ onChange }) => {
-  const [active, setActive] = useState('');
-  const { reports } = useSelector(selectReports);
-  const [data, setData] = useState({});
   const dispatch = useDispatch();
+  const [data, setData] = useState({});
+  const [active, setActive] = useState('');
+  const reportsData = useSelector(selectReportsData);
+
   const valueArr = [];
-  //console.log('LISTrepotrs', reports);
+
   const expensesData = useMemo(
-    () => reports?.expenses?.expensesData ?? {},
-    [reports]
+    () => reportsData?.expenses?.expensesData ?? {},
+    [reportsData]
   );
-  //console.log('LISTexpensesData', expensesData);
+
   const incomesData = useMemo(
-    () => reports?.incomes?.incomesData ?? {},
-    [reports]
+    () => reportsData?.incomes?.incomesData ?? {},
+    [reportsData]
   );
 
   useEffect(() => {
@@ -71,7 +76,7 @@ export const ReportsList = ({ onChange }) => {
                   />
                   <use href={`${reportsIcon}#${iconName}`}></use>
                 </ItemSvg>
-                <p>{translateToEng(item[0])}</p>
+                <p>{translateToEng(item[0]).toUpperCase()}</p>
               </Item>
             );
           } else if (onChange === 'income') {
@@ -98,7 +103,7 @@ export const ReportsList = ({ onChange }) => {
                   />
                   <use href={`${reportsIcon}#${iconName}`}></use>
                 </ItemSvg>
-                <p>{translateToEng(item[0])}</p>
+                <p>{translateToEng(item[0]).toUpperCase()}</p>
               </ItemIncome>
             );
           }
