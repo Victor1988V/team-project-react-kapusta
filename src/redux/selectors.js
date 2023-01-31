@@ -24,10 +24,22 @@ export const selectExpenseCategories = store =>
 
 export const selectBalance = store => store.transactions.balance;
 
-export const selectReports = store => store.reports.reports;
+export const selectReports = store => store.reports;
 
 export const selectIsLoading = store => store.transactions.isLoading;
 
-export const selectDataChart = store => store.reportsQuery.filteredData;
+export const selectDataChart = store => store.reportsQuery.filteredDate;
 
 export const selectReportsQuery = store => store.reportsQuery.reportsQuery;
+
+export const selectIncomeTotal = store =>
+  store.reports.reports.incomes.incomeData.Total;
+
+export const selectExpensesTotal = store =>
+  store.reports.reports.expenses.expenseTotal;
+export const selectIsFetchingCurrentUser = store =>
+  store.auth.isFetchingCurrentUser;
+
+export const selectIncomeSummary = store => store.transactions.incomesStats;
+
+export const selectExpensesSummary = store => store.transactions.expensesStats;

@@ -30,17 +30,23 @@ export const ReportsInfo = () => {
     }
     setBudget('expenses');
     dispatch(filteredDataAction([]));
+    console.log('INFOrepotrs', reports);
+    console.log('INFObudget', budget);
   };
   return (
     <div>
       <List>
         <Item>
           <ItemText>Expenses:</ItemText>
-          <ItemExpenses>{reports?.expenses?.expenseTotal ?? 0}.00</ItemExpenses>
+          <ItemExpenses>
+            {reports?.reports?.expenses?.expenseTotal ?? 0}.00
+          </ItemExpenses>
         </Item>
         <Item>
           <ItemText>Income:</ItemText>
-          <ItemIncome>{reports?.incomes?.incomeTotal ?? 0}.00</ItemIncome>
+          <ItemIncome>
+            {reports?.reports?.incomes?.incomeData?.Total ?? 0}.00
+          </ItemIncome>
         </Item>
       </List>
 
