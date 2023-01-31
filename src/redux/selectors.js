@@ -12,6 +12,8 @@ export const selectUserEmail = store => store.auth.userEmail;
 
 export const selectIsLoggedIn = store => store.auth.isLoggedIn;
 
+export const selectBalanceAuth = store => store.auth.balance;
+
 //===== TRANSACTIONS =====
 
 export const selectIsLoading = store => store.transactions.isLoading;

@@ -1,7 +1,9 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { updateBalance } from 'services/transactionsAPI';
+import { getAllUserInfo } from 'services/authAPI';
+import { selectIsLoggedIn, selectBalanceAuth } from 'redux/selectors';
 
 import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
 import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
@@ -10,15 +12,21 @@ import { ChangeBalanceForm } from './ChangeBalance.styled';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.balance);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const totalBalance = useSelector(selectBalanceAuth);
+  const [newBalance, setNewBalance] = useState(0);
 
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
-  let newBalance;
   const form = useRef();
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    newBalance = evt.target.balance.value;
+  const handleSubmit = event => {
+    event.preventDefault();
+    setNewBalance(event.target.balance.value);
+  };
+
+  const handleChange = event => {
+    setNewBalance(event.target.value);
   };
 
   const handleClick = () => {
@@ -34,17 +42,25 @@ const ChangeBalance = () => {
     setModalOpen(false);
   };
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(getAllUserInfo());
+      setNewBalance(totalBalance);
+    }
+  }, [dispatch, isLoggedIn, totalBalance]);
+
   return (
     <>
       <ChangeBalanceForm onSubmit={handleSubmit} ref={form}>
         <h2 className="title">Balance:</h2>
         <input
+          onChange={handleChange}
           className="inputTag"
           type="number"
           name="balance"
           title="Please, enter your balance"
           pattern="[0-9, .UAH]*"
-          placeholder={`${stateBalance}.00 UAH`}
+          placeholder={`${newBalance}.00 UAH`}
           required
         />
         <button type="submit" className="btn" onClick={handleModalOpen}>
