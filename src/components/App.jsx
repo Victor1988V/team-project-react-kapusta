@@ -50,8 +50,8 @@ export const App = () => {
   return (
     !isFetchingUser && (
       <>
-        {/* <BrowserRouter basename="kapusta"> */}
-        <BrowserRouter>
+        <BrowserRouter basename="kapusta">
+          {/* <BrowserRouter> */}
           <Routes>
             <Route path="/" element={<SharedLayouts />}>
               <Route index element={<Navigate to="/home" />} />
