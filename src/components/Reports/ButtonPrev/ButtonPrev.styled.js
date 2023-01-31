@@ -9,7 +9,7 @@ margin-top: 5px;
 export const Button = styled.button`
   background-color: transparent;
   border: transparent;
-  padding: 0%;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,4 @@
-import { Box, Text } from './ReportsSlider.styled';
+import { Wrapper, Text } from './ReportsSlider.styled';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -7,16 +7,13 @@ import {
   reportsQueryAction,
   filteredDataAction,
 } from '../../../redux/reportsQuery/reportsQuerySlice';
-import ReportsCalendar from 'components/Reports/ReportsCalendar/ReportsCalendar';
 import ButtonsPrev from 'components/Reports/ButtonPrev/ButtonPrev';
-
 import { getTransactionsByDate } from '../../../services/transactionsAPI';
 
 const ReportsSlider = () => {
   const [monthNumber, setMonthNumber] = useState(0);
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
-  const [modalCalendar, setModalCalendar] = useState(false);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -62,41 +59,15 @@ const ReportsSlider = () => {
     }
   };
 
-  const handleModalCalendar = () => {
-    setModalCalendar(modalCalendar => !modalCalendar);
-  };
-
-  const handleCalendar = name => {
-    switch (name) {
-      case 'decrement':
-        setYear(year - 1);
-        break;
-      case 'increment':
-        setYear(year + 1);
-        break;
-      default:
-        setMonthNumber(name);
-        return;
-    }
-  };
-
   return (
-    <Box>
+    <Wrapper>
       <p>Current period:</p>
       <ButtonsPrev onButtonClick={handlerClick}>
-        <Text onClick={handleModalCalendar}>
+        <Text>
           {month} {year}
         </Text>
       </ButtonsPrev>
-      {modalCalendar && (
-        <ReportsCalendar
-          currentYear={year}
-          currentMonth={month}
-          onChangeDate={handleCalendar}
-          onClose={handleModalCalendar}
-        />
-      )}
-    </Box>
+    </Wrapper>
   );
 };
 
