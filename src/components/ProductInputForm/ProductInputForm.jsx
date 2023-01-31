@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import { Notify } from 'notiflix';
+
 import {
   ProductField,
   Form,
@@ -60,15 +62,24 @@ export const ProductInputForm = () => {
     let transValue = sum.value;
 
     if (desc.value.trim() === '') {
-      window.alert('Please enter a description');
+      Notify.warning('Please enter a description', {
+        fontSize: '16px',
+        width: '350px',
+      });
       return;
     }
     if (elementCategory === 'Category') {
-      window.alert('Please enter a category');
+      Notify.warning('Please enter a category', {
+        fontSize: '16px',
+        width: '350px',
+      });
       return;
     }
     if (transValue.trim() === '') {
-      window.alert('Please enter an amount');
+      Notify.warning('Please enter an amount', {
+        fontSize: '16px',
+        width: '350px',
+      });
       return;
     }
     if (transValue < 0) transValue = transValue * -1;
@@ -111,7 +122,7 @@ export const ProductInputForm = () => {
         </WrapperInput>
 
         <ThumbButton>
-          <OrangeButton type="submit">INPUT</OrangeButton>
+          <OrangeButton type="submit">Input</OrangeButton>
           <StyledWhiteButton type="button" onClick={clearForm}>
             Clear
           </StyledWhiteButton>
