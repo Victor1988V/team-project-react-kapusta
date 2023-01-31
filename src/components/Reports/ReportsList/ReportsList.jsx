@@ -15,12 +15,12 @@ export const ReportsList = ({ onChange }) => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
   const valueArr = [];
-  // console.log('LISTrepotrs', reports);
+  //console.log('LISTrepotrs', reports);
   const expensesData = useMemo(
     () => reports?.expenses?.expensesData ?? {},
     [reports]
   );
-  // console.log('LISTexpensesData', expensesData);
+  //console.log('LISTexpensesData', expensesData);
   const incomesData = useMemo(
     () => reports?.incomes?.incomesData ?? {},
     [reports]

@@ -1,32 +1,41 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { updateBalance } from 'services/transactionsAPI';
+import { getAllUserInfo } from 'services/authAPI';
+import {
+  selectIsLoggedIn,
+  selectBalanceAuth,
+  selectBalance,
+} from 'redux/selectors';
 
-import LightModalWindow from '../ModalWindow/LightModalWindow/LightModalWindow';
-import DarkModalWindow from '../ModalWindow/DarkModalWindow/DarkModalWindow';
+import LightModalWindow from 'components/ModalWindow/LightModalWindow/LightModalWindow';
+import DarkModalWindow from 'components/ModalWindow/DarkModalWindow/DarkModalWindow';
 
-import { ChangeBalanceForm } from './ChangeBalance.styled';
-import { selectBalance } from 'redux/selectors';
+import { ChangeBalanceForm } from 'components/ChangeBalance/ChangeBalance.styled';
 
 const ChangeBalance = () => {
-  // console.log(stateBalance);
+  //const stateBalance = useSelector(state => state.transactions.balance);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const totalBalance = useSelector(selectBalanceAuth);
+  const transactionBalance = useSelector(selectBalance);
+  const [newBalance, setNewBalance] = useState(0);
 
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
-  const stateBalance = useSelector(selectBalance);
-  let newBalance;
   const form = useRef();
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    newBalance = evt.target.balance.value;
-    console.log(newBalance);
+  const handleSubmit = event => {
+    event.preventDefault();
+    setNewBalance(event.target.balance.value);
+  };
+
+  const handleChange = event => {
+    setNewBalance(event.target.value);
   };
 
   const handleClick = () => {
     dispatch(updateBalance(newBalance));
-    console.log(stateBalance);
     form.current.reset();
   };
 
@@ -38,24 +47,37 @@ const ChangeBalance = () => {
     setModalOpen(false);
   };
 
-  console.log(newBalance);
+  useEffect(() => {
+    if (transactionBalance) {
+      setNewBalance(transactionBalance);
+    }
+  }, [transactionBalance]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(getAllUserInfo());
+      setNewBalance(totalBalance);
+    }
+  }, [dispatch, isLoggedIn, totalBalance]);
+
   return (
     <>
       <ChangeBalanceForm onSubmit={handleSubmit} ref={form}>
         <h2 className="title">Balance:</h2>
         <input
+          onChange={handleChange}
           className="inputTag"
           type="number"
           name="balance"
           title="Please, enter your balance"
           pattern="[0-9, .UAH]*"
-          placeholder={`${stateBalance}.00 UAH`}
+          placeholder={`${newBalance}.00 UAH`}
           required
         />
         <button type="submit" className="btn" onClick={handleModalOpen}>
           Confirm
         </button>
-        {!stateBalance && <DarkModalWindow />}
+        {!newBalance && <DarkModalWindow />}
       </ChangeBalanceForm>
       {modalOpen && (
         <LightModalWindow
@@ -63,7 +85,7 @@ const ChangeBalance = () => {
           closeModal={handleModalClose}
           dispatch={handleClick}
           text="SURE"
-          balance={stateBalance}
+          balance={newBalance}
         >
           Are you sure?
         </LightModalWindow>

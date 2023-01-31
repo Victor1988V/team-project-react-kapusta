@@ -14,11 +14,13 @@ import { useSelector } from 'react-redux';
 import { selectBalance } from 'redux/selectors';
 import { useLocation } from 'react-router';
 
+import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
+
 export const ReportsNav = () => {
   const balance = useSelector(selectBalance);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-  // console.log('balance reports', balance);
+  //console.log('balance reports', balance);
   return (
     <PreBox>
       <ButtonBack to={backLinkHref}>
@@ -29,11 +31,11 @@ export const ReportsNav = () => {
       </ButtonBack>
       <Box>
         <ReportsSlider />
-
         <Balance>
-          <BalanceText>Balance:</BalanceText>
+          <ChangeBalance />
+          {/* <BalanceText>Balance:</BalanceText>
           <BalanceAmounth>{balance ?? 0}.00 UAH</BalanceAmounth>
-          <ButtonConfirm type="button">Confirm</ButtonConfirm>
+          <ButtonConfirm type="button">Confirm</ButtonConfirm> */}
         </Balance>
       </Box>
     </PreBox>

@@ -1,6 +1,14 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectIncomeTotal, selectExpensesTotal } from 'redux/selectors';
+import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
+
 import { ReportsList } from 'components/Reports/ReportsList/ReportsList';
 // import { ReportsTable } from 'components/Reports/';
-import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
+import ButtonsNextPrev from 'components/Reports/ButtonPrev/ButtonPrev';
+import { ReportsTable } from 'components/Reports/Table/ReportsTable';
+
 import {
   List,
   Item,
@@ -10,17 +18,13 @@ import {
   Nav,
   NavText,
   Box,
-} from './ReportsInfo.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectReports } from 'redux/selectors';
-import { useState } from 'react';
-import ButtonsNextPrev from 'components/Reports/ButtonPrev/ButtonPrev';
-import { ReportsTable } from 'components/Reports/Table/ReportsTable';
+} from 'components/Reports/ReportsInfo/ReportsInfo.styled';
 
 export const ReportsInfo = () => {
-  const { reports } = useSelector(selectReports);
-  const [budget, setBudget] = useState('expenses');
   const dispatch = useDispatch();
+  const incomeTotal = useSelector(selectIncomeTotal);
+  const expensesTotal = useSelector(selectExpensesTotal);
+  const [budget, setBudget] = useState('expenses');
 
   const handleClick = () => {
     if (budget === 'expenses') {
@@ -30,23 +34,18 @@ export const ReportsInfo = () => {
     }
     setBudget('expenses');
     dispatch(filteredDataAction([]));
-    // console.log('INFOrepotrs', reports);
-    // console.log('INFObudget', budget);
   };
+
   return (
     <div>
       <List>
         <Item>
           <ItemText>Expenses:</ItemText>
-          <ItemExpenses>
-            {reports?.reports?.expenses?.expenseTotal ?? 0}.00
-          </ItemExpenses>
+          <ItemExpenses>{expensesTotal ?? 0}.00</ItemExpenses>
         </Item>
         <Item>
           <ItemText>Income:</ItemText>
-          <ItemIncome>
-            {reports?.reports?.incomes?.incomeData?.Total ?? 0}.00
-          </ItemIncome>
+          <ItemIncome>{incomeTotal ?? 0}.00</ItemIncome>
         </Item>
       </List>
 

@@ -1,22 +1,25 @@
-import { useState } from 'react';
-import { ProductCategoryList } from './ProductCategoryList/ProductCategoryList';
-import { OrangeButton } from './../Buttons/OrangeButton';
-import { WhiteButton } from './../Buttons/WhiteButton';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import {
   ProductField,
   Form,
   ThumbButton,
   FormThumb,
   WrapperInput,
+  StyledWhiteButton,
 } from './ProductInputForm.styled';
+
+import { ProductCategoryList } from './ProductCategoryList/ProductCategoryList';
+import { OrangeButton } from './../Buttons/OrangeButton';
 import { ProductCalculate } from './ProductCalculate/ProductCalculate';
-import DateSelection from './../DateSelection/DateSelection';
-import { useDispatch } from 'react-redux';
-import { useMatchMedia } from './../../hooks/useMatchMedia';
-import { addExpense, addIncome } from './../../services/transactionsAPI';
-import { useLocation } from 'react-router-dom';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { translateToRus } from './../../hooks/useCategory';
+import DateSelection from 'components/DateSelection/DateSelection';
+
+import { useMatchMedia } from 'hooks/useMatchMedia';
+import { translateToRus } from 'hooks/useCategory';
+import { addExpense, addIncome } from 'services/transactionsAPI';
+
 export const ProductInputForm = () => {
   const dispatch = useDispatch();
   const { isMobile } = useMatchMedia();
@@ -25,6 +28,7 @@ export const ProductInputForm = () => {
   const location = useLocation();
   let categoryArray;
   let functionToDispatch;
+  const ref = React.useRef();
 
   if (location.pathname === '/home/income' || location.pathname === '/income') {
     categoryArray = ['Salary', 'Additional income'];
@@ -81,12 +85,18 @@ export const ProductInputForm = () => {
     setElementCategory('Category');
   };
 
+  const clearForm = event => {
+    event.preventDefault();
+    ref.current.reset();
+    console.log('click');
+  };
+
   return (
     <FormThumb>
       {!isMobile && (
         <DateSelection startDate={startDate} setStartDate={setStartDate} />
       )}
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} ref={ref}>
         <WrapperInput>
           <ProductField
             type="text"
@@ -103,7 +113,9 @@ export const ProductInputForm = () => {
 
         <ThumbButton>
           <OrangeButton type="submit">INPUT</OrangeButton>
-          <WhiteButton type="button">CLEAR</WhiteButton>
+          <StyledWhiteButton type="button" onClick={clearForm}>
+            CLEAR
+          </StyledWhiteButton>
         </ThumbButton>
       </Form>
     </FormThumb>
