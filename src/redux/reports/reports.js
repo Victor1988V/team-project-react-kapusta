@@ -1,10 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getTransactionsByDate } from 'services/transactionsAPI';
+import { getReports } from './../../services/transactionsAPI';
 
 const initialState = {
   reports: [],
   isLoading: false,
   error: null,
+};
+export const handlePending = state => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
 };
 
 export const reportsSlice = createSlice({
@@ -12,17 +21,12 @@ export const reportsSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(getTransactionsByDate.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(getTransactionsByDate.fulfilled, (state, { payload }) => {
-        state.reports = payload;
+      .addCase(getReports.pending, handlePending)
+      .addCase(getReports.fulfilled, (state, action) => {
+        state.reports = action.payload;
         state.isLoading = false;
       })
-      .addCase(getTransactionsByDate.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      });
+      .addCase(getReports.rejected, handleRejected);
   },
 });
 

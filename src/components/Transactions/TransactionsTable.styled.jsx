@@ -38,7 +38,7 @@ export const TransactionTable = styled.table`
     }
   }
   tbody {
-    width: 746px;
+    width: 624px;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -50,7 +50,11 @@ export const TransactionTable = styled.table`
     @media screen and (min-width: 768px) {
       min-height: 344px;
       max-height: 480px;
+      /* width: 746px; */
       height: auto;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 746px;
     }
     ::-webkit-scrollbar {
       width: 7px;

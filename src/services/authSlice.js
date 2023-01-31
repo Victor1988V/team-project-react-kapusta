@@ -10,6 +10,7 @@ const initialState = {
   isLoggedIn: false,
   balance: 0,
   transactions: [],
+  isFetchingCurrentUser: false,
 };
 
 const handlePending = state => {
@@ -57,14 +58,19 @@ const authSlice = createSlice({
       })
       .addCase(authApi.logOut.rejected, handleRejected)
 
-      .addCase(authApi.refreshToken.pending, handlePending)
+      .addCase(authApi.refreshToken.pending, (state, action) => {
+        state.isFetchingCurrentUser = true;
+      })
       .addCase(authApi.refreshToken.fulfilled, (state, action) => {
         state.accessToken = action.payload.newAccessToken;
         state.refreshToken = action.payload.newRefreshToken;
         state.sid = action.payload.newSid;
         state.isLoggedIn = true;
+        state.isFetchingCurrentUser = false;
       })
-      .addCase(authApi.refreshToken.rejected, handleRejected)
+      .addCase(authApi.refreshToken.rejected, (state, action) => {
+        state.isFetchingCurrentUser = false;
+      })
 
       .addCase(authApi.getAllUserInfo.pending, handlePending)
       .addCase(authApi.getAllUserInfo.fulfilled, (state, action) => {

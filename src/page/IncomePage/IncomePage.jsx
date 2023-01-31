@@ -18,6 +18,7 @@ import {
 import { getIncome } from 'services/transactionsAPI';
 
 import { BackButton } from './../../components/Buttons/BackButton';
+import Summary from './../../components/Summary/Summary';
 
 export const IncomePage = () => {
   const dispatch = useDispatch();
@@ -33,26 +34,23 @@ export const IncomePage = () => {
 
   return (
     <>
-      {isMobile ? (
+      {isMobile && (
         <>
           <StyledBg />
           <BackButton />
         </>
-      ) : (
-        <StyledFrame>
-          <ProductInputForm />
-          <StyledTableAndSummaryDiv>
-            <TransactionsTable>
-              {incomes}
-              {color}
-            </TransactionsTable>
-            {/* {isDesktop && <Summary />} */}
-          </StyledTableAndSummaryDiv>
-        </StyledFrame>
-        // {
-        //   isTablet && <Summary />;
-        // }
       )}
+      <StyledFrame>
+        <ProductInputForm />
+        <StyledTableAndSummaryDiv>
+          <TransactionsTable>
+            {incomes}
+            {color}
+          </TransactionsTable>
+          {isDesktop && <Summary />}
+        </StyledTableAndSummaryDiv>
+      </StyledFrame>
+      {isTablet && <Summary />}
     </>
   );
 };

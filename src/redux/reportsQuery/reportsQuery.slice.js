@@ -7,11 +7,11 @@ const reportsQuerySlice = createSlice({
     filteredDate: [],
   },
   reducers: {
-    reportsQueryAction(state, { payload }) {
-      state.reportsQuery = payload;
+    reportsQueryAction(state, action) {
+      state.reportsQuery = action.payload;
     },
-    filteredDataAction(state, { payload }) {
-      state.filteredDate = payload;
+    filteredDataAction(state, action) {
+      state.filteredDate = action.payload;
     },
   },
 });
