@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 0px 30px 30px 30px;
 
-  /* временно */
+
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -44,3 +44,8 @@ export const StyledTableAndSummaryDiv = styled.div`
   justify-content: space-between;
   margin-top: 60px;
 `;
+
+export const Wrap = styled.div`
+outline: 1px solid tomato;
+position: relative;
+`

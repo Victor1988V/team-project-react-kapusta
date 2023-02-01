@@ -32,12 +32,17 @@ export const KapustaTab = styled(HandySvg)`
   position: absolute;
   z-index: -1;
   right: 88px;
-  bottom: 0px;
+  bottom: 59px;
+  /* outline: 1px solid tomato; */
 `;
 
 export const KapustaDesk = styled(HandySvg)`
   position: absolute;
-  bottom: 30px;
-  left: 25px;
+  left: center;
+  margin-left: 10px;
   z-index: -1;
+  bottom: -20px;
+  /* outline: 1px solid tomato; */
+  /* margin-bottom: 0; */
+
 `;

@@ -11,7 +11,16 @@ export const StyledContainerDiv = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
+    position: relative;
     width: 1280px;
     /* padding: 0px 16px; */
   }
 `;
+
+export const Wrapper = styled.div`
+position: relative;
+
+`
+export const Wrap = styled.div`
+
+`

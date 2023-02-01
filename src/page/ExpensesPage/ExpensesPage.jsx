@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-
+// import { KapustaTab } from 'page/HomePage/HomePage.styled';
+// import kapusta from 'images/kapustaTab.svg';
 import { ProductInputForm } from './../../components/ProductInputForm/ProductInputForm';
 import { TransactionsTable } from '../../components/Transactions/TransactionsTable';
 import {
   StyledBg,
   StyledFrame,
   StyledTableAndSummaryDiv,
+  Wrap,
 } from './ExpensesPage.styled';
 import { useMatchMedia } from './../../hooks/useMatchMedia';
 import { useDispatch, useSelector } from 'react-redux';
