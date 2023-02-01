@@ -26,7 +26,10 @@ export const addIncome = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -44,7 +47,10 @@ export const getIncome = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -62,7 +68,10 @@ export const addExpense = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -80,7 +89,10 @@ export const getExpense = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -91,7 +103,6 @@ export const deleteTransaction = createAsyncThunk(
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
     try {
-      // Very path param
       const { data } = await axios.delete(`/transaction/${transactionId}`);
       Notify.success('Transaction deleted successfully', {
         fontSize: '16px',
@@ -103,7 +114,10 @@ export const deleteTransaction = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -121,7 +135,10 @@ export const getIncomeCategories = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -139,7 +156,10 @@ export const getExpenseCategories = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -157,7 +177,10 @@ export const getTransactionsByDate = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -177,25 +200,10 @@ export const updateBalance = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-//===============УДАЛИТЬ НИЖНЕЕ=================
-export const getPeriodDataAPI = async date => {
-  const { data } = await axios.get(`/transaction/period-data?date=${date}`);
-  return data;
-};
-
-export const getReports = createAsyncThunk(
-  'reports/getReports',
-  async (value, thunkAPI) => {
-    try {
-      const data = await getPeriodDataAPI(value);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );

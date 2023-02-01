@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import * as transactionsAPI from 'services/transactionsAPI';
 
+import { setAccessToken } from 'services/authSlice';
+
 const initialState = {
   transactions: [],
   reportsData: [],
@@ -21,7 +23,12 @@ const handlePending = state => {
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
-  state.error = action.payload;
+  state.error = action.payload.message;
+
+  if (action.payload.code === 401) {
+    console.log('transSlice', action.payload);
+    setAccessToken('');
+  }
 };
 
 const transactionsSlice = createSlice({

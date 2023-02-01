@@ -32,6 +32,12 @@ export const ButtonConfirm = styled.button`
     padding: 12px 30px;
     border: 2px solid white;
     border-radius: 16px;
+    :hover,
+    :focus {
+      color: white;
+      background-color: #ff751d;
+      border-color: #ff751d;
+  }
   }
 `;
 export const ButtonBackText = styled.span`
@@ -110,10 +116,26 @@ export const BalanceAmounth = styled.p`
   color: #000000;
   width: 183px;
   margin-bottom: 32px;
+  outline: none;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  :focus {
+    background-color: #fff;
+  }
+  &::placeholder {
+    color: #000;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+  }
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
     padding: 12px 0;
-    width: 123px;
+    width: 125px;
     border-radius: 16px;
   }
 `;

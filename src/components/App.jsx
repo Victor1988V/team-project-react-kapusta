@@ -26,6 +26,23 @@ export const App = () => {
   const accessToken = urlSearchParams.get('accessToken');
 
   useEffect(() => {
+    if (!token) {
+      return;
+    }
+    // console.log(token);
+
+    dispatch(authAPI.refreshToken());
+
+    // authAPI.setAuthHeader(token);
+    // dispatch(setAccessToken(token));
+    // dispatch(authAPI.getAllUserInfo());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
+
+  useEffect(() => {
+    // if (!accessToken) {
+    //   return;
+    // }
     if (accessToken) {
       authAPI.setAuthHeader(accessToken);
       dispatch(setAccessToken(accessToken));
@@ -38,19 +55,11 @@ export const App = () => {
   }, [accessToken, dispatch, location]);
   //
   const { isMobile } = useMatchMedia();
-  useEffect(() => {
-    if (!token || token === 'null' || token === null) {
-      return;
-    }
-    authAPI.setAuthHeader(token);
-    dispatch(setAccessToken(token));
-    dispatch(authAPI.getAllUserInfo());
-  }, [dispatch, token]);
 
   return (
     !isFetchingUser && (
       <>
-        <BrowserRouter>
+        <BrowserRouter basename="team-project-react-kapusta">
           {/* <BrowserRouter> */}
           <Routes>
             <Route path="/" element={<SharedLayouts />}>
