@@ -1,5 +1,17 @@
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+  selectIsLoggedIn,
+  selectBalanceAuth,
+  selectBalance,
+} from 'redux/selectors';
+
 import ReportsSlider from 'components/Reports/ReportsSlider/ReportsSlider';
 import {
+  BalanceText,
+  BalanceAmounth,
+  ButtonConfirm,
   Balance,
   ButtonBack,
   ButtonBackText,
@@ -10,11 +22,29 @@ import reports from '../../../images/reportsFiles/reports.svg';
 
 import { useLocation } from 'react-router';
 
-import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
+// import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 
 export const ReportsNav = () => {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/home/expenses';
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const totalBalance = useSelector(selectBalanceAuth);
+  const transactionBalance = useSelector(selectBalance);
+  const [newBalance, setNewBalance] = useState(0);
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+      if (transactionBalance) {
+        setNewBalance(transactionBalance);
+      }
+    }, [transactionBalance]);
+
+    useEffect(() => {
+      if (isLoggedIn) {
+        setNewBalance(totalBalance);
+      }
+    }, [dispatch, isLoggedIn, totalBalance]);
 
   return (
     <PreBox>
@@ -27,7 +57,10 @@ export const ReportsNav = () => {
       <Box>
         <ReportsSlider />
         <Balance>
-          <ChangeBalance />
+          {/* <ChangeBalance /> */}
+          <BalanceText>Balance:</BalanceText>
+          <BalanceAmounth>{newBalance ?? 0}.00 UAH</BalanceAmounth>
+          <ButtonConfirm type="button">Confirm</ButtonConfirm>
         </Balance>
       </Box>
     </PreBox>
