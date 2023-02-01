@@ -79,26 +79,34 @@ export const getAllUserInfo = createAsyncThunk('user', async (_, thunkAPI) => {
 
 export const refreshToken = createAsyncThunk(
   'auth/refresh',
-  async ({ refreshSid, refreshToken }, thunkAPI) => {
+  async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-
+    console.log(state);
+    let sid = state.auth.sid;
+    if (!sid) {
+      console.log(sid);
+      return thunkAPI.rejectWithValue();
+    }
+    const update = state.auth.refreshToken;
+    token.set(update);
+    // if (refreshToken && refreshSid) {
+    //   token.set(refreshToken);
+    //   sid = refreshSid;
+    // } else {
+    //   token.set(state.auth.refreshToken);
+    // }
     try {
-      let sid = state.auth.sid;
-      if (refreshToken && refreshSid) {
-        token.set(refreshToken);
-        sid = refreshSid;
-      } else {
-        token.set(state.auth.refreshToken);
-      }
       const { data } = await axios.post('/auth/refresh', {
-        sid: sid,
+        sid,
       });
+      token.set(data.newAccessToken);
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
         fontSize: '16px',
         width: '350px',
       });
+      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
