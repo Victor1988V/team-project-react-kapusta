@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+//import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://kapusta-backend.goit.global/';
@@ -26,7 +27,10 @@ export const addIncome = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -44,7 +48,10 @@ export const getIncome = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -62,7 +69,10 @@ export const addExpense = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -80,7 +90,10 @@ export const getExpense = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -103,7 +116,10 @@ export const deleteTransaction = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -121,7 +137,10 @@ export const getIncomeCategories = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -139,7 +158,10 @@ export const getExpenseCategories = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -157,7 +179,10 @@ export const getTransactionsByDate = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -177,7 +202,10 @@ export const updateBalance = createAsyncThunk(
         fontSize: '16px',
         width: '350px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
