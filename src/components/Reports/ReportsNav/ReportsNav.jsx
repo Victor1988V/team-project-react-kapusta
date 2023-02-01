@@ -1,17 +1,15 @@
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
-  selectIsLoggedIn,
   selectBalanceAuth,
-  selectBalance,
 } from 'redux/selectors';
+
+import { useMatchMedia } from 'hooks/useMatchMedia';
 
 import ReportsSlider from 'components/Reports/ReportsSlider/ReportsSlider';
 import {
   BalanceText,
   BalanceAmounth,
-  ButtonConfirm,
   Balance,
   ButtonBack,
   ButtonBackText,
@@ -22,9 +20,11 @@ import reports from '../../../images/reportsFiles/reports.svg';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-// import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
+import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 
 export const ReportsNav = () => {
+  const { isMobile, isTablet, isDesktop } = useMatchMedia();
+
   // const location = useLocation();
   // const backLinkHref = location.state?.from ?? '/home/expenses';
 
@@ -33,23 +33,7 @@ export const ReportsNav = () => {
   const from = location.state?.from || '/';
   const backLinkHref = () => navigate(from);
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const totalBalance = useSelector(selectBalanceAuth);
-  const transactionBalance = useSelector(selectBalance);
-  const [newBalance, setNewBalance] = useState(0);
-  const dispatch = useDispatch();
-
-    useEffect(() => {
-      if (transactionBalance) {
-        setNewBalance(transactionBalance);
-      }
-    }, [transactionBalance]);
-
-    useEffect(() => {
-      if (isLoggedIn) {
-        setNewBalance(totalBalance);
-      }
-    }, [dispatch, isLoggedIn, totalBalance]);
 
   return (
     <PreBox>
@@ -62,10 +46,19 @@ export const ReportsNav = () => {
       <Box>
         <ReportsSlider />
         <Balance>
-          {/* <ChangeBalance /> */}
-          <BalanceText>Balance:</BalanceText>
-          <BalanceAmounth>{newBalance ?? 0}.00 UAH</BalanceAmounth>
-          <ButtonConfirm type="button">Confirm</ButtonConfirm>
+          {isMobile && (
+            <>
+              <BalanceText>Balance:</BalanceText>
+              <BalanceAmounth>{totalBalance ?? 0}.00 UAH</BalanceAmounth>
+            </>
+          )}
+          {isTablet && (
+            <>
+              <BalanceText>Balance:</BalanceText>
+              <BalanceAmounth>{totalBalance ?? 0}.00 UAH</BalanceAmounth>
+            </>
+          )}
+          {isDesktop && <ChangeBalance />}
         </Balance>
       </Box>
     </PreBox>
