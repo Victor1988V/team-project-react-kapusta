@@ -46,6 +46,6 @@ export const StyledTableAndSummaryDiv = styled.div`
 `;
 
 export const Wrap = styled.div`
-outline: 1px solid tomato;
-position: relative;
+/* outline: 1px solid tomato;
+position: relative; */
 `
