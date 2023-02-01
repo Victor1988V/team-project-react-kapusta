@@ -23,9 +23,9 @@ export const ChangeBalanceForm = styled.form`
   .inputTag {
     font-weight: 700;
     width: 140px;
-    padding: 12px 18px;
+    padding: 12px 0px;
     color: #52555f;
-    text-align: right;
+    text-align: center;
     border: 2px solid white;
     border-radius: 22px 0 0 22px;
     outline: none;
@@ -46,7 +46,7 @@ export const ChangeBalanceForm = styled.form`
     }
     @media screen and (min-width: 768px) {
       width: 125px;
-      padding: 12px 20px;
+      padding: 12px 0px;
       border-radius: 16px;
     }
   }
