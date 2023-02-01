@@ -29,6 +29,7 @@ export const TransactionsTable = ({ children }) => {
     return second - first;
   });
 
+  console.log(children);
   return (
     <TransactionTable>
       <thead>
