@@ -22,7 +22,7 @@ const handleRejected = (state, action) => {
   state.error = action.payload.message;
 
   if (action.payload.code === 401) {
-    state.accessToken = null;
+    state.accessToken = '';
   }
 };
 

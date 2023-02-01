@@ -27,7 +27,7 @@ const handleRejected = (state, action) => {
 
   if (action.payload.code === 401) {
     console.log('transSlice', action.payload);
-    setAccessToken(null);
+    setAccessToken('');
   }
 };
 
