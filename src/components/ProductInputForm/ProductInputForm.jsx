@@ -41,15 +41,15 @@ export const ProductInputForm = () => {
     location.pathname === '/expenses'
   ) {
     categoryArray = [
+      'Transport',
       'Products',
+      'Health',
       'Alcohol',
       'Entertainment',
-      'Health',
-      'Transport',
       'Housing',
-      'Technics',
-      'Communal and communication',
-      'Sport and hobby',
+      'Technique',
+      'Communal, communication',
+      'Sports, hobbies',
       'Education',
       'Other',
     ];
