@@ -8,13 +8,18 @@ import {
 } from './ReportsNav.styled';
 import reports from '../../../images/reportsFiles/reports.svg';
 
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 
 export const ReportsNav = () => {
+  // const location = useLocation();
+  // const backLinkHref = location.state?.from ?? '/home/expenses';
+
+  const navigate = useNavigate();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/home/expenses';
+  const from = location.state?.from || '/';
+  const backLinkHref = () => navigate(from);
 
   return (
     <PreBox>
