@@ -25,7 +25,10 @@ export const register = createAsyncThunk(
         width: '350px',
         padding: '10px',
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );
@@ -42,7 +45,10 @@ export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
       padding: '20px',
     });
 
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue({
+      message: error.message,
+      code: error.response.status,
+    });
   }
 });
 
@@ -58,7 +64,10 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
       width: '350px',
     });
 
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue({
+      message: error.message,
+      code: error.response.status,
+    });
   }
 });
 
@@ -73,7 +82,11 @@ export const getAllUserInfo = createAsyncThunk('user', async (_, thunkAPI) => {
       fontSize: '16px',
       width: '350px',
     });
-    return thunkAPI.rejectWithValue(error.message);
+
+    return thunkAPI.rejectWithValue({
+      message: error.message,
+      code: error.response.status,
+    });
   }
 });
 
@@ -81,7 +94,7 @@ export const refreshToken = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    console.log(state);
+
     let sid = state.auth.sid;
     if (!sid) {
       console.log(sid);
@@ -100,14 +113,18 @@ export const refreshToken = createAsyncThunk(
         sid,
       });
       token.set(data.newAccessToken);
+
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
         fontSize: '16px',
         width: '350px',
       });
-      console.log(error);
-      return thunkAPI.rejectWithValue(error.message);
+
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
     }
   }
 );

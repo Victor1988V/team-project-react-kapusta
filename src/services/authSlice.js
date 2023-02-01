@@ -19,7 +19,11 @@ const handlePending = state => {
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
-  state.error = action.payload;
+  state.error = action.payload.message;
+
+  if (action.payload.code === 401) {
+    state.accessToken = '';
+  }
 };
 
 const authSlice = createSlice({
