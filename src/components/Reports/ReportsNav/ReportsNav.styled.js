@@ -83,7 +83,7 @@ export const BalanceText = styled.p`
   line-height: 1.16;
   align-items: center;
   text-align: center;
-  letter-spacing: 0.02em;
+  ${'' /* letter-spacing: 0.02em; */}
   margin-bottom: 8px;
   color: rgba(82, 85, 95, 0.7);
   padding-top: 32px;
@@ -105,7 +105,7 @@ export const BalanceAmounth = styled.p`
   font-size: 12px;
   line-height: 1.16;
   text-align: center;
-  letter-spacing: 0.02em;
+  ${'' /* letter-spacing: 0.02em; */}
   text-transform: uppercase;
   color: #000000;
   width: 183px;
