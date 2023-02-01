@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getTransactionsByDate } from 'services/transactionsAPI';
-import { getReports } from './../../services/transactionsAPI';
 
 const initialState = {
   reports: [],
@@ -21,12 +20,12 @@ export const reportsSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(getReports.pending, handlePending)
-      .addCase(getReports.fulfilled, (state, action) => {
+      .addCase(getTransactionsByDate.pending, handlePending)
+      .addCase(getTransactionsByDate.fulfilled, (state, action) => {
         state.reports = action.payload;
         state.isLoading = false;
       })
-      .addCase(getReports.rejected, handleRejected);
+      .addCase(getTransactionsByDate.rejected, handleRejected);
   },
 });
 

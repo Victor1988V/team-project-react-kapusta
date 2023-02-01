@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-//import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://kapusta-backend.goit.global/';
@@ -104,7 +103,6 @@ export const deleteTransaction = createAsyncThunk(
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
     try {
-      // Very path param
       const { data } = await axios.delete(`/transaction/${transactionId}`);
       Notify.success('Transaction deleted successfully', {
         fontSize: '16px',
@@ -206,24 +204,6 @@ export const updateBalance = createAsyncThunk(
         message: error.message,
         code: error.response.status,
       });
-    }
-  }
-);
-
-//===============УДАЛИТЬ НИЖНЕЕ=================
-export const getPeriodDataAPI = async date => {
-  const { data } = await axios.get(`/transaction/period-data?date=${date}`);
-  return data;
-};
-
-export const getReports = createAsyncThunk(
-  'reports/getReports',
-  async (value, thunkAPI) => {
-    try {
-      const data = await getPeriodDataAPI(value);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
