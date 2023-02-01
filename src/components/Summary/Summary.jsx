@@ -1,12 +1,21 @@
-import { Table, Row, Month, TableTop, Value } from './Summary.styled';
-import monthNameTranslate from './SummaryMonthTranslate';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+import monthNameTranslate from './SummaryMonthTranslate';
+
 import {
   selectIsLoading,
   selectIncomeSummary,
   selectExpensesSummary,
-} from '../../redux/selectors';
+} from 'redux/selectors';
+
+import {
+  Table,
+  Row,
+  Month,
+  TableTop,
+  Value,
+} from 'components/Summary/Summary.styled';
 
 const Summary = () => {
   const location = useLocation();

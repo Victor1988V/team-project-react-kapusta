@@ -14,7 +14,7 @@ import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 
 export const ReportsNav = () => {
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = location.state?.from ?? '/home/expenses';
 
   return (
     <PreBox>
@@ -22,7 +22,7 @@ export const ReportsNav = () => {
         <svg width="24" height="24">
           <use href={`${reports}#icon-back`}></use>
         </svg>
-        <ButtonBackText>Go back</ButtonBackText>
+        <ButtonBackText>Main page</ButtonBackText>
       </ButtonBack>
       <Box>
         <ReportsSlider />

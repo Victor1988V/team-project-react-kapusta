@@ -1,5 +1,5 @@
 import React from 'react';
 
 export function ThereIsNoSuchPage() {
-  return <div>ThereIsNoSuchPage</div>;
+  return <div>There is no such page</div>;
 }
