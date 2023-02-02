@@ -43,10 +43,13 @@ const ExpensesPage = () => {
       <StyledFrame>
         <ProductInputForm />
         <StyledTableAndSummaryDiv>
-          <TransactionsTable>
-            {expenses}
-            {color}
-          </TransactionsTable>
+          {expenses.length > 0 && (
+            <TransactionsTable>
+              {expenses}
+              {color}
+            </TransactionsTable>
+          )}
+
           {isDesktop && <Summary />}
         </StyledTableAndSummaryDiv>
       </StyledFrame>
