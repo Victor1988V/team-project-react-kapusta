@@ -20,7 +20,7 @@ import { getExpense } from 'services/transactionsAPI';
 import { BackButton } from './../../components/Buttons/BackButton';
 import Summary from './../../components/Summary/Summary';
 
-export const ExpensesPage = () => {
+const ExpensesPage = () => {
   const dispatch = useDispatch();
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const expenses = useSelector(selectExpenses);
@@ -54,3 +54,5 @@ export const ExpensesPage = () => {
     </>
   );
 };
+
+export default ExpensesPage;
