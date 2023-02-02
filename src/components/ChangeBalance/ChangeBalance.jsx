@@ -77,8 +77,8 @@ const ChangeBalance = () => {
         <button type="submit" className="btn" onClick={handleModalOpen}>
           Confirm
         </button>
-        {!newBalance && <DarkModalWindow />}
       </ChangeBalanceForm>
+      {!totalBalance && <DarkModalWindow />}
       {modalOpen && (
         <LightModalWindow
           changeBalance="true"
