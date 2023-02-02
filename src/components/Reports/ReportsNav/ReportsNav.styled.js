@@ -104,7 +104,7 @@ export const BalanceText = styled.p`
   }
 `;
 
-export const BalanceAmounth = styled.p`
+export const BalanceAmount = styled.p`
   padding: 15px 29px;
   border: 2px solid white;
   border-radius: 20px;
