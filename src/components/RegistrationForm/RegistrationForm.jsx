@@ -78,6 +78,12 @@ export const RegistrationForm = () => {
         width: '350px',
         padding: '10px',
       });
+      dispatch(
+        authAPI.logIn({
+          email: data.get('email'),
+          password: data.get('password'),
+        })
+      );
       reset();
     });
   };
