@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { useMatchMedia } from 'hooks/useMatchMedia';
 
 import { Header } from 'components/Header/Header';
-import { StyledContainerDiv, Wrapper } from './SharedLayouts.styled';
+import { StyledContainerDiv } from './SharedLayouts.styled';
 import HomePageBg from 'components/HomePageBg/HomePageBg';
 import Loader from 'components/Loader/Loader';
 
