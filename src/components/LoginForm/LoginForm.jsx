@@ -28,10 +28,14 @@ import {
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  /* eslint-disable-next-line */
   const [email, setEmail] = useState('');
+  /* eslint-disable-next-line */
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  /* eslint-disable-next-line */
   const [emailInvalid, setEmailInvalid] = useState(false);
+  /* eslint-disable-next-line */
   const [passwordInvalid, setPasswordInvalid] = useState(false);
 
   const reset = () => {
