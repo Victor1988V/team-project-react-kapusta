@@ -6,7 +6,6 @@ import {
   filteredDataAction,
 } from 'redux/reportsQuery/reportsQuerySlice';
 
-//import ReportsCalendar from 'components/Reports/ReportsCalendar/ReportsCalendar';
 import ButtonsPrev from 'components/Reports/ButtonPrev/ButtonPrev';
 import { monthNames, getMonth, getYear } from './ReportsSliderData';
 
