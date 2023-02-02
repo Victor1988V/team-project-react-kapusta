@@ -36,6 +36,7 @@ export const App = () => {
     // console.log(token);
 
     dispatch(authAPI.refreshToken());
+    dispatch(authAPI.getAllUserInfo());
 
     // authAPI.setAuthHeader(token);
     // dispatch(setAccessToken(token));

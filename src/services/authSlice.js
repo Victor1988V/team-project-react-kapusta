@@ -8,7 +8,6 @@ const initialState = {
   userId: null,
   userEmail: '',
   isLoggedIn: false,
-  balance: 0,
   transactions: [],
   isFetchingCurrentUser: false,
 };
@@ -32,9 +31,6 @@ const authSlice = createSlice({
   reducers: {
     setAccessToken: (state, action) => {
       state.accessToken = action.payload;
-    },
-    setBalance: (state, action) => {
-      state.balance = action.payload;
     },
   },
   extraReducers: builder => {
@@ -81,7 +77,6 @@ const authSlice = createSlice({
 
       .addCase(authApi.getAllUserInfo.pending, handlePending)
       .addCase(authApi.getAllUserInfo.fulfilled, (state, action) => {
-        state.balance = action.payload.balance;
         state.transactions = action.payload.transactions;
         state.userEmail = action.payload.email;
         state.isLoggedIn = true;
@@ -91,4 +86,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { setAccessToken, setBalance } = authSlice.actions;
+export const { setAccessToken } = authSlice.actions;

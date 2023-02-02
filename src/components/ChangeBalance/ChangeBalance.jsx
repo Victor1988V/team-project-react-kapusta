@@ -1,14 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { updateBalance } from 'services/transactionsAPI';
-import { getAllUserInfo } from 'services/authAPI';
-import {
-  selectIsLoggedIn,
-  selectBalanceAuth,
-  selectBalance,
-  selectIsLoading,
-} from 'redux/selectors';
+import { selectBalance, selectIsLoading } from 'redux/selectors';
 
 import LightModalWindow from 'components/ModalWindow/LightModalWindow/LightModalWindow';
 import DarkModalWindow from 'components/ModalWindow/DarkModalWindow/DarkModalWindow';
@@ -16,24 +10,22 @@ import DarkModalWindow from 'components/ModalWindow/DarkModalWindow/DarkModalWin
 import { ChangeBalanceForm } from 'components/ChangeBalance/ChangeBalance.styled';
 
 const ChangeBalance = () => {
-  //const stateBalance = useSelector(state => state.transactions.balance);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const totalBalance = useSelector(selectBalanceAuth);
   const transactionBalance = useSelector(selectBalance);
   const isLoading = useSelector(selectIsLoading);
-  const [newBalance, setNewBalance] = useState(0);
 
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const form = useRef();
 
+  let newBalance;
+
   const handleSubmit = event => {
     event.preventDefault();
-    setNewBalance(event.target.balance.value);
+    newBalance = event.target.balance.value;
   };
 
   const handleChange = event => {
-    setNewBalance(event.target.value);
+    newBalance = event.target.value;
   };
 
   const handleClick = () => {
@@ -49,19 +41,6 @@ const ChangeBalance = () => {
     setModalOpen(false);
   };
 
-  useEffect(() => {
-    if (transactionBalance) {
-      setNewBalance(transactionBalance);
-    }
-  }, [transactionBalance]);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(getAllUserInfo());
-      setNewBalance(totalBalance);
-    }
-  }, [dispatch, isLoggedIn, totalBalance]);
-
   return (
     <>
       <ChangeBalanceForm onSubmit={handleSubmit} ref={form}>
@@ -73,7 +52,7 @@ const ChangeBalance = () => {
           name="balance"
           title="Please, enter your balance"
           pattern="[0-9, .UAH]*"
-          placeholder={`${newBalance}.00 UAH`}
+          placeholder={`${transactionBalance}.00 UAH`}
           required
         />
         <button type="submit" className="btn" onClick={handleModalOpen}>
@@ -81,14 +60,14 @@ const ChangeBalance = () => {
         </button>
       </ChangeBalanceForm>
       {/* {!totalBalance && <DarkModalWindow />} */}
-      {isLoading === true && !totalBalance && <DarkModalWindow />}
+      {isLoading === true && !transactionBalance && <DarkModalWindow />}
       {modalOpen && (
         <LightModalWindow
           changeBalance="true"
           closeModal={handleModalClose}
           dispatch={handleClick}
           text="SURE"
-          balance={newBalance}
+          balance={transactionBalance}
         >
           Are you sure?
         </LightModalWindow>
