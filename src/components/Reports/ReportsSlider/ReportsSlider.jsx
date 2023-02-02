@@ -12,7 +12,7 @@ import { monthNames, getMonth, getYear } from './ReportsSliderData';
 
 import { getTransactionsByDate } from 'services/transactionsAPI';
 
-import { Wrapper, Text } from './ReportsSlider.styled';
+import { Wrapper, Text, ReportSliderTitle } from './ReportsSlider.styled';
 
 const ReportsSlider = () => {
   const [monthNumber, setMonthNumber] = useState(0);
@@ -65,7 +65,7 @@ const ReportsSlider = () => {
 
   return (
     <Wrapper>
-      <p>Current period:</p>
+      <ReportSliderTitle>Current period:</ReportSliderTitle>
       <ButtonsPrev onButtonClick={handlerClick}>
         <Text>
           {month} {year}

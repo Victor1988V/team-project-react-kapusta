@@ -41,6 +41,7 @@ export const ButtonConfirm = styled.button`
   }
 `;
 export const ButtonBackText = styled.span`
+  color: rgba(82, 85, 95, 0.7);
   /* @media screen and (min-width: 768px) { */
   @media screen and (min-width: 320px) {
     display: none;
@@ -103,7 +104,7 @@ export const BalanceText = styled.p`
   }
 `;
 
-export const BalanceAmounth = styled.p`
+export const BalanceAmount = styled.p`
   padding: 15px 29px;
   border: 2px solid white;
   border-radius: 20px;

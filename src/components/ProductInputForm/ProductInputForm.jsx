@@ -99,6 +99,7 @@ export const ProductInputForm = () => {
   const clearForm = event => {
     event.preventDefault();
     ref.current.reset();
+    setElementCategory('Category');
   };
 
   return (
