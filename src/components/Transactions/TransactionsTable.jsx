@@ -60,7 +60,7 @@ export const TransactionsTable = ({ children }) => {
             const { _id, description, amount, date, category } = el;
             return (
               <tr key={_id} style={{ height: 40 }}>
-                <td>{date.split('-').reverse().join('-')}</td>
+                <td>{date.split('-').reverse().join('.')}</td>
                 <td>{description}</td>
                 <td>{translateToEng(category)}</td>
                 <td style={{ color }}>
