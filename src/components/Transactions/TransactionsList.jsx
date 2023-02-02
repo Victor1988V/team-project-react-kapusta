@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as DeleteIcon } from '../../images/deleteIcon.svg';
-import { selectTransactions } from 'redux/selectors';
 import {
   ItemName,
   ItemNameCont,
@@ -14,11 +13,16 @@ import {
 } from './TransactionsList.styled';
 import { deleteTransaction } from '../../services/transactionsAPI';
 import { translateToEng } from 'hooks/useCategory';
-// import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import LightModalWindow from 'components/ModalWindow/LightModalWindow';
+import { getAllUserInfo } from 'services/authAPI';
 
 export const TransactionsList = () => {
-  const allTransactions = useSelector(selectTransactions);
+  const allTransactions = useSelector(state => state.auth.transactions);
+
   const dispatch = useDispatch();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentId, setCurrentId] = useState(null);
 
   const sortedTransactions = allTransactions.slice().sort((a, b) => {
     const first = new Date(a.date).getTime();
@@ -29,8 +33,21 @@ export const TransactionsList = () => {
     return second - first;
   });
 
+  useEffect(() => {
+    dispatch(getAllUserInfo());
+  }, [allTransactions, dispatch]);
+
+  const handleModalOpen = id => {
+    setModalOpen(true);
+    setCurrentId(id);
+  };
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
   const handleDelete = event => {
-    dispatch(deleteTransaction(event.currentTarget.id));
+    dispatch(deleteTransaction(currentId));
+    setCurrentId(null);
+    setModalOpen(false);
   };
 
   return (
@@ -61,7 +78,7 @@ export const TransactionsList = () => {
               </Sum>
               <span
                 id={_id}
-                onClick={handleDelete}
+                onClick={() => handleModalOpen(_id)}
                 style={{ cursor: 'pointer' }}
               >
                 <DeleteIcon />
@@ -70,6 +87,15 @@ export const TransactionsList = () => {
           </ItemStyled>
         );
       })}
+      {modalOpen && (
+        <LightModalWindow
+          closeModal={handleModalClose}
+          onDelete={handleDelete}
+          text="SURE"
+        >
+          Are you sure?
+        </LightModalWindow>
+      )}
     </StyledList>
   );
 };
