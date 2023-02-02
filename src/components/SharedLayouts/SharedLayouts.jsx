@@ -8,12 +8,13 @@ import { StyledContainerDiv, Wrapper } from './SharedLayouts.styled';
 import HomePageBg from 'components/HomePageBg/HomePageBg';
 import Loader from 'components/Loader/Loader';
 
-import kapusta from 'images/kapustaTab.svg';
-import kapustaDesktop from 'images/kapustaDesk.svg';
+// import kapusta from 'images/kapustaTab.svg';
+// import kapustaDesktop from 'images/kapustaDesk.svg';
 
-import { KapustaTab, KapustaDesk } from 'page/HomePage/HomePage.styled';
+// import { KapustaTab, KapustaDesk } from 'page/HomePage/HomePage.styled';
 
 export const SharedLayouts = () => {
+  /* eslint-disable-next-line */
   const { isTablet, isDesktop } = useMatchMedia();
 
   return (
