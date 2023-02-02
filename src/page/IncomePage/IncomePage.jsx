@@ -43,12 +43,12 @@ export const IncomePage = () => {
       <StyledFrame>
         <ProductInputForm />
         <StyledTableAndSummaryDiv>
-          {incomes.length > 0 && (
-            <TransactionsTable>
-              {incomes}
-              {color}
-            </TransactionsTable>
-          )}
+
+          <TransactionsTable>
+            {incomes}
+            {color}
+          </TransactionsTable>
+
           {isDesktop && <Summary />}
         </StyledTableAndSummaryDiv>
       </StyledFrame>
