@@ -7,6 +7,7 @@ import { lazy } from 'react';
 import { setAccessToken } from 'services/authSlice';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
+import { WrapperLogin } from './WrapperLogin/WrapperLogin';
 import PrivateRoute from './PrivateRoute';
 import { selectToken, selectIsFetchingCurrentUser } from './../redux/selectors';
 import { useMatchMedia } from './../hooks/useMatchMedia';
@@ -66,9 +67,11 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<SharedLayouts />}>
               <Route path="/" element={<PublicRoute />}>
-                <Route path="/login" element={<LogInPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                {/* <Route path="*" element={<Navigate to="/login" />} /> */}
+                <Route path="/" element={<WrapperLogin />}>
+                  <Route path="/login" element={<LogInPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
+                  {/* <Route path="*" element={<Navigate to="/login" />} /> */}
+                </Route>
               </Route>
               <Route path="/" element={<PrivateRoute />}>
                 <Route index element={<Navigate to="/home" />} />
