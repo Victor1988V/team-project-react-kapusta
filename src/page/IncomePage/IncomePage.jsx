@@ -20,7 +20,7 @@ import { getIncome } from 'services/transactionsAPI';
 import { BackButton } from './../../components/Buttons/BackButton';
 import Summary from './../../components/Summary/Summary';
 
-export const IncomePage = () => {
+const IncomePage = () => {
   const dispatch = useDispatch();
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const incomes = useSelector(selectIncomes);
@@ -56,3 +56,5 @@ export const IncomePage = () => {
     </>
   );
 };
+
+export default IncomePage;

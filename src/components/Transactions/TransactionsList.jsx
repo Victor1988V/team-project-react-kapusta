@@ -14,6 +14,7 @@ import {
 } from './TransactionsList.styled';
 import { deleteTransaction } from '../../services/transactionsAPI';
 import { translateToEng } from 'hooks/useCategory';
+// import { useState } from 'react';
 
 export const TransactionsList = () => {
   const allTransactions = useSelector(selectTransactions);
