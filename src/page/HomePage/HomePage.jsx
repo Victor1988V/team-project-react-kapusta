@@ -16,7 +16,7 @@ import { TransactionsList } from 'components/Transactions/TransactionsList';
 import { StyledHomePage } from './HomePage.styled';
 
 function HomePage() {
-  const { isMobile, isTablet, isDesktop } = useMatchMedia();
+  const { isMobile } = useMatchMedia();
   const [startDate, setStartDate] = useState(new Date());
   const location = useLocation();
 
