@@ -41,12 +41,18 @@ export const KapustaDesk = styled(HandySvg)`
   left: center;
   margin-left: 10px;
   z-index: -1;
-  bottom: -20px;
+  bottom: -38px;
   /* outline: 1px solid tomato; */
   /* margin-bottom: 0; */
-
 `;
 
+
+export const Wrapper = styled.div`
+position: relative;
+/* height: 100vh; */
+min-height: 851px;
+/* outline: 1px solid tomato; */
+`
 
 export const KapustaDeskLogin = styled(HandySvg)`
   position: absolute;
