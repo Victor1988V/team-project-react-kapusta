@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledBackdrop = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -45,7 +45,3 @@ export const StyledWrap = styled.div`
   display: flex;
   gap: 15px;
 `;
-
-
-
-

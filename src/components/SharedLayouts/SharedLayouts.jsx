@@ -11,14 +11,10 @@ import Loader from 'components/Loader/Loader';
 import kapusta from 'images/kapustaTab.svg';
 import kapustaDesktop from 'images/kapustaDesk.svg';
 
-import {
-  StyledHomePage,
-  KapustaTab,
-  KapustaDesk,
-} from 'page/HomePage/HomePage.styled';
+import { KapustaTab, KapustaDesk } from 'page/HomePage/HomePage.styled';
 
 export const SharedLayouts = () => {
-  const { isMobile, isTablet, isDesktop } = useMatchMedia();
+  const { isTablet, isDesktop } = useMatchMedia();
 
   return (
     <StyledContainerDiv>
