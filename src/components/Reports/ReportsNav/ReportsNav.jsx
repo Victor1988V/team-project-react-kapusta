@@ -9,7 +9,7 @@ import { useMatchMedia } from 'hooks/useMatchMedia';
 import ReportsSlider from 'components/Reports/ReportsSlider/ReportsSlider';
 import {
   BalanceText,
-  BalanceAmounth,
+  BalanceAmount,
   Balance,
   ButtonBack,
   ButtonBackText,
@@ -49,13 +49,13 @@ export const ReportsNav = () => {
           {isMobile && (
             <>
               <BalanceText>Balance:</BalanceText>
-              <BalanceAmounth>{totalBalance ?? 0}.00 UAH</BalanceAmounth>
+              <BalanceAmount>{totalBalance ?? 0}.00 UAH</BalanceAmount>
             </>
           )}
           {isTablet && (
             <>
               <BalanceText>Balance:</BalanceText>
-              <BalanceAmounth>{totalBalance ?? 0}.00 UAH</BalanceAmounth>
+              <BalanceAmount>{totalBalance ?? 0}.00 UAH</BalanceAmount>
             </>
           )}
           {isDesktop && <ChangeBalance />}
