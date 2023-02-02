@@ -47,7 +47,6 @@ export const ExpensesPage = () => {
             {expenses}
             {color}
           </TransactionsTable>
-
           {isDesktop && <Summary />}
         </StyledTableAndSummaryDiv>
       </StyledFrame>
