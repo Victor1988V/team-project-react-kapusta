@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getAllUserInfo } from 'services/authAPI';
 import * as transactionsAPI from 'services/transactionsAPI';
 
 import { setAccessToken } from 'services/authSlice';
@@ -114,6 +115,12 @@ const transactionsSlice = createSlice({
         }
       )
       .addCase(transactionsAPI.getTransactionsByDate.rejected, handleRejected)
+
+      .addCase(getAllUserInfo.pending, handlePending)
+      .addCase(getAllUserInfo.fulfilled, (state, action) => {
+        state.balance = action.payload.balance;
+      })
+      .addCase(getAllUserInfo.rejected, handleRejected)
 
       .addCase(transactionsAPI.updateBalance.pending, handlePending)
       .addCase(transactionsAPI.updateBalance.fulfilled, (state, action) => {
