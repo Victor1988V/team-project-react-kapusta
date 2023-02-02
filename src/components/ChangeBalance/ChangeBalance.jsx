@@ -15,7 +15,6 @@ import DarkModalWindow from 'components/ModalWindow/DarkModalWindow/DarkModalWin
 import { ChangeBalanceForm } from 'components/ChangeBalance/ChangeBalance.styled';
 
 const ChangeBalance = () => {
-  //const stateBalance = useSelector(state => state.transactions.balance);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const totalBalance = useSelector(selectBalanceAuth);
   const transactionBalance = useSelector(selectBalance);

@@ -74,8 +74,6 @@ export const LoginForm = () => {
     });
   };
 
-  // console.log(handleSubmit());
-
   const handleValidation = event => {
     //Email
     if (event.target.name === 'email') {

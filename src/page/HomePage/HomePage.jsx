@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
 import { useMatchMedia } from 'hooks/useMatchMedia';
@@ -13,10 +13,7 @@ import {
 } from 'components/Transactions/NavigateTrans';
 import { TransactionsList } from 'components/Transactions/TransactionsList';
 
-// import kapusta from 'images/kapustaTab.svg';
-// import kapustaDesktop from 'images/kapustaDesk.svg';
-
-import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
+import { StyledHomePage } from './HomePage.styled';
 
 function HomePage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();

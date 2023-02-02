@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import monthNameTranslate from './SummaryMonthTranslate';
 
 import {
-  selectIsLoading,
+  // selectIsLoading,
   selectIncomeSummary,
   selectExpensesSummary,
 } from 'redux/selectors';
@@ -19,7 +19,7 @@ import {
 
 const Summary = () => {
   const location = useLocation();
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
   const incomeData = useSelector(selectIncomeSummary);
   const expensesData = useSelector(selectExpensesSummary);
 

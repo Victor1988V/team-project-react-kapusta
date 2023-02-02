@@ -3,7 +3,6 @@ import { translateToEng } from 'hooks/useCategory';
 
 import { TransactionTable } from './TransactionsTable.styled';
 
-// import { selectIsLoading } from 'redux/selectors';
 import { deleteTransaction } from '../../services/transactionsAPI';
 import { ReactComponent as DeleteIcon } from '../../images/deleteIcon.svg';
 import { useState } from 'react';
@@ -14,7 +13,6 @@ export const TransactionsTable = ({ children }) => {
   const [currentId, setCurrentId] = useState(null);
 
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading);
   const color = children[1];
   let minus = '-';
   if (color === 'green') {

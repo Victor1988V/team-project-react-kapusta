@@ -7,7 +7,6 @@ import {
   StyledBg,
   StyledFrame,
   StyledTableAndSummaryDiv,
-  Wrap,
 } from './ExpensesPage.styled';
 import { useMatchMedia } from './../../hooks/useMatchMedia';
 import { useDispatch, useSelector } from 'react-redux';
