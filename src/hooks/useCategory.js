@@ -16,7 +16,7 @@ export const translateToRus = name => {
       return 'Техника';
     case 'Communal, communication':
       return 'Коммуналка и связь';
-    case 'Sports, hobbyes':
+    case 'Sports, hobbies':
       return 'Спорт и хобби';
     case 'Education':
       return 'Образование';
@@ -24,7 +24,7 @@ export const translateToRus = name => {
       return 'Прочее';
     case 'Salary':
       return 'З/П';
-    case 'Add. income':
+    case 'Additional income':
       return 'Доп. доход';
     default:
       break;
@@ -50,7 +50,7 @@ export const translateToEng = name => {
     case 'Коммуналка и связь':
       return 'Communal, communication';
     case 'Спорт и хобби':
-      return 'Sports, hobbyes';
+      return 'Sports, hobbies';
     case 'Образование':
       return 'Education';
     case 'Прочее':
@@ -58,7 +58,7 @@ export const translateToEng = name => {
     case 'З/П':
       return 'Salary';
     case 'Доп. доход':
-      return 'Add. income';
+      return 'Additional income';
     default:
       break;
   }

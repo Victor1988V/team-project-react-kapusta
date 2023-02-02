@@ -13,12 +13,9 @@ import {
 } from 'components/Transactions/NavigateTrans';
 import { TransactionsList } from 'components/Transactions/TransactionsList';
 
-// import kapusta from 'images/kapustaTab.svg';
-// import kapustaDesktop from 'images/kapustaDesk.svg';
+import { StyledHomePage } from './HomePage.styled';
 
-import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
-
-export function HomePage() {
+function HomePage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const [startDate, setStartDate] = useState(new Date());
   const location = useLocation();
@@ -49,3 +46,5 @@ export function HomePage() {
     </>
   );
 }
+
+export default HomePage;

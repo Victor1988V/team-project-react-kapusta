@@ -21,6 +21,7 @@ const LightModalWindow = ({
   dispatch,
   changeBalance,
   text,
+  onDelete,
 }) => {
   const handleEscapeClose = event => {
     if (event.code === 'Escape') {
@@ -56,7 +57,9 @@ const LightModalWindow = ({
               dispatch={dispatch}
               closeModal={closeModal}
               changeBalance={changeBalance}
+              onDelete={onDelete}
             >
+              {/* {' '} */}
               {text ? text : 'YES'}
             </OrangeButton>
             <WhiteButton closeModal={closeModal}>NO</WhiteButton>

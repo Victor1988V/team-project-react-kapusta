@@ -5,6 +5,7 @@ export const OrangeButton = ({
   dispatch,
   closeModal,
   changeBalance,
+  onDelete,
 }) => {
   const handleClick = () => {
     if (children === 'YES') {
@@ -14,6 +15,9 @@ export const OrangeButton = ({
     if (changeBalance) {
       dispatch();
       closeModal();
+    }
+    if (children === 'SURE') {
+      onDelete();
     }
   };
 

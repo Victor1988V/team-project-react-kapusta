@@ -7,7 +7,6 @@ import {
   StyledBg,
   StyledFrame,
   StyledTableAndSummaryDiv,
-  Wrap,
 } from './ExpensesPage.styled';
 import { useMatchMedia } from './../../hooks/useMatchMedia';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,7 +19,7 @@ import { getExpense } from 'services/transactionsAPI';
 import { BackButton } from './../../components/Buttons/BackButton';
 import Summary from './../../components/Summary/Summary';
 
-export const ExpensesPage = () => {
+const ExpensesPage = () => {
   const dispatch = useDispatch();
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const expenses = useSelector(selectExpenses);
@@ -57,3 +56,5 @@ export const ExpensesPage = () => {
     </>
   );
 };
+
+export default ExpensesPage;
