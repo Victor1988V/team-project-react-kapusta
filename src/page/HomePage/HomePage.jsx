@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
 import { useMatchMedia } from 'hooks/useMatchMedia';
@@ -18,7 +18,7 @@ import { TransactionsList } from 'components/Transactions/TransactionsList';
 
 import { StyledHomePage, KapustaTab, KapustaDesk } from './HomePage.styled';
 
-export function HomePage() {
+function HomePage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const [startDate, setStartDate] = useState(new Date());
   const location = useLocation();
@@ -49,3 +49,5 @@ export function HomePage() {
     </>
   );
 }
+
+export default HomePage;

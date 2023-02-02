@@ -3,19 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import * as authAPI from 'services/authAPI';
+import { lazy } from 'react';
 import { setAccessToken } from 'services/authSlice';
-import { IncomePage } from 'page/IncomePage/IncomePage';
-import { ThereIsNoSuchPage } from 'page/NoSuchPage/NoSuchPage';
-import { HomePage } from 'page/HomePage/HomePage';
-import { ExpensesPage } from 'page/ExpensesPage/ExpensesPage';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
-import LogInPage from 'page/LoginPage/LoginPage';
-import RegisterPage from 'page/RegisterPage/RegisterPage';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
-import ReportsPage from 'page/ReportsPage/ReportsPage';
 import PrivateRoute from './PrivateRoute';
 import { selectToken, selectIsFetchingCurrentUser } from './../redux/selectors';
 import { useMatchMedia } from './../hooks/useMatchMedia';
+
+const LogInPage = lazy(() => import('page/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('page/RegisterPage/RegisterPage'));
+const HomePage = lazy(() => import('page/HomePage/HomePage'));
+const ThereIsNoSuchPage = lazy(() => import('page/NoSuchPage/NoSuchPage'));
+const ExpensesPage = lazy(() => import('page/ExpensesPage/ExpensesPage'));
+const IncomePage = lazy(() => import('page/IncomePage/IncomePage'));
+const ReportsPage = lazy(() => import('page/ReportsPage/ReportsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -89,7 +91,6 @@ export const App = () => {
                 )}
                 <Route path="/reports" element={<ReportsPage />} />
               </Route>
-
               <Route path="*" element={<ThereIsNoSuchPage />} />
             </Route>
           </Routes>
