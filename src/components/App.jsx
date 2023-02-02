@@ -7,6 +7,8 @@ import { lazy } from 'react';
 import { setAccessToken } from 'services/authSlice';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
+import { WrapperLogin } from './WrapperLogin/WrapperLogin';
+import { WrapperRoute } from './WrapperRoute/WrapperRoute';
 import PrivateRoute from './PrivateRoute';
 import { selectToken, selectIsFetchingCurrentUser } from './../redux/selectors';
 import { useMatchMedia } from './../hooks/useMatchMedia';
@@ -66,32 +68,39 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<SharedLayouts />}>
               <Route path="/" element={<PublicRoute />}>
-                <Route path="/login" element={<LogInPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                {/* <Route path="*" element={<Navigate to="/login" />} /> */}
+                <Route path="/" element={<WrapperLogin />}>
+                  <Route path="/login" element={<LogInPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
+                  {/* <Route path="*" element={<Navigate to="/login" />} /> */}
+                </Route>
               </Route>
-              <Route path="/" element={<PrivateRoute />}>
-                <Route index element={<Navigate to="/home" />} />
-                {!isMobile && (
-                  <>
-                    <Route path="/home" element={<HomePage />}>
-                      <Route index element={<Navigate to="/home/expenses" />} />
-                      <Route path="income" element={<IncomePage />} />
-                      <Route path="expenses" element={<ExpensesPage />} />
-                    </Route>
-                  </>
-                )}
-                {isMobile && (
-                  <>
-                    <Route path="/home" element={<HomePage />} />
-                    <Route path="/income" element={<IncomePage />} />
-                    <Route path="/expenses" element={<ExpensesPage />} />
-                    <Route path="*" element={<Navigate to="/home" />} />
-                  </>
-                )}
-                <Route path="/reports" element={<ReportsPage />} />
+              <Route path="/" element={<WrapperRoute />}>
+                <Route path="/" element={<PrivateRoute />}>
+                  <Route index element={<Navigate to="/home" />} />
+                  {!isMobile && (
+                    <>
+                      <Route path="/home" element={<HomePage />}>
+                        <Route
+                          index
+                          element={<Navigate to="/home/expenses" />}
+                        />
+                        <Route path="income" element={<IncomePage />} />
+                        <Route path="expenses" element={<ExpensesPage />} />
+                      </Route>
+                    </>
+                  )}
+                  {isMobile && (
+                    <>
+                      <Route path="/home" element={<HomePage />} />
+                      <Route path="/income" element={<IncomePage />} />
+                      <Route path="/expenses" element={<ExpensesPage />} />
+                      <Route path="*" element={<Navigate to="/home" />} />
+                    </>
+                  )}
+                  <Route path="/reports" element={<ReportsPage />} />
+                </Route>
+                <Route path="*" element={<ThereIsNoSuchPage />} />
               </Route>
-              <Route path="*" element={<ThereIsNoSuchPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

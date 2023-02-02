@@ -7,6 +7,7 @@ import {
   selectIsLoggedIn,
   selectBalanceAuth,
   selectBalance,
+  selectIsLoading,
 } from 'redux/selectors';
 
 import LightModalWindow from 'components/ModalWindow/LightModalWindow/LightModalWindow';
@@ -15,9 +16,11 @@ import DarkModalWindow from 'components/ModalWindow/DarkModalWindow/DarkModalWin
 import { ChangeBalanceForm } from 'components/ChangeBalance/ChangeBalance.styled';
 
 const ChangeBalance = () => {
+  //const stateBalance = useSelector(state => state.transactions.balance);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const totalBalance = useSelector(selectBalanceAuth);
   const transactionBalance = useSelector(selectBalance);
+  const isLoading = useSelector(selectIsLoading);
   const [newBalance, setNewBalance] = useState(0);
 
   const dispatch = useDispatch();
@@ -77,7 +80,8 @@ const ChangeBalance = () => {
           Confirm
         </button>
       </ChangeBalanceForm>
-      {!totalBalance && <DarkModalWindow />}
+      {/* {!totalBalance && <DarkModalWindow />} */}
+      {isLoading === true && !totalBalance && <DarkModalWindow />}
       {modalOpen && (
         <LightModalWindow
           changeBalance="true"

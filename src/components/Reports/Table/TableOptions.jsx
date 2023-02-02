@@ -147,7 +147,7 @@ export function ChartOptionsDesktop(indexAxis) {
 
       scales: {
         x: {
-          grace: '20%',
+          grace: '100%',
           border: {
             display: false,
           },

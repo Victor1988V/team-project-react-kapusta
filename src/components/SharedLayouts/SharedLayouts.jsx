@@ -19,16 +19,16 @@ export const SharedLayouts = () => {
   return (
     <StyledContainerDiv>
       <Header />
-      <Wrapper>
-        <HomePageBg />
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-        {isTablet && <KapustaTab src={kapusta} width="183" height="146" />}
+      {/* <Wrapper> */}
+      <HomePageBg />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+      {/* {isTablet && <KapustaTab src={kapusta} width="183" height="146" />}
         {isDesktop && (
           <KapustaDesk src={kapustaDesktop} width="1334" height="232" />
-        )}
-      </Wrapper>
+        )} */}
+      {/* </Wrapper> */}
     </StyledContainerDiv>
   );
 };
