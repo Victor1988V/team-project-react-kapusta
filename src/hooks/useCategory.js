@@ -24,7 +24,7 @@ export const translateToRus = name => {
       return 'Прочее';
     case 'Salary':
       return 'З/П';
-    case 'Add. income':
+    case 'Additional income':
       return 'Доп. доход';
     default:
       break;
@@ -58,7 +58,7 @@ export const translateToEng = name => {
     case 'З/П':
       return 'Salary';
     case 'Доп. доход':
-      return 'Add. income';
+      return 'Additional income';
     default:
       break;
   }
