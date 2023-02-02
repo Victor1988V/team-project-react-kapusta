@@ -21,3 +21,7 @@ export const Text = styled.button`
   border: none;
   color: #000;
 `;
+
+export const ReportSliderTitle = styled.p`
+  color: rgba(82, 85, 95, 0.7);
+`;
