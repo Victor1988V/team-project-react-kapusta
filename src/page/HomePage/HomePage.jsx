@@ -7,7 +7,10 @@ import { useMatchMedia } from 'hooks/useMatchMedia';
 import ReportsBtn from 'components/Buttons/ReportsBtn/ReportsBtn';
 import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 import DateSelection from 'components/DateSelection/DateSelection';
-import { NavigateTransMob, NavigateTransDesk } from 'components/Transactions/NavigateTrans';
+import {
+  NavigateTransMob,
+  NavigateTransDesk,
+} from 'components/Transactions/NavigateTrans';
 import { TransactionsList } from 'components/Transactions/TransactionsList';
 
 // import kapusta from 'images/kapustaTab.svg';

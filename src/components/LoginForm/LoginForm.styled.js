@@ -232,7 +232,9 @@ export const RegisterLink = styled(NavLink)`
 `;
 
 export const TextWrapper = styled.div`
-  z-index: 2;
+/* outline: 1px solid tomato; */
+
+  /* z-index: 2; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,23 +242,36 @@ export const TextWrapper = styled.div`
   margin-bottom: 50px;
   padding-right: 80px;
   @media screen and (min-width: 768px) {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin: 80px 100px 80px 0;
+    padding: 0;
+    /* outline: 1px solid tomato; */
   }
   @media screen and (min-width: 1280px) {
-    margin: 0px;
-    padding-right: 115px;
+    /* margin: 0px; */
+    /* padding-right: 115px; */
+    margin: 308px 157px 98px 229px;
+    padding: 0;
   }
 `;
+
+export const Wrap = styled.div`
+    display: flex;
+    flex-direction: column;
+ @media screen and (min-width: 1280px) {
+    flex-direction: row;
+  }
+
+`
 
 export const ImageKapusta = styled.img`
   width: 183px;
   height: 47px;
-  margin-bottom: 5px;
-  z-index: 2;
+  /* margin-bottom: 5px; */
+  /* z-index: 2; */
   @media screen and (min-width: 768px) {
     width: 307px;
     height: 78px;
+
   }
   @media screen and (min-width: 1280px) {
     width: 377px;
@@ -272,9 +287,15 @@ export const TextSmartFin = styled.p`
   font-size: 13px;
   line-height: 1.15;
   letter-spacing: 0.15em;
-  z-index: 2;
+  /* z-index: 2; */
   color: #52555f;
   @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.18;
+    letter-spacing: 0.18em;
+  }
+  @media screen and (min-width: 1280px) {
+    margin: 0;
     font-size: 16px;
     line-height: 1.18;
     letter-spacing: 0.18em;
