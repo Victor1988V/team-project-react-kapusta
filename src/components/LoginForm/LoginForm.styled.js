@@ -11,7 +11,7 @@ export const FormWrapper = styled.div`
   @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 117px;
+    /* margin-top: 117px; */
     flex-direction: row;
     justify-content: flex-end;
   }
