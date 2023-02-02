@@ -22,6 +22,7 @@ import {
   TextWrapper,
   ImageKapusta,
   TextSmartFin,
+  Wrap,
 } from 'components/LoginForm/LoginForm.styled';
 
 import {
@@ -136,71 +137,73 @@ export const RegistrationForm = () => {
   };
 
   return (
-    <FormWrapper>
+    <Wrap>
       <TextWrapper>
         <ImageKapusta src={Name} alt="Kapusta" />
         <TextSmartFin>Smart Finance</TextSmartFin>
       </TextWrapper>
-      <AuthWrapper>
-        <AuthFormTextLeft>Please fill registration fields:</AuthFormTextLeft>
-        <form onSubmit={handleSubmit} autoComplete="on">
-          <LabelInputWrapper>
-            {' '}
-            <AuthFormLabel htmlFor="logInEmail">
-              {errors['email'] && <RequiredStar>* </RequiredStar>}
-              Email:
-            </AuthFormLabel>
-            <AuthFormInput
-              onChange={handleChange}
-              onBlur={handleValidation}
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              pattern="[A-Za-zA-Яа-яЁёЄєЇї0-9._%+-]+@[A-Za-zA-Яа-яЁёЄєЇї0-9.-]+\.[A-Za-zA-Яа-яЁёЄєЇї]{2,4}$"
-              title="Email may consist of letters, numbers and a mandatory character '@'"
-              required
-              id="logInEmail"
-              autoComplete="email"
-              value={email}
-              autoFocus
-            />
-            <ValidRow>
-              <p style={{ color: '#EB5757', fontSize: 10 }}>
-                {errors['email']}{' '}
-              </p>
-            </ValidRow>
-          </LabelInputWrapper>
+      <FormWrapper>
+        <AuthWrapper>
+          <AuthFormTextLeft>Please fill registration fields:</AuthFormTextLeft>
+          <form onSubmit={handleSubmit} autoComplete="on">
+            <LabelInputWrapper>
+              {' '}
+              <AuthFormLabel htmlFor="logInEmail">
+                {errors['email'] && <RequiredStar>* </RequiredStar>}
+                Email:
+              </AuthFormLabel>
+              <AuthFormInput
+                onChange={handleChange}
+                onBlur={handleValidation}
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                pattern="[A-Za-zA-Яа-яЁёЄєЇї0-9._%+-]+@[A-Za-zA-Яа-яЁёЄєЇї0-9.-]+\.[A-Za-zA-Яа-яЁёЄєЇї]{2,4}$"
+                title="Email may consist of letters, numbers and a mandatory character '@'"
+                required
+                id="logInEmail"
+                autoComplete="email"
+                value={email}
+                autoFocus
+              />
+              <ValidRow>
+                <p style={{ color: '#EB5757', fontSize: 10 }}>
+                  {errors['email']}{' '}
+                </p>
+              </ValidRow>
+            </LabelInputWrapper>
 
-          <LabelInputWrapper>
-            <AuthFormLabel htmlFor="logInPassword">
-              {errors['password'] && <RequiredStar>* </RequiredStar>}
-              Password:
-            </AuthFormLabel>
-            <AuthFormInput
-              onChange={handleChange}
-              onBlur={handleValidation}
-              type="password"
-              name="password"
-              placeholder="Password"
-              pattern="[0-9A-Za-zA-Яа-яЁёЄєЇї!@#$%^&*]{8,}"
-              title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
-              required
-              autoComplete="current-password"
-              value={password}
-            />
+            <LabelInputWrapper>
+              <AuthFormLabel htmlFor="logInPassword">
+                {errors['password'] && <RequiredStar>* </RequiredStar>}
+                Password:
+              </AuthFormLabel>
+              <AuthFormInput
+                onChange={handleChange}
+                onBlur={handleValidation}
+                type="password"
+                name="password"
+                placeholder="Password"
+                pattern="[0-9A-Za-zA-Яа-яЁёЄєЇї!@#$%^&*]{8,}"
+                title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
+                required
+                autoComplete="current-password"
+                value={password}
+              />
 
-            <ValidRow>
-              <p style={{ color: '#EB5757', fontSize: 10 }}>
-                {errors['password']}{' '}
-              </p>
-            </ValidRow>
-          </LabelInputWrapper>
-          <ButtonsContainer>
-            <LogInLink to="/login">Log In</LogInLink>
-            <RegisterBtn type="submit">Registration</RegisterBtn>
-          </ButtonsContainer>
-        </form>
-      </AuthWrapper>
-    </FormWrapper>
+              <ValidRow>
+                <p style={{ color: '#EB5757', fontSize: 10 }}>
+                  {errors['password']}{' '}
+                </p>
+              </ValidRow>
+            </LabelInputWrapper>
+            <ButtonsContainer>
+              <LogInLink to="/login">Log In</LogInLink>
+              <RegisterBtn type="submit">Registration</RegisterBtn>
+            </ButtonsContainer>
+          </form>
+        </AuthWrapper>
+      </FormWrapper>
+    </Wrap>
   );
 };
