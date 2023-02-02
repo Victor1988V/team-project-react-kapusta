@@ -43,12 +43,10 @@ export const ExpensesPage = () => {
       <StyledFrame>
         <ProductInputForm />
         <StyledTableAndSummaryDiv>
-          {expenses.length > 0 && (
-            <TransactionsTable>
-              {expenses}
-              {color}
-            </TransactionsTable>
-          )}
+          <TransactionsTable>
+            {expenses}
+            {color}
+          </TransactionsTable>
 
           {isDesktop && <Summary />}
         </StyledTableAndSummaryDiv>
