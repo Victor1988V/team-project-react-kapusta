@@ -19,8 +19,7 @@ export const StyledContainerDiv = styled.div`
 
 export const Wrapper = styled.div`
 position: relative;
-
+/* width: 100vw; */
+height: 150vh;
 `
-export const Wrap = styled.div`
 
-`
