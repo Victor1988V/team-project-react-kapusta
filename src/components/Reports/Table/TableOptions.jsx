@@ -178,7 +178,7 @@ export function ChartOptionsDesktop(indexAxis) {
             },
             display: true,
             mirror: true,
-            labelOffset: -15,
+            labelOffset: -25,
             // position: 'top',
             ///////
             count: 11,
