@@ -1,8 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import {
-  selectBalanceAuth,
-} from 'redux/selectors';
+import { selectBalance } from 'redux/selectors';
 
 import { useMatchMedia } from 'hooks/useMatchMedia';
 
@@ -33,7 +31,7 @@ export const ReportsNav = () => {
   const from = location.state?.from || '/';
   const backLinkHref = () => navigate(from);
 
-  const totalBalance = useSelector(selectBalanceAuth);
+  const transactionBalance = useSelector(selectBalance);
 
   return (
     <PreBox>
@@ -49,13 +47,13 @@ export const ReportsNav = () => {
           {isMobile && (
             <>
               <BalanceText>Balance:</BalanceText>
-              <BalanceAmount>{totalBalance ?? 0}.00 UAH</BalanceAmount>
+              <BalanceAmount>{transactionBalance ?? 0}.00 UAH</BalanceAmount>
             </>
           )}
           {isTablet && (
             <>
               <BalanceText>Balance:</BalanceText>
-              <BalanceAmount>{totalBalance ?? 0}.00 UAH</BalanceAmount>
+              <BalanceAmount>{transactionBalance ?? 0}.00 UAH</BalanceAmount>
             </>
           )}
           {isDesktop && <ChangeBalance />}
