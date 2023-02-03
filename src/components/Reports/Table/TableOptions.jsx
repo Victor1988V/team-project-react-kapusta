@@ -8,6 +8,7 @@ export function ChartDataDesktop(keys, values, indexAxis) {
           data: values.map(el => el),
           backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
           borderRadius: 10,
+          barThickness: 38,
 
           borderSkipped: 'start',
           datalabels: {
@@ -36,6 +37,7 @@ export function ChartDataDesktop(keys, values, indexAxis) {
           data: values.map(el => el),
           backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
           borderRadius: 10,
+          barThickness: 15,
           borderSkipped: 'start',
 
           datalabels: {
