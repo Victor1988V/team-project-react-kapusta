@@ -23,9 +23,6 @@ import ChangeBalance from 'components/ChangeBalance/ChangeBalance';
 export const ReportsNav = () => {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
 
-  // const location = useLocation();
-  // const backLinkHref = location.state?.from ?? '/home/expenses';
-
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from || '/';
