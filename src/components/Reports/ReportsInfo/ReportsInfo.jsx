@@ -49,7 +49,7 @@ export const ReportsInfo = () => {
       </List>
 
       <Box>
-        <Nav className="Privet">
+        <Nav>
           <ButtonsNextPrev onButtonClick={handleClick}>
             <NavText>{budget}</NavText>
           </ButtonsNextPrev>
