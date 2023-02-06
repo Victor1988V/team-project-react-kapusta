@@ -44,13 +44,17 @@ export const ReportsNav = () => {
           {isMobile && (
             <>
               <BalanceText>Balance:</BalanceText>
-              <BalanceAmount>{transactionBalance ?? 0}.00 UAH</BalanceAmount>
+              <BalanceAmount>
+                {transactionBalance.toFixed(2) ?? 0} UAH
+              </BalanceAmount>
             </>
           )}
           {isTablet && (
             <>
               <BalanceText>Balance:</BalanceText>
-              <BalanceAmount>{transactionBalance ?? 0}.00 UAH</BalanceAmount>
+              <BalanceAmount>
+                {transactionBalance.toFixed(2) ?? 0} UAH
+              </BalanceAmount>
             </>
           )}
           {isDesktop && <ChangeBalance />}

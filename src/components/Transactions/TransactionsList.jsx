@@ -74,7 +74,7 @@ export const TransactionsList = () => {
             </ItemNameCont>
             <SumCont>
               <Sum style={{ color }} className="sum">
-                {minus} {amount}.00
+                {minus} {amount.toFixed(2)}
               </Sum>
               <span
                 id={_id}

@@ -64,7 +64,7 @@ export const TransactionsTable = ({ children }) => {
                 <td>{description}</td>
                 <td>{translateToEng(category)}</td>
                 <td style={{ color }}>
-                  {minus} {amount}.00
+                  {minus} {amount.toFixed(2)}
                 </td>
                 <td>
                   <span

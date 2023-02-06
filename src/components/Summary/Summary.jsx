@@ -44,7 +44,7 @@ const Summary = () => {
           return (
             <Row key={`${item[0]}${item[1]}`}>
               <Month>{monthNameTranslate(item[0])}</Month>
-              <Value>{item[1]}.00</Value>
+              <Value>{item[1].toFixed(2)}</Value>
             </Row>
           );
         }

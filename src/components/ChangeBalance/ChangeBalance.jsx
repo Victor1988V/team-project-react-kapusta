@@ -52,7 +52,7 @@ const ChangeBalance = () => {
           name="balance"
           title="Please, enter your balance"
           pattern="[0-9, .UAH]*"
-          placeholder={`${transactionBalance}.00 UAH`}
+          placeholder={`${transactionBalance.toFixed(2)} UAH`}
           required
         />
         <button type="submit" className="btn" onClick={handleModalOpen}>

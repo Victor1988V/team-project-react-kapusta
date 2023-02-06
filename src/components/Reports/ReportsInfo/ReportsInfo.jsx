@@ -40,11 +40,11 @@ export const ReportsInfo = () => {
       <List>
         <Item>
           <ItemText>Expenses:</ItemText>
-          <ItemExpenses>- {expensesTotal ?? 0}.00</ItemExpenses>
+          <ItemExpenses>- {expensesTotal.toFixed(2) ?? 0}</ItemExpenses>
         </Item>
         <Item>
           <ItemText>Income:</ItemText>
-          <ItemIncome>+ {incomeTotal ?? 0}.00</ItemIncome>
+          <ItemIncome>+ {incomeTotal.toFixed(2) ?? 0}</ItemIncome>
         </Item>
       </List>
 
