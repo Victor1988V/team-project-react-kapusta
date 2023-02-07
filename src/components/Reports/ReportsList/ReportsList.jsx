@@ -64,7 +64,7 @@ export const ReportsList = ({ onChange }) => {
                 onClick={handlerEventClick}
                 className={iconName === active ? 'active' : ''}
               >
-                <p>{item[1].total}.00</p>
+                <p>{item[1].total.toFixed(2)}</p>
                 <ItemSvg width="56" height="56">
                   <BgcSvg
                     src={iconName === active ? OrangeBgc : BgcIcon}
@@ -87,7 +87,7 @@ export const ReportsList = ({ onChange }) => {
                 onClick={handlerEventClick}
                 className={iconName === active ? 'active' : ''}
               >
-                <p>{item[1].total}.00</p>
+                <p>{item[1].total.toFixed(2)}</p>
                 <ItemSvg
                   width="56"
                   height="56"
